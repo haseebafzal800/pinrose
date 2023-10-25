@@ -1,0 +1,28 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"
+    integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,500;6..12,600;6..12,700&family=Roboto:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  >
+  {{ 'style.css' | asset_url | stylesheet_tag }}
+</head>
+
+{% section 'main-product' %}
+{% section 'product-spec' %}
+{% section 'related-collections' %}
+{% section 'product-reviews' %}
+
+<script async src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js"
+  integrity="sha512-WNZwVebQjhSxEzwbettGuQgWxbpYdoLf7mH+25A7sfQbbxKeS5SQ9QBf97zOY4nOlwtksgDA/czSTmfj4DUEiQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<script async src="{{ 'script.js' | asset_url }}"></script>

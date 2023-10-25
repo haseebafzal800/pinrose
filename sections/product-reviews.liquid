@@ -1,0 +1,25 @@
+<div class="container">
+  <hr id="Reviews-{{ product.id }}" class="hr--clear">
+  <div class="index-section product-reviews product-reviews--full">
+    <div class="page-width">
+      {% if product.sku %}
+    <div id="amzn-roa-reviews" data-site-id="a4xhje1zw9" data-roa-instance-id="dixtthq0492t1" data-sku="{{product.sku}}"></div>
+    {% else %}
+    <div id="amzn-roa-reviews" data-site-id="a4xhje1zw9" data-roa-instance-id="dixtthq0492t1" data-sku="{{product.selected_or_first_available_variant.sku}}"></div>
+    {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Reviews",
+  "settings": []
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,77 @@
+{% liquid
+  assign inpiration = product.metafields.custom.inspiration
+  assign ingredients = product.metafields.custom.ingredients
+  assign about = product.metafields.custom.about
+  assign fragrance = product.metafields.custom.fragrance
+  assign notes = product.metafields.custom.notes
+%}
+
+<div class="spec-wrapper" id="product-spec">
+  <div class="container">
+    <div class="row1">
+      <div class="col3">
+        <div>
+          {% if product.description %}
+            <h2 class="accordion active">Product Description</h2>
+            <div class="accordion-panel" style="max-height: fit-content;">
+              {{ product.description }}
+            </div>
+          {% endif %}
+
+          {% if inpiration %}
+            <h2 class="accordion">Inspiration</h2>
+            <div class="accordion-panel">
+              {{ inpiration | metafield_tag }}
+            </div>
+          {% endif %}
+
+          {% if ingredients %}
+            <h2 class="accordion">Ingredients</h2>
+            <div class="accordion-panel">
+              {{ ingredients | metafield_tag }}
+            </div>
+          {% endif %}
+
+          {% if shop.refund_policy %}
+            <h2 class="accordion">Return Policy</h2>
+            <div class="accordion-panel">
+              <p>We want you to be happy with your purchase. If for any reason you need to return your product, please contact us at <a href = "mailto: nosey@pinrose.com">nosey@pinrose.com</a>.</p>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+      <div class="col4">
+        {% if about %}
+          <div class="text-one">
+            <h2>About</h2>
+            <div>
+              {{ about | metafield_tag }}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if fragrance %}
+          <div class="text-two">
+            <h2>Fragrance</h2>
+            <div>
+              {{ fragrance | metafield_tag }}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Spec",
+  "settings": []
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

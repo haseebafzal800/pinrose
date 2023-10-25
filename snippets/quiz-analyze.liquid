@@ -1,0 +1,138 @@
+<style>
+#results-form__submit {
+  display: none !important; 
+}
+  .results-form__heading {
+    display: none; 
+  }
+
+  .results-form__copy {
+    text-transform: uppercase;
+  }
+  
+  #Synth-Anime .synth__anime--wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 30vh;
+    padding: 0;
+    min-height: 100px;
+    /*                       --lottie-player-toolbar-background-color: {{block.settings.background_color}};
+    --lottie-player-toolbar-icon-color: #ffe1f3 !important; */
+  }
+  #Synth-Anime .synth__text--wrapper {
+    position: relative;
+    height: 25vh;
+    width: 100%;
+  }
+  #Synth-Anime .synth-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    opacity: 0;
+    -webkit-animation: 3s ease-in-out synth-fade;
+    animation: 3s ease-in-out synth-fade;
+  }
+
+  #Synth-Anime .synth-text:nth-child(2) {
+    animation-delay: 3s;
+  }
+  #Synth-Anime .synth-text:nth-child(3) {
+    animation-delay: 6s;
+  }
+  #Synth-Anime .synth-text:nth-child(4) {
+    animation-delay: 9s;
+  }
+  #Synth-Anime .synth-text:nth-child(5) {
+    animation-delay: 12s;
+  }
+  #Synth-Anime .synth-text:nth-child(6) {
+    animation-delay: 15s;
+  }
+/*   #Synth-Anime .synth-text:nth-child(7) {
+    animation-delay: 18s;
+  } */
+
+  @keyframes synth-fade {
+    0% {
+      opacity: 0;
+    }
+    25% {
+      opacity: 1; 
+    }
+
+    75% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @-webkit-keyframes synth-fade {
+    0% {
+      opacity: 0;
+    }
+    25% {
+      opacity: 1; 
+    }
+
+    75% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+</style>
+
+<section id="Synth-Analysis">
+  <div id="Synth-Anime">
+    <div class="synth__anime--wrapper">
+      <lottie-player class="anime" src="https://assets9.lottiefiles.com/packages/lf20_o1dzx5ct.json"  background="transparent"  speed="1"  loop ></lottie-player>
+    </div>
+    <div class="synth__text--wrapper">
+      <span class="synth-text results-form__copy">
+        Okay time to put synesthesia to work...
+      </span>
+      <span class="synth-text results-form__copy">
+        there's something in the air...
+      </span>
+      <span class="synth-text results-form__copy">
+        we hear you...
+      </span>
+      <span class="synth-text results-form__copy">
+        we're seeing things your way...
+      </span>
+      <span class="synth-text results-form__copy">
+        All done! We've made scents of your senses, and...
+      </span>
+      <span class="synth-text results-form__copy">
+        ...your perfect Pinrose fragrance is...
+      </span>
+    </div>
+  </div>
+</section>
+
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+<script >
+  window.addEventListener('DOMContentLoaded', (e) => {
+
+    e.preventDefault();
+
+    const synthAnime = document.getElementById('Synth-Anime'); 
+    // variable for the button that will contain both icons
+    let anime = synthAnime.querySelector('lottie-player');
+    // variable that will store the button’s current state (play or pause)
+    let animeWrap = synthAnime.querySelector('.anime-wrap');
+
+    console.dir(anime);
+
+    anime.classList.add('playing');
+    anime.play();
+
+  });
+</script>             

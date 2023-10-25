@@ -1,0 +1,43 @@
+<div class="slider-Two">
+  <div class="container">
+    {% if section.settings.heading %}
+      <div class="text">
+        <h2>{{ section.settings.heading }}</h2>
+      </div>
+    {% endif %}
+    <div class="carousel">
+      {% for link in linklists.collections.links %}
+        {% assign collection = link.object %}
+        <div class="box">
+          <a href="{{ collection.url }}" class="box-href">
+            <img src="{{ collection.featured_image | img_url: "1024x" }}" alt="{{ collection.handle | escape }}">
+          </a>
+          <div class="center">
+            <p>{{ collection.title }}</p>
+            <a href="{{ collection.url }}" class="btn-One">DISCOVER</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Related Collections",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "THE COLLECTION"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

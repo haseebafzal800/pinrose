@@ -1,0 +1,672 @@
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous">
+</script>
+
+<style>
+  
+  .hidden-submit {
+    opacity: 0;
+  	position: fixed;
+    left: -100vw;
+  }
+
+  .quiz--has-form form {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+  }
+
+  .quiz--image-buttons {
+    height: 100%;
+  }
+  
+  
+  /* QUIZ INFO */
+  
+  #quiz-results--container + .columns--one-third:first-child {
+    margin-top: 2rem;
+  }
+
+  .template__page-quiz--questions .quiz__question-container.quiz--type-info {
+    max-width: 95%;
+	margin-top: 5%;
+  }
+  .template__page-quiz--questions .quiz__question-container.quiz--type-email {
+    /* max-width: 95%; */
+    min-height: max-content;
+    height: calc(100vh - 225px);
+  }
+  .template__page-quiz--questions #quiz__container .quiz--type-info #results-form, 
+  .template__page-quiz--questions #quiz__container .quiz--type-email #results-form {
+    max-width: 64ch;
+    /* padding: 0 2rem; */
+    margin: 0;
+  }
+  
+  .quiz--type-info #results-form .results-form__heading {
+    font-size: 2.55em;
+    margin-bottom: 3rem;
+    color: white;
+  }
+  
+  .quiz--type-email #results-form .results-form__heading {
+    font-size: 2em;
+    margin: 3%;
+    color: black;
+  }
+
+  .template__page-quiz--questions .quiz--type-info .results-form__copy {
+    max-width: 31ch;
+    /* padding: 0 2em; */
+    margin: 0 auto 3rem;
+    font-size: 1.2em;
+  }
+  
+  .template__page-quiz--questions .quiz--type-email .results-form__email-copy {
+    max-width: 31ch;
+    margin: 1rem auto 4rem;
+    
+  }
+
+  .quiz--type-info #results-form__submit,
+  .quiz--type-email #results-form__submit {
+/*     font-size: 1.2em; */
+/*     max-width: 10em;
+    padding: .5em 0; */
+  }
+  .quiz--type-name #results-form__submit {
+    font-size: 1em;
+/*     max-width: 10em;
+    padding: .5em 0; */
+  }
+
+  .quiz--type-email #results-form .klaviyo-form {
+    margin: 0 auto;
+    width: 50%;
+    min-width: 300px;
+  }
+  
+  
+/*** Max Height ***/
+  
+  @media screen and (max-height: 880px) {
+    .template__page-quiz--questions .quiz--type-email {
+      overflow-y: scroll;
+    }
+  }
+  
+/***	 Min-Width   ***/
+
+  @media screen and (min-width: 1801px){
+    .template__page-quiz--questions #quiz__container .quiz--type-info form, 
+	.template__page-quiz--questions #quiz__container .quiz--type-email form {
+        font-size: 1.3rem;
+    }
+  }
+
+  
+/***	 Max-Width   ***/
+  
+  @media screen and (max-width: 1800px){
+    .template__page-quiz--questions #quiz__container .quiz--type-info form, 
+	.template__page-quiz--questions #quiz__container .quiz--type-email form {
+        font-size: 1.2rem;
+    }
+  }
+  @media screen and (max-width: 1500px){
+    .template__page-quiz--questions #quiz__container .quiz--type-info form, 
+	.template__page-quiz--questions #quiz__container .quiz--type-email form {
+        font-size: 1.1rem;
+    }
+  }
+  @media screen and (max-width: 1000px){
+    .template__page-quiz--questions #quiz__container .quiz--type-info {
+      margin-top: 8%;
+    }
+    .template__page-quiz--questions #quiz__container .quiz--type-info form, 
+	.template__page-quiz--questions #quiz__container .quiz--type-email form {
+        font-size: 1rem;
+    }
+    .template__page-quiz--questions .quiz--type-email {
+      overflow-y: scroll;
+    }
+    .template__page-quiz--questions .quiz__question-container.quiz--type-email {
+      height: calc(100vh - 184px);
+    } 
+  }
+/*   @media screen and (max-width: 977px){
+  } */
+  @media screen and (max-width: 755px){
+    .template__page-quiz--questions #quiz__container .quiz--type-info form, 
+	.template__page-quiz--questions #quiz__container .quiz--type-email form {
+        font-size: .8rem;
+    }  
+    .template__page-quiz--questions .quiz--type-info .results-form__copy {
+      font-size: 2em;
+    }
+  }
+  
+  @media screen and (max-width: 450px){
+    .template__page-quiz--questions #quiz__container .quiz--type-info form, 
+	.template__page-quiz--questions #quiz__container .quiz--type-email form {
+      font-size: .45rem;
+    }
+  }
+  
+  
+  
+  {% for block in section.blocks %} 
+
+	{% if block.type == 'info' and block.settings.thispage == page.handle %}
+
+      #quiz__container {
+        background-color: {{ block.settings.background_color }}75;
+/*         --image-url: ; */
+        height: 100vh;
+/*         opacity: .5; */
+      }
+      @media screen and (max-height: 880px){
+        #quiz__container {
+          overflow-y: scroll;
+        }
+      }
+  
+	{% endif%}
+  
+  	{% if block.type == 'email' and block.settings.thispage == page.handle %}
+
+      #results-form__subscribe-label {
+        margin: 0 0 0 .5em;
+      }
+  
+      #results-form__subscribe-label span {
+        font-size: 12px;
+        font-weight: 200;
+      }
+  
+      .klaviyo-form {
+/*         height: 12vh;
+        min-height: 5.6em; */
+        margin: .5em;
+      }
+
+      .klaviyo-form form[data-testid="klaviyo-form-TD34LT"] {
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+  
+      .klaviyo-form input[placeholder="Email"] {
+        text-align: start !important;
+        padding: .25em !important;
+        border: none !important;
+        border-bottom: 1px solid black !important;
+        border-radius: 0px !important;
+      }
+  
+      .klaviyo-form input[placeholder="Email"]:focus, .klaviyo-form input[placeholder="Email"]:focus {
+        border: 1px solid black !important;
+        box-shadow: none !important;
+      }
+  
+  	  .klaviyo-form .kAaZlN {
+        padding: 30px 0 30px 10px;
+      }
+  
+      .klaviyo-form button[type="button"] {
+        display: none;
+        height: 27px;
+      }
+  
+      @media screen and (max-height: 880px){
+        #quiz__container {
+          overflow-y: scroll;
+        }
+      }
+
+	{% endif%}
+  	
+    {% if block.settings.thispage == page.handle %}
+      {% if block.settings.background_color != blank and block.type != 'info' %}
+        body {
+          background-color: {{ block.settings.background_color }};
+        }
+        #quiz--header {
+          background-color: rgba(255,255,255,.57) !important;
+        }
+      {% endif %}
+
+      {% if block.type == 'info' %}
+          body {
+			/*   #ff89ce */
+/*             background-color: {{ block.settings.background_color }}; */
+            background: url({{ 'Gradient-Background.png' | asset_url }}) center center;
+            background-size: 140%;
+            background-repeat: no-repeat;
+          }
+
+          @media screen and (max-width: 755px){
+            body.template__page-quiz--questions {
+              background-size: 100vh;
+            }
+          }
+      {% endif%}
+    {% endif %}
+  
+
+	{% endfor %}
+</style>
+
+{% assign total_questions = 0 %}
+
+{% for block in section.blocks %} 
+	{% unless block.type == 'info'%}
+		{% assign total_questions = total_questions | plus: 1 %}
+
+        {% if block.settings.thispage == page.handle %}
+          {% assign current_question = total_questions %}
+        {% endif %}
+    {% endunless %}
+{% endfor %}
+
+{% capture results_form_inputs %}
+	
+	{% for block in section.blocks %} 
+
+	{% unless block.type == 'info' %}
+
+      {% unless block.settings.thispage == page.handle %}
+  <!--         <label for="question_{{block.settings.thispage}}">{{block.settings.thispage}}:</label> -->
+          <input id="question_{{block.settings.thispage}}" type="hidden" name="question_{{block.settings.thispage}}" value="" />
+      {% endunless%}
+
+	{% endunless%}
+
+	{% endfor %}
+
+{% endcapture %}
+<div id="quiz__container" >
+  {% for block in section.blocks %}  
+
+      {% if block.settings.thispage == page.handle %}
+  
+
+      {% include 'quiz--header',
+      prev_page: block.settings.prevpage,
+      restart_page: section.settings.startpage
+      %}
+  
+  		{% unless block.type == 'info' %}
+      <div id="status-bar" >
+         <div id="status-bar__bar"></div>
+      </div>
+      <div id="subheader" >
+         <div id="page-count">{{ current_question }} of {{ total_questions}}</div>
+        {% if block.type == 'question' %}
+        <div class="heading">Pick the one you like best.</div> 
+        {% endif %}
+      </div>
+  
+  
+  {% endunless %}
+     
+  
+      <script defer>
+        let width = {{forloop.index}}/{{ forloop.length}}*100;
+        document.getElementById('status-bar__bar').style.width = `${width}%`;
+      </script>
+  
+      
+  	  <div class="quiz__question-container {% if page.handle == 'quiz-name' or page.handle == 'quiz-email' %}quiz--has-form{% endif %} quiz--type-{{block.type}} {% if block.type == 'audio' %} quiz--type-question{% endif %} page--{{ page.handle}}">
+            <form id="results-form" style="text-align: center;" class="quiz--image-buttons-form " action="/pages/{{ block.settings.nextpage }}">
+              
+              
+              {% if block.type == 'name' or block.type == 'info' or block.type == 'audio' or block.type == 'email' %} 
+                {% if block.settings.title != blank %}
+                  <h2 class="results-form__heading">{{ block.settings.title }}</h2>
+                {% endif%}
+
+                {% if block.type == 'email'and block.settings.content != blank %}
+                <p class="results-form__email-copy">{{ block.settings.content }}</p>
+                {% endif%}
+              {% endif %}
+              
+              {% if block.type == 'info' or block.type == 'audio' %}
+
+                {%- if page.handle == 'quiz-analyze' -%}
+
+              		{%- render 'quiz-analyze' -%}
+
+                {%- elsif block.settings.image %}              
+                  <img src="{{ block.settings.image | img_url: '600x' }}" alt="" />
+                {% endif %}
+                  <div class="results-form__copy">
+                    {{ block.settings.content}}
+                  </div>
+              {% endif %}
+
+                {{ results_form_inputs }}
+
+
+                <input id="question_{{block.settings.thispage}}" type="{% if block.type == 'name' %}text{% else %}hidden{% endif %}" name="question_{{block.settings.thispage}}" value="" {% if block.type == 'name' %}autofocus{% endif %} {% if page.handle == 'quiz-name'%}required {%endif %}/>        
+                
+              {% if block.type == 'email' %}
+              <label id="results-form__subscribe-label" ><input type="checkbox" value="subscribe" name="results-form__subscribe" id="results-form__subscribe"  /><span>I agree to recieve emails from PINROSE. View our <a class="tos-link" href="#">Terms of Service</a> and <a class="priv-link" href="#">Privacy Policy</a></span></label>             	  
+              <div class="klaviyo-form-TD34LT"></div>
+              {% endif %}
+              
+              {% if block.type == 'name' or block.type == 'email' %} 
+                  <span class="alert" ></span>
+
+                  <button id="results-form__submit" class="results-form__submit btn " type="submit" >Next</button>
+
+              {% elsif block.type == 'info' %}
+              
+         	      
+              		<button id="results-form__submit" class="results-form__submit btn" type="submit" {% if page.handle == 'quiz-analysis' or page.handle == 'page-analyze'%}style="display: none;"{% endif %} >Next</button>                           
+              
+              
+              
+              {%- elsif block.type == 'audio' -%}
+              
+                {%- assign audio_link-1 = block.settings.audio_link-1 -%}
+                {%- assign audio_link-2 = block.settings.audio_link-2 -%}              
+				
+              	{%- render 'quiz-audio', audio_link-1: audio_link-1, audio_link-2: audio_link-2 -%}
+              
+                <script defer>
+                  /**
+                   * This function sets the values in the 
+                   * answer input based on the image button selected
+                   */
+                  const setAnswerInput = (answer) => {
+                    let input_val = document.getElementById("question_{{ block.settings.thispage }}").value = answer;
+//                      alert(input_val); 
+                    document.getElementById("results-form__submit").click();
+                  };
+                </script>
+
+              {% else %}
+              
+              
+              
+                  <div class="quiz--image-buttons">
+
+
+
+                      <script defer>
+                        /**
+                         * This function sets the values in the 
+                         * answer input based on the image button selected
+                         */
+                        const setAnswerInput = (answer) => {
+                          document.getElementById("question_{{ block.settings.thispage }}").value = answer;
+                          document.getElementById("results-form__submit").click();
+                        };
+                      </script>
+                    
+                    <style>
+                      .quiz--image-buttons--left, .quiz--image-buttons--right {
+                      	background-position: center;
+                      }
+                      .quiz--image-buttons--left {
+                      	background-image: url({{ block.settings.image_1 | img_url: '500x' }});
+                      }
+                      .quiz--image-buttons--right {
+                      	background-image: url({{ block.settings.image_2 | img_url: '500x' }});                       
+                      }
+                      
+                      @media screen and (min-width: 501px) {
+                        .quiz--image-buttons--left {
+                          background-image: url({{ block.settings.image_1 | img_url: '800x' }});
+                        }
+                        .quiz--image-buttons--right {
+                          background-image: url({{ block.settings.image_2 | img_url: '800x' }});                       
+                        }
+                      }                   
+                    </style>
+                    
+                   
+
+                      <button class="results-form__selector quiz--image-buttons--left" type="button" onclick="setAnswerInput('left')" ></button>
+                      <button class="results-form__selector quiz--image-buttons--right" type="button" onclick="setAnswerInput('right')" ></button>
+                </div>
+
+                <button id="results-form__submit" class="results-form__submit hidden-submit" type="submit" >Submit</button>
+
+        	  {% endif%}
+                
+          
+        </form>
+        
+     </div>
+  	
+  	{% endif%}
+  
+  {% endfor %}
+    
+</div>
+
+{% include 'quiz--questions-js' %}
+
+
+{% schema %}
+  {
+   "name":"Questions",
+   "settings":[
+      {
+         "type":"page",
+         "id":"startpage",
+         "label":"Start page"
+      }
+   ],
+   "blocks":[
+      {
+         "type":"question",
+         "name":"Question Step",
+         "settings":[
+            {
+               "type":"page",
+               "id":"thispage",
+               "label":"Page select"
+            },
+            {
+               "type":"image_picker",
+               "id":"image_1",
+               "label":"First image"
+            },
+            {
+               "type":"image_picker",
+               "id":"image_2",
+               "label":"Second image"
+            },
+            {
+               "type":"page",
+               "id":"nextpage",
+               "label":"Next page"
+            },
+            {
+               "type":"page",
+               "id":"prevpage",
+               "label":"Previous page"
+            }
+         ]
+      },
+      {
+         "type":"name",
+         "name":"Name Step",
+         "settings":[
+            {
+               "type":"page",
+               "id":"thispage",
+               "label":"Page select"
+            },
+            {
+               "type":"text",
+               "id":"title",
+               "label":"Title"
+            },
+            {
+               "type":"page",
+               "id":"nextpage",
+               "label":"Next page"
+            },
+            {
+               "type":"page",
+               "id":"prevpage",
+               "label":"Previous page"
+            },
+            {
+               "type":"color",
+               "id":"background_color",
+               "label":"Background color"
+            }
+         ]
+      },
+      {
+         "type":"email",
+         "name":"Email Step",
+         "settings":[
+            {
+               "type":"page",
+               "id":"thispage",
+               "label":"Page select"
+            },
+            {
+               "type":"text",
+               "id":"title",
+               "label":"Title"
+            },
+            {
+               "type":"textarea",
+               "id":"content",
+               "label":"Content"
+            },
+            {
+               "type":"page",
+               "id":"nextpage",
+               "label":"Next page"
+            },
+            {
+               "type":"page",
+               "id":"prevpage",
+               "label":"Previous page"
+            },
+            {
+               "type":"color",
+               "id":"background_color",
+               "label":"Background color"
+            }
+         ]
+      },
+      {
+         "type":"info",
+         "name":"Info Step",
+         "settings":[
+            {
+               "type":"page",
+               "id":"thispage",
+               "label":"Page select"
+            },
+            {
+               "type":"text",
+               "id":"title",
+               "label":"Title"
+            },
+            {
+               "type":"textarea",
+               "id":"content",
+               "label":"Content"
+            },
+            {
+               "type":"image_picker",
+               "id":"image",
+               "label":"Image"
+            },
+            {
+               "type":"color",
+               "id":"background_color",
+               "label":"Background color",
+               "default":"#eeeeee"
+            },
+            {
+               "type":"page",
+               "id":"nextpage",
+               "label":"Next page"
+            },
+            {
+               "type":"page",
+               "id":"prevpage",
+               "label":"Previous page"
+            }
+         ]
+      },
+      {
+         "type":"audio",
+         "name":"Audio Step",
+         "settings":[
+            {
+               "type":"page",
+               "id":"thispage",
+               "label":"Page select"
+            },
+            {
+               "type":"text",
+               "id":"title",
+               "label":"Title"
+            },
+            {
+               "type":"textarea",
+               "id":"content",
+               "label":"Content"
+            },
+            {
+               "type":"text",
+               "id":"audio_title-1",
+               "label":"Audio Title"
+            },
+            {
+               "type":"url",
+               "id":"audio_link-1",
+               "label":"Audio link"
+            },
+            {
+               "type":"text",
+               "id":"audio_title-2",
+               "label":"Audio Title"
+            },
+            {
+               "type":"url",
+               "id":"audio_link-2",
+               "label":"Audio link"
+            },
+            {
+               "type":"color",
+               "id":"background_color",
+               "label":"Background color",
+               "default":"#eeeeee"
+            },
+            {
+               "type":"page",
+               "id":"nextpage",
+               "label":"Next page"
+            },
+            {
+               "type":"page",
+               "id":"prevpage",
+               "label":"Previous page"
+            }
+         ]
+      }
+   ]
+}
+{% endschema %}
+
+{% style %}
+
+{% endstyle %}
+
+{% javascript %}
+{% endjavascript %}

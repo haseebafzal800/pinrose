@@ -1,0 +1,520 @@
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous">
+</script>
+
+<div id="quiz__container" >
+
+  
+      {% include 'quiz--header',
+      prev_page: section.settings.prevpage,
+      restart_page: section.settings.startpage
+      %}
+  	  
+  	  <div id="quiz-results--container" class="quiz__question-container">
+        
+      {%if section.settings.bannerenable != false %}
+      <div id="results_promo_banner" style="background-color:{{section.settings.banner-bg}}">
+        <p style="color:{{section.settings.banner-text-color}}">
+     
+          {{section.settings.bannertext}} <span style="color:{{section.settings.codecolor}}">"{{section.settings.bannertext-code}}"</span> {{section.settings.bannertext-2}}
+      
+         </p>
+      </div>
+      {%endif%}
+        
+        <div class="columns--one-third">
+          <div id="quiz-results--product" >
+          	<h3 class="quiz-results--heading" >Your Perfume Match:</h3>
+            <div id="color-inject" >
+              <h2 id="product--title" class="product-title" >(Product Title)</h2>
+              <span id="product--subtitle" class="product-subtitle" >(Product subtitle)</span>
+            </div>
+            <div id="product--description" class="product-description" >(Product description)</div>
+            <a id="shop-the-scent" class="btn" >SHOP THE SCENT</a>
+<!--             <span id="product--price" class="product-price" >(Product price)</span> -->
+            <a id="product__page_link" >
+              <img id="product--image" src=""  />
+            </a>
+            
+
+            
+            
+
+          </div>
+        </div>
+        <div class="columns--two-thirds">
+          <div id="quiz-results--profile" >
+<!--             <h3 class="quiz-results--heading">Your Perfume Match</h3> -->
+            <h3 class="quiz-results--heading">Afraid of a big commitment?</h3>
+            <span class="down-arrow">&#8628;</span>
+            <h5 id='sec-product--title'></h5>
+             <span id="sec-product--price" class="product-price" >(Product price)</span>
+            <form action="/cart/add" data-productid="" method="post" enctype="multipart/form-data" id="quiz-results--product-form" class="product-form"> 
+                <input type="hidden" name="form_type" value="product">
+                <input type="hidden" id="quiz-results--product-form-id" data-productid="" name="id" value="" />
+                <button type="submit" name="add" class="btn addtocart cartbutton" style="margin: 0 auto;" id="">
+                <strong>Add to Cart</strong>
+                </button>
+            </form>
+             <a id="scnd-product__page_link" ><img id="big_product" src="" alt="Your Matched Scent is..."></a>
+<!--             <img id="profile_img" src="" alt="profile name" />
+          	<span id="profile_text_short" style="display: none;" ></span>
+            <div id="profile_text_long" style="display: block;" ></div>
+            <div id="profile_span" ></div>
+            <a id="shop-the-scent" class="btn" >SHOP THE SCENT</a> -->
+                        <div id="product--content" class="product-content" >(Product content)</div>
+          </div>
+<!--           <hr> -->
+<!--           <div id="quiz-results--palette" >
+            <h3 class="quiz-results--heading">Your Perfume Palette</h3>
+            
+            <ul >
+              <li class="icon--bold" ><img src="{{ 'Icons_Bold.jpg' | asset_img_url: '150x'  }}" alt="bold palette" /><span>Bold</span></li>
+              <li class="icon--floral" ><img src="{{ 'Icons_Floral.jpg' | asset_img_url: '150x' }}" alt="floral palette" /><span>Floral</span></li>
+              <li class="icon--fruity" ><img src="{{ 'Icons_Fruity.jpg' | asset_img_url: '150x' }}" alt="fruity palette" /><span>Fruity</span></li>
+              <li class="icon--spicey" ><img src="{{ 'Icons_Spicey.jpg' | asset_img_url: '150x' }}" alt="spicey palette" /><span>Spicy</span></li>
+              <li class="icon--subtle" ><img src="{{ 'Icons_Subtle.jpg' | asset_img_url: '150x' }}" alt="subtle palette" /><span>Subtle</span></li>
+              <li class="icon--woods" ><img src="{{ 'Icons_WoodyEarthy.jpg' | asset_img_url: '150x' }}" alt="woody/earthy palette" /><span>Earthy</span></li>
+            </ul>
+          </div> -->
+          
+        </div>
+        
+        
+        <div id="quiz-result--footer" >
+          <div class="columns--two-thirds">
+            <div id="product--quotes">
+            
+            </div>
+          </div>
+          <div class="columns--one-third">
+            <div id="quiz-results--logos">
+              <h3 class="clean-vegan">All Pinrose products are clean, vegan and cruelty free.</h3>
+              <div class="svg_icon_container">
+              {% include 'SVG-icons' %}
+              </div>
+<!--                <img src="{{ 'Icons-black_2021.png' | asset_img_url:'300x'  }}" alt='Icons:Clean, Vegan, Cruelty Free, Paraben Free, Phthalate Free'> -->
+<!--               <span><img src="{{ 'logo_w.png' | asset_img_url: '100x'  }}" alt="W logo" /></span>
+              <span><img src="{{ 'logo_vogue.png' | asset_img_url: '100x'  }}" alt="Vogue logo" /></span>
+              <span><img src="{{ 'logo_nylon.png' | asset_img_url: '100x'  }}" alt="Nylon logo" /></span>
+              <span><img src="{{ 'logo_refinery29.png' | asset_img_url: '100x'  }}" alt="Refinery29 logo" /></span> -->
+            </div>
+          </div>
+        </div>
+              			
+     </div>
+    
+</div>
+
+<script>
+  // form.js
+  
+  var _learnq = _learnq || [];
+  
+  var results_to_send = {};
+  
+  
+
+  const resultsIdentifier = "pinrose_quiz_calculated_results"; // Identifier used to identify the form
+  
+  const formIdentifier = "pinrose_quiz_result_data"; // Identifier used to identify the results from previous step
+  
+  var quiz_info = JSON.parse(localStorage.getItem(formIdentifier));
+  
+  
+  console.log(quiz_info);
+  console.log("^quiz_info^^");
+   // Sends shade result to private app
+  function sendResults(results_json) {
+    var xhttp = new XMLHttpRequest();
+
+    // create a JSON object
+//     const json = {
+//       "email": "test@email.com",
+//       "name": "Test Name",
+//       "profile": "Test Profile",
+//       "palette": "Test Palette"
+//     };
+
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        console.log(this);                
+      }
+    };
+    xhttp.open("POST", "http://pinrose-quiz-results.herokuapp.com/api/results", true);
+
+    xhttp.setRequestHeader('Content-Type', 'application/json');
+    //xhttp.send(JSON.stringify({name: 'pinrose1'}));
+    xhttp.send(JSON.stringify(results_json));
+  }
+
+  /**
+ * This function populates the form
+ * with data from localStorage
+ *
+ */
+  const getCalculatedResults = () => {
+    if (localStorage.key(resultsIdentifier)) {
+      const savedData = JSON.parse(localStorage.getItem(resultsIdentifier)); // get and parse the saved data from localStorage
+      console.log(savedData);
+      console.log('^^^');
+      for (const item in savedData) {
+        console.log(`Item: ${item} | Value: ${savedData[item]}`);
+      }
+
+      
+//       jQuery.getJSON('/products/'+savedData['product_slug']+'-starter-kit-30-petal-box.js',function(product) {
+//         console.log(product);
+//         document.getElementById('product--title').innerHTML = product.title;
+//         document.getElementById('product--price').innerHTML = '$' + product.price/100;
+// //         document.getElementById('product--description').innerHTML = product.description;
+//         document.getElementById('product--image').src = product.featured_image;
+//         document.getElementById('quiz-results--product-form-id').value = product.variants[0].id;
+        
+//       });
+      
+//       let product_slug = savedData['product_slug']+'-starter-kit-30-petal-box';
+      let product_slug = savedData['product_slug'];
+            
+      
+      {% capture 'product_json' %}
+      {
+      {% for block in section.blocks %} 
+        {% if block.settings.product != blank %}
+        '{{ block.settings.product}}': {'url': '{{ block.settings.product}}', 'description':`{{ block.settings.description }}`, 'content':`{{ block.settings.content }}`, 'subtitle': `{{ block.settings.subtitle }}`, 'quote': `{{ block.settings.quote }}`,'scnd_product': `{{ block.settings.secondary-product }}`,'collection': `{{ block.settings.products_featured_collection }}` },   
+        {% endif %}
+      {% endfor %}
+    }  
+          {% endcapture %}
+          
+        let product_json = {{product_json}};
+        let product_url = '';
+            
+        for (const product in product_json) {
+                    
+          if(product.includes(product_slug) ) {
+			
+            document.getElementById('product--description').innerHTML = product_json[product].description;
+            document.getElementById('product--content').innerHTML = product_json[product].content;
+            document.getElementById('product--subtitle').innerHTML = product_json[product].subtitle; 
+			document.getElementById('product__page_link').href = '../collections/'+product_json[product].collection;
+
+			document.getElementById('shop-the-scent').href = '../collections/'+product_json[product].collection;
+			document.getElementById('color-inject').classList.add(product_slug);
+            
+            if(product_json[product].quote != ""){
+              document.getElementById('product--quotes').innerHTML = `\"${product_json[product].quote}\"`; 
+            }
+            
+            product_url = product_json[product].url;
+            console.log(`Product URL: ${product_url}`);
+      		scnd_product_url = product_json[product].scnd_product;
+      //console.log(`Second Product URL: ${scnd_product_url}`);
+     
+      	
+          }
+          
+          
+        } 
+// GET and set first product JSON Data
+      jQuery.getJSON('/products/' + scnd_product_url + '.js',function(scndproduct) {
+        document.getElementById('scnd-product__page_link').href = scndproduct.url;
+        document.getElementById('big_product').src = scndproduct.featured_image;
+        document.getElementById('sec-product--title').innerHTML = 'Start with a '+ scndproduct.title;
+        document.getElementById('sec-product--price').innerHTML = '$' + scndproduct.price/100;
+		document.getElementById('quiz-results--product-form-id').value = scndproduct.variants[0].id;
+      });
+      // GET and set second product JSON DATA
+      jQuery.getJSON('/products/' + product_url + '.js',function(product) {
+      
+        console.log('Product:' + product);
+         // document.getElementById('shop-the-scent').href = product.collection;
+        document.getElementById('product--title').innerHTML = product.title;
+                document.getElementById('product--image').alt = product.title;
+        //document.getElementById('product--price').innerHTML = '$' + product.price/100;
+//         document.getElementById('product--description').innerHTML = product.description;
+        document.getElementById('product--image').src = product.featured_image;
+//         document.getElementById('quiz-results--product-form-id').value = product.variants[0].id;
+        
+        _learnq.push(['identify', { 
+         '$first_name' : savedData['question_quiz-name'],
+          'Quiz Product': product.title
+        }]);
+
+//         results_to_send.product = product.title;
+      });
+      
+      //document.getElementById('profile_span').innerHTML = '(Pefume profile #' + savedData['perfume_profile'] + ')';
+      
+      let profile_url = "";
+      let profile_title = "";
+      let profile_short_text = "";
+      let profile_long_text = "";
+      
+      switch(savedData['perfume_profile']) {
+        case 1:
+          profile_url = '{{ 'Personas_v5_JoyousAndFree.jpg' | asset_img_url: '600x'  }}';
+          profile_title = 'Gentle And Fierce';
+          profile_short_text = "Colorful Italian cliffsides in bloom is your sensory nirvana.";
+          profile_long_text = "With a fragrance palette that’s floral, fruity and bold, we bet that oceanside Bellinis in Italy is your sensory nirvana.";
+          break;
+        case 2:
+          profile_url = '{{ 'Personas_v5_LightAndSparkling.jpg' | asset_img_url: '600x'  }}';
+          profile_title = 'Earthy And Divine';
+          profile_short_text = "A warm and fragrant starlit stroll is your kind of heaven. ";
+          profile_long_text = "With a fragrance palette that’s floral, fruity and subtle, the fragrant breezes and starlit skies of summer are your kind of heaven.";
+          break;
+        case 3:
+          profile_url = '{{ 'Personas_v5_GentleAndFierce.jpg' | asset_img_url: '600x'  }}';
+          profile_title = 'Joyous And Free';
+          profile_short_text = "The bright perfume of greenhouse orchids will galvanize your senses.";
+          profile_long_text = "With a fragrance palette that’s floral, spicy and bold, you love to linger in the garden greenhouse, inhaling the delicate scent of exotic orchids.";
+          break;
+        case 4:
+          profile_url = '{{ 'Personas_v5_EarthyAndDivine.jpg' | asset_img_url: '600x'  }}';
+          profile_title = 'Light And Sparkling';
+          profile_short_text = "A fragrant blend of floral and spicy tea sipped from a delicate china cup is music to your nose.";
+          profile_long_text = "With a fragrance palette that’s floral, spicy and subtle, aromatic tea in a delicate china cup is music to your nose.";
+          break;
+        case 5:
+          profile_url = '{{ 'Personas_v5_LushAndMoody.jpg' | asset_img_url: '600x'  }}';
+          profile_title = 'Lush And Moody';
+          profile_short_text = "A sunset glass of wine amongst grapevines in the vineyard is always a favorite bouquet.";
+          profile_long_text = "With a fragrance palette that’s woody/earthy, fruity and bold, a glass of wine after a day in Napa is always your favorite bouquet.";
+          break;
+        case 6:
+          profile_url = '{{ 'Personas_v5_SmartAndFree.jpg' | asset_img_url: '600x'  }}'; 
+          profile_title = 'Magnetic And Lush';
+          profile_short_text = "The smell of wildflowers on a balmy night exhilarates your senses and calms your soul.";
+          profile_long_text = "With a fragrance palette that’s woody/earthy, fruity and subtle, you’d choose a bowl of fragrant apples over flowers to adorn your vintage table.";
+          break;
+        case 7:
+          profile_url = '{{ 'Personas_v5_MagneticAndLush.jpg' | asset_img_url: '600x'  }}';
+          profile_title = 'Smart And Free';
+          profile_short_text = "A spring walk through a forest’s first bloom is your sensory nirvana.";
+          profile_long_text = "With a fragrance palette that’s woody/earthy, spicy and bold, wearing head-to-toe silk while sipping caipirinhas sounds like the perfect date.";
+          break;
+        case 8:
+          profile_url = '{{ 'Personas_v5_SeductiveAndSerene.jpg' | asset_img_url: '600x'  }}';
+          profile_title = 'Seductive And Serene';
+          profile_short_text = "A midsummer afternoon walk beneath the shade of quiet trees enlivens your senses and revitalizes the soul.";
+          profile_long_text = "With a fragrance palette that’s woody/earthy, spicy and subtle, we bet a display of organic-cashmere sweaters actually makes you swoon.";
+          break;
+        default:
+          // code block
+      }
+      
+     // document.getElementById('profile_img').src = profile_url;
+      //document.getElementById('profile_text_short').innerHTML = profile_short_text;
+      //document.getElementById('profile_text_long').innerHTML = profile_long_text;
+      
+      let palette_icons = savedData['perfume_palette'].split(',');
+      
+      _learnq.push(['identify', { 
+        
+        'Quiz Profile': profile_title
+      }]);
+      
+      _learnq.push(['track', 'Quiz Completed']);
+      
+      
+      
+//       document.getElementById('quiz-results--palette-item-1').src = `/${palette_icons[0]}.png`;
+//       document.getElementById('quiz-results--palette-item-2').src = `/${palette_icons[1]}.png`;
+//       document.getElementById('quiz-results--palette-item-3').src = `/${palette_icons[2]}.png`;
+      
+   //   document.getElementById('quiz-results--palette').classList.add(`show-icon--${palette_icons[0]}`);
+     // document.getElementById('quiz-results--palette').classList.add(`show-icon--${palette_icons[1]}`);
+     // document.getElementById('quiz-results--palette').classList.add(`show-icon--${palette_icons[2]}`);
+      
+      
+//       document.getElementById('quiz-results--palette-item-1').alt = `${palette_icons[0]}`;
+//       document.getElementById('quiz-results--palette-item-2').alt = `${palette_icons[1]}`;
+//       document.getElementById('quiz-results--palette-item-3').alt = `${palette_icons[2]}`;
+      
+//       palette_icons.forEach(element => {
+//         console.log(element)
+//       });
+  
+  	answer_map = {
+        'name': quiz_info['question_quiz-name'],
+        'email': quiz_info['question_quiz-email'],
+        'shape': quiz_info['question_quiz-shape'] == 'left' ? "spikey" : "cloudy",
+        'element_one': quiz_info['question_quiz-element-one'] == 'left' ? "dewey" : "sky",
+        'element_two': quiz_info['question_quiz-element-two'] == 'left' ? "honey" : "mossy",
+        'texture_one': quiz_info['question_quiz-texture-one'] == 'left' ? "apple" : "caramel",
+        'texture_two': quiz_info['question_quiz-texture-two'] == 'left' ? "powder" : "cream",
+        'energy': quiz_info['question_quiz-energy'] == 'left' ? "waves" : "sunset",
+        'green_gold': quiz_info['question_quiz-green-gold'] == 'left' ? "green" : "gold",
+        'beach_mountain': quiz_info['question_quiz-beach-mountain'] == 'left' ? "beach" : "mountain",
+        'ingredient_one': quiz_info['question_quiz-ingredient-one'] == 'left' ? "fruity" : "spicy",
+        'ingredient_two': quiz_info['question_quiz-ingredient-two'] == 'left' ? "floral" : "wood",
+        'audio_one': savedData['question_quiz-pick-a-sound'] == 'left' ? "simple" : "complex",	
+        'audio_two': savedData['question_quiz-pick-a-sound-2'] == 'left' ? "relaxed" : "high energy"
+      }
+      
+      console.log(answer_map);
+      console.log("answer map ^^^^");
+  
+  	results_to_send.name = quiz_info['question_quiz-name'];
+  	results_to_send.palette = savedData['perfume_palette'];
+  	results_to_send.profile = profile_title;
+  	results_to_send.product = savedData['product'];
+  
+    results_to_send.q1_shape = answer_map.shape; 
+    results_to_send.q2_element_1 = answer_map.element_one;
+  
+    results_to_send.q3_element_2 = answer_map.element_two;
+    results_to_send.q4_texture_1 = answer_map.texture_one;
+    results_to_send.q5_texture_2 = answer_map.texture_two;
+    results_to_send.q6_energy = answer_map.energy;
+    results_to_send.q7_greengold = answer_map.green_gold;
+    results_to_send.q8_beachsnow = answer_map.beach_mountain;
+    results_to_send.q9_ingredient_1 = answer_map.ingredient_one;
+    results_to_send.q10_ingredient_2 = answer_map.ingredient_two;
+    results_to_send.q11_audio_1 = answer_map.audio_one;
+    results_to_send.q12_audio_2 = answer_map.audio_two;
+  
+    results_to_send.email = savedData['question_quiz-email'] == null ? "NA" : savedData['question_quiz-email']; 
+  
+  
+      
+
+    }
+  	
+    sendResults(results_to_send);
+    
+    
+  };
+  
+  
+  
+  console.log(results_to_send);
+  
+                                      
+  
+  
+
+  document.onload = getCalculatedResults(); // populate the form when the document is loaded
+
+  
+</script>
+<script>
+
+
+
+</script>
+
+{% schema %}
+  {
+    "name": "Results",
+    "settings": [
+      {
+        "type": "page",
+        "id": "startpage",
+        "label": "Start page"
+      },
+      {
+        "type": "page",
+        "id": "prevpage",
+        "label": "Previous page"
+      },
+      {
+      "type": "text",
+      "id":"bannertext",
+      "label": "Banner Text Start",
+	  "default":"Use promo code"
+      },
+      {
+      "type": "text",
+      "id":"bannertext-code",
+      "label": "Banner Text Code",
+	  "default":"QUIZ"
+      },
+      {
+      "type": "text",
+      "id":"bannertext-2",
+      "label": "Banner Text End",
+	  "default":"for 20% off your perfume match!"
+      },
+      {
+      "type": "checkbox",
+      "id":"bannerenable",
+      "label": "Enable Banner"
+      },
+	  {
+      "type":"color",
+      "id": "codecolor",
+      "label": "Code Text Color",
+	  "default": "#ffffff"
+      },
+      {
+      "type":"color",
+      "id": "banner-bg",
+      "label": "Banner Background Color",
+	  "default": "#000000"
+      },
+	  {
+      "type":"color",
+      "id": "banner-text-color",
+      "label": "Banner Text Color",
+	  "default": "#ffffff"
+      }
+
+	],
+    "blocks": [
+      {
+        "type": "product",
+        "name": "Product",
+        "settings": [
+          {
+             "type": "product",
+             "id": "product",
+             "label": "Page select"
+          },
+		  {
+             "type": "product",
+             "id": "secondary-product",
+             "label": "Secondary Product select"
+          },
+          {
+          "type": "collection",
+          "id": "products_featured_collection",
+          "label": "Collection Link"
+          },
+          {
+            "type": "text",
+            "id": "subtitle",
+            "label": "Subtitle"
+          },
+          {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description"
+          },
+          {
+            "type": "textarea",
+            "id": "content",
+            "label": "Content"
+          },
+          {
+            "type": "textarea",
+            "id": "quote",
+            "label": "Quote"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% style %}
+
+{% endstyle %}
+
+{% javascript %}
+{% endjavascript %}
+
+

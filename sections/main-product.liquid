@@ -1,0 +1,282 @@
+{% liquid
+  assign shortDescription = product.metafields.custom.short_description
+  assign show_reviews = section.settings.show_reviews
+  assign show_short_description = section.settings.show_short_description
+  assign current_variant = product.selected_or_first_available_variant
+  assign enable_dynamic_buttons = section.settings.enable_dynamic_buttons
+  
+%}
+
+<div class="main-product-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col1">
+        <div class="services-slider">
+          <div class="main-container">
+            <div class="slider-main">
+              {% for image in product.images %}
+                <div class="img_{{ image.id }}">
+                  <img src="{{ image | img_url: '1024x' }}" alt="{{ image.alt }}">
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="nav-container">
+            <div class="slider-nav">
+              {% for image in product.images %}
+                <div>
+                  <img src="{{ image | img_url: '1024x' }}" alt="{{ image.alt }}">
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col2 description-box">
+        {% assign current = product.selected_or_first_available_variant %}
+        <div class="text-col2">
+          <h1>
+            {{ product.title }}
+            {%- unless product.has_only_default_variant -%}
+              -
+              <span class="variant_title_selector">
+                {{ current_variant.title }}
+              </span>
+            {% endunless %}
+          </h1>
+          <!--
+            {% if show_reviews %}
+              <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{ product.id }}">
+                {{- product.metafields.stamped.badge -}}
+              </span>
+            {% endif %}
+          -->
+          {% if product.sku %}
+            <div
+              id="amzn-roa-rating"
+              data-site-id="a4xhje1zw9"
+              data-roa-instance-id="dixtthq0492t1"
+              data-sku="{{product.sku}}"
+            ></div>
+          {% else %}
+            <div
+              id="amzn-roa-rating"
+              data-site-id="a4xhje1zw9"
+              data-roa-instance-id="dixtthq0492t1"
+              data-sku="{{product.selected_or_first_available_variant.sku}}"
+            ></div>
+          {% endif %}
+        </div>
+        {% if show_short_description %}
+          <div class="short-description">{{ shortDescription | metafield_tag }}</div>
+        {% endif %}
+
+        {%- form 'product', product, id: form_id, class: 'product-single__form' -%}
+          {%- unless product.has_only_default_variant -%}
+            {%- for option in product.options_with_values -%}
+              {%- if forloop.first -%}
+                <div class="custom_radio variant_wrapper">
+                  {% for value in option.values %}
+                    {%- liquid
+                      assign product_available = true
+                      if product.options.size == 1
+                        assign product_available = product.variants[forloop.index0].available
+                      endif
+                    -%}
+
+                    {% assign valueSplit = value | split: ' / ' %}
+                    <div class="width variant_selector {% unless product_available %} disabled{% endunless %}">
+                      <input
+                        type="radio"
+                        id="featured-{{ forloop.index }}"
+                        name="featured1"
+                        {% if option.selected_value == value %}
+                          checked="checked"
+                        {% endif %}
+                        acutalName="{{ value }}"
+                      >
+                      <label for="featured-{{ forloop.index }}">
+                        {% unless product.title contains 'Gift Card'%}
+                          {% if forloop.index == 1 %}
+                            <img src="https://cdn.shopify.com/s/files/1/1979/4109/files/50ml.svg?v=1691681819" alt="img">
+                          {% elsif forloop.index == 2 %}
+                            <img
+                              src="https://cdn.shopify.com/s/files/1/1979/4109/files/Layer_1-2_1.png?v=1692890974"
+                              alt="img"
+                            >
+                          {% else %}
+                            <img
+                              src="https://cdn.shopify.com/s/files/1/1979/4109/files/Layer_1-2_2.png?v=1692890974"
+                              alt="img"
+                            >
+                          {% endif %}
+                        {% endunless %}
+
+                        {{ value }}
+                        {% comment %} {{- valueSplit[1] -}} {% endcomment %}
+                      </label>
+                    </div>
+                  {% endfor %}
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          {% endunless %}
+
+          <div class="blacknwhitw-btn">
+            {%- if current_variant.compare_at_price > current_variant.price -%}
+              <del class="actual_price"
+                ><small>{{ current_variant.compare_at_price | money }}</small></del
+              >
+              <p class="discounted_price">{{ current_variant.price | money }}</p>
+            {% else %}
+              <p class="original_price">{{ current_variant.price | money }}</p>
+            {% endif %}
+          </div>
+
+          <!--
+            <div class="btn-links">
+              <a href="#">One Time Purchase</a>
+              <a href="#">Subscribe and Save</a>
+            </div>
+          -->
+
+          <select name="id" id="ProductSelect-{{ section.id }}" class="product-single__variants no-js">
+            {%- for variant in product.variants -%}
+              {%- if variant.available -%}
+                <option
+                  {% if variant == product.selected_or_first_available_variant %}
+                    selected="selected"
+                  {% endif %}
+                  data-imageId="img_{{ variant.image.id }}"
+                  data-variantNewPrice="{{ variant.price | money }}"
+                  data-variantOldPrice="{{ variant.compare_at_price | money }}"
+                  value="{{ variant.id }}"
+                >
+                  {{ variant.title }}
+                </option>
+              {%- else -%}
+                <option class="sold_out" disabled="disabled">
+                  {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+                </option>
+              {%- endif -%}
+            {%- endfor -%}
+          </select>
+
+          <div class="quantity-sec">
+            <div id="field1">
+              <button type="button" id="sub" class="minus disabled minus_selector">-</button>
+              <input
+                type="number"
+                id="1"
+                value="1"
+                min="1"
+                class="qty qty_selector"
+                aria-label="quantity"
+                pattern="[0-9]*"
+                name="quantity"
+              >
+              <button type="button" id="add" class="plus plus_selector">+</button>
+            </div>
+
+            <button
+              type="submit"
+              name="add"
+              class="btn btn-add"
+              {% unless current_variant.available %}
+                disabled="disabled"
+              {% endunless %}
+            >
+              Add To Bag
+            </button>
+          </div>
+
+          <!--
+            {%- if enable_dynamic_buttons -%}
+              {{ form | payment_button }}
+            {%- endif -%}
+          -->
+
+          <script defer fetchpriority="high" src="https://code.buywithprime.amazon.com/bwp.js"></script>
+          <script defer src="https://code.buywithprime.amazon.com/default.variant.selector.shopify.js"></script>
+
+          {% if product.sku %}
+            <div
+              id="amzn-buy-now"
+              data-site-id="a4xhje1zw9"
+              data-widget-id="w-BlWfivTuBw3QHoMeRzRZA8"
+              data-sku="{{product.sku}}"
+            ></div>
+          {% else %}
+            <div
+              id="amzn-buy-now"
+              data-site-id="a4xhje1zw9"
+              data-widget-id="w-BlWfivTuBw3QHoMeRzRZA8"
+              data-sku="{{product.selected_or_first_available_variant.sku}}"
+            ></div>
+          {% endif %}
+
+          <div class="button_container_form">
+            {% for block in section.blocks %}
+              <div class="pinrose_clean icon-container">
+                <div class="Resize-image">
+                  <img src="{{ block.settings.icon_image | img_url: "720x" }}" alt="img">
+                </div>
+                <p>{{ block.settings.icon_text }}</p>
+              </div>
+            {% endfor %}
+          </div>
+        {% endform %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Main Product",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_reviews",
+      "label": "Show Reviews",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_short_description",
+      "label": "Show Short Description",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_dynamic_buttons",
+      "label": "Show Short Description",
+      "default": true
+    }
+  ],
+  "blocks":[
+    {
+        "type": "image_picker",
+      "name": "Icon",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon_text",
+          "label": "Icon Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon Image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

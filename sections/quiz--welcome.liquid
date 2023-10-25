@@ -1,0 +1,213 @@
+<style>
+
+/*   button#results-form__submit {
+    margin: 30px 0;
+    background: transparent;
+    color: #000;
+    border: 2px solid #000;
+  } */
+  #quiz--header .btn {
+    visibility: hidden;
+  }
+  #results-form{color:white}
+  #results-form >h2{font-size:3em}
+
+  {% if section.settings.background_image != blank %}
+/*   body { */
+/*     background-color:#bf77a2; */
+/*     background-color:#fafafa;
+    background-image: url({{ section.settings.background_image | img_url: '1400x' }});
+    background-repeat: no-repeat;
+    background-size: cover;
+  } */
+  
+  body {
+    background: {{section.settings.background_color}};
+/*     background: url({{ 'Gradient-Background.png' | asset_url }}) center center;
+    background-size: 140%;
+    background-repeat: no-repeat; */
+  }
+
+  @media screen and (max-width: 755px){
+    body.template__page-quiz--questions {
+      background-size: 100vh;
+    }
+  }
+#shopify-section-quiz--welcome #quiz--header {
+/*     background-color: rgba(255,255,255,.57) !important; */
+    background-color: #00000000;
+  }
+  {% endif %}
+/*   .white{color:white !important;} */
+  
+
+  #shopify-section-quiz--welcome {
+    --welcome-font-color: {{section.settings.font_color}}; 
+  }
+  
+  #shopify-section-quiz--welcome .quiz__question-container {
+    margin-top: 0;
+    height: calc(100vh - 111px);
+    min-height: 100%;
+  }
+  
+  .template__page-quiz--welcome #quiz__container #results-form {
+    max-width: 64ch; 
+    margin-top: 2rem;
+    font-size: 1rem;
+  }
+  
+  #results-form .results-form__heading {
+    margin-bottom: 2rem;
+    font-size: 5em;
+    color: #E69EBB !important;
+  }
+
+/*   .template__page-quiz--welcome .results-form__copy {
+    max-width: 31ch;
+    margin: 0 auto 2rem;
+    font-size: 1.75em;
+  } */
+  
+  #shopify-section-quiz--welcome .results-form__copy {
+    max-width: 34ch;
+    margin: 5% auto;
+    font-size: 1.6em;
+    color: var(--welcome-font-color);
+  }
+
+  .template__page-quiz--welcome #results-form__submit {
+    font-size: 1.25em;
+    max-width: 36ch;
+    padding: 1em 2em;
+  }
+
+  #shopify-section-quiz--welcome .results-form__footnote {
+    font-size: 1.5em;
+    margin: 1em 0 2.25em;
+    color: var(--welcome-font-color);
+  }
+
+  #shopify-section-quiz--welcome .quiz__question-container {
+    overflow-y: scroll;
+  }
+
+  #shopify-section-quiz--welcome .results-form__footnote + div h6 {
+    font-size: 1.2em;
+    margin: 1em 0 3em;
+    color: var(--welcome-font-color);
+  }
+  
+  #shopify-section-quiz--welcome .results-form__footnote + div img {
+    width: 100%;
+    max-width: 350px;
+    height: 100%;
+    
+  }
+  
+  @media screen and (max-width: 755px){
+    .template__page-quiz--welcome  #quiz__container form, 
+	.template__page-quiz--welcome  #quiz__container form {
+        font-size: .8rem;
+    }
+  }  
+  
+  @media screen and (max-height: 600px){
+    #shopify-section-quiz--welcome .quiz__question-container {
+      overflow-y: scroll;
+    }
+  }
+  
+  @media screen and (max-width: 450px){
+    .template__page-quiz--welcome  #quiz__container #results-form {
+      max-width: 90%;
+      margin-top: 2rem;
+      font-size: 2.25vw;
+    }
+  }
+  
+  
+</style>
+<div id="quiz__container" >
+  
+  {% include 'quiz--header' %}
+ 
+  <div class="quiz__question-container">
+    <form id="results-form" action="/pages/quiz-name">
+      {% if section.settings.heading != blank %}
+      <h2 class="results-form__heading white">LET YOUR SENSES FIND YOUR SCENT</h2>
+      {% endif %}
+      {% if section.settings.content != blank %}
+      <div class="results-form__copy">
+        <p>Locked in your memories is everything we need to uncover your ideal PINROSE fragrance match.</p>
+        <p>Via the science of synesthesia, your senses will tell us which of our 14 master perfumer-created scents is perfect for you!</p>
+      </div>
+      {% endif %}
+      
+      <button id="results-form__submit" class="btn btn--primary" type="submit" onclick="erasePreviousResults()" >START THE QUIZ</button>
+      {% if section.settings.subtext != blank %}
+      <p class="results-form__footnote" >Estimated time: 3 minutes to meet your match.</p>
+      {% endif %}
+      <div>
+      <h6>All Pinrose products are clean, vegan and cruelty free.</h6>
+        <img src="{{ 'Icons-black_2021.png' | asset_url }}" width="500" height="90" alt='Icons:Clean, Vegan, Cruelty Free, Paraben Free, Phthalate Free'>
+    </div>
+    </form>
+    
+  </div>
+
+  
+</div>
+
+<script>
+  const erasePreviousResults = () => {
+    const formIdentifier = "pinrose_quiz_result_data"; // Identifier used to identify the form
+    const resultsIdentifier = "pinrose_quiz_calculated_results"; // Identifier used to identify the stored results
+
+    localStorage.removeItem(formIdentifier);
+    localStorage.removeItem(resultsIdentifier);
+  };
+
+</script>
+
+{% schema %}
+  {
+    "name": "Welcome",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      },
+      {
+        "type": "richtext",
+        "id": "content",
+        "label": "Content"
+      },
+      {
+        "type": "text",
+        "id": "subtext",
+        "label": "Subtext"
+      },
+      {
+        "type": "color",
+        "id": "font_color",
+        "label": "Font Color",
+        "default": "#000000"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background image"
+      },
+      {
+        "type": "color_background",
+        "id": "background_color",
+        "label": "Background Color",
+        "default": "linear-gradient(#ffffff, #000000)"
+      }
+	]
+  }
+{% endschema %}
+        
+

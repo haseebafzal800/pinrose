@@ -1,0 +1,438 @@
+
+<style>
+
+  .quiz__question-container.quiz--type-audio {
+    height: 100%;
+  }
+  .quiz--type-audio form#results-form {
+    height: 100%;
+  }
+  .audio-players {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: calc(100vh - 220px);
+    width: 100%;
+    min-height: 100%;
+    padding: 2.5%;
+    margin: 0 auto;
+    overflow-y: scroll;
+  }
+  .audio-player {
+    display: flex;
+    flex: 0 1 45%;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: 90%;
+    width: 45%;
+    min-height: 365px;
+    margin: 0;
+    background: #ffc5e7;
+    --seek-before-width: 0%;
+    --volume-before-width: 100%;
+    --buffered-width: 0%;
+    transition: all 300ms ease-in-out;
+  }
+
+  .audio-player:hover {
+    background-color: #ff89ce;  
+  }
+  /*                       .audio-player::before {
+  position: absolute;
+  content: '';
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  left: -2px;
+  top: -2px;
+  background: linear-gradient(to left, #007db5, #ff8a00);
+  z-index: -1;
+  } */
+  .audio-player > * {
+    z-index: 1;
+  }
+  .audio-player p {
+    position: absolute;
+    top: -18px;
+    right: 5%;
+    padding: 0 5px;
+    margin: 0;
+    font-size: 28px;
+    /*                           background: #fff; */
+  }
+  .audio-player .results-form__heading {
+   	margin-top: 5%; 
+  }
+  .anime-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 50%;
+/*     padding: 2% 0; */
+    min-height: 100px;
+    cursor: pointer;
+  }
+  .audio-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 45%;
+    width: 50%;
+    min-width: 12rem;
+    padding: 0 0 2%;
+  }
+  .audio-controls .volume {
+    width: 100%;
+  } 
+  .audio-player button.results-form__selector {
+    width: 14em;
+    padding: .75em 0;
+    margin-top: 2rem;
+    background: white;
+    font-size: 1rem;
+  }
+
+  /*                       .audio-player path, path.audio-player {
+  stroke: #007db5;
+  }
+  .audio-player .time {
+  display: inline-block;
+  width: 37px;
+  text-align: center;
+  font-size: 20px;
+  margin: 28.5px 0 18.5px 0;
+  float: left;
+  } */
+  .audio-player output {
+    display: inline-block;
+    width: 32px;
+    text-align: center;
+    font-size: 20px;
+    margin: 10px 2.5% 0 5%;
+    float: left;
+    clear: left;
+  }
+
+  .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-48%, -50%);
+    transition: all 300ms ease-in-out;
+    display: flex;                      
+    padding: 25%;
+    background: none;
+    border: none;  
+    outline: none;
+    font-size: 7vh;  /* Control the size by chaning the font-size */
+    z-index: 10;
+  }
+  .playing .play-button {
+    transform: translate(-50%, -50%);
+  }
+
+  .PlayPause {
+    position: relative;
+    width: 0.5em;
+    height: 0.65em;
+    transition: all 300ms ease-in-out;
+    clip-path: polygon(0 0, 100% 50%, 100% 50%, 0% 100%);
+  }
+  .PlayPause::before,
+  .PlayPause::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 50%;
+    transform: scaleX(1);
+    transform-origin: left;
+    background-color: #fff;
+    transition: transform 300ms ease-in-out;
+  }
+  .PlayPause::after {
+    left: auto;
+    right: 0;
+    transform-origin: right;
+  }
+
+  .playing .play-button .PlayPause {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  .playing .play-button .PlayPause::before,
+  .playing .play-button .PlayPause::after {
+    transform: scaleX(0.75);
+  }
+
+  .play-button .PlayPause {
+    opacity: 1;
+  }
+  .playing .play-button .PlayPause {
+    opacity: 0;
+  }
+  .play-button:hover .PlayPause {
+    opacity: 1;
+  }
+  .audio-player .volume {
+    display: none;
+  }
+  .volume-slider {
+    margin: 10px 2.5%;
+    width: 58%;
+    border: none;
+  }
+  .volume-slider::-webkit-slider-runnable-track {
+    background: rgba(0, 125, 181, 0.6);
+  }
+  .volume-slider::-moz-range-track {
+    background: rgba(0, 125, 181, 0.6);
+  }
+  .volume-slider::-ms-fill-upper {
+    background: rgba(0, 125, 181, 0.6);
+  }
+  .volume-slider::before {
+    width: var(--volume-before-width);
+      }
+  #mute-icon {
+    margin: 0 2.5%;
+  }
+
+  input[type="range"] {
+    position: relative;
+    -webkit-appearance: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 19px;
+    padding: 3.5%;
+    float: left;
+    outline: none;
+    border: none;
+  }
+  input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 3px;
+    cursor: pointer;
+    background: linear-gradient(to right, rgba(0, 125, 181, 0.6) var(--buffered-width), rgba(0, 125, 181, 0.2) var(--buffered-width));
+      }
+  input[type="range"]::before {
+    position: absolute;
+    content: "";
+    top: 8px;
+    left: 0;
+    width: var(--seek-before-width);
+      height: 3px;
+      background-color: #007db5;
+      cursor: pointer;
+      }
+  input[type="range"]::-webkit-slider-thumb {
+    position: relative;
+    -webkit-appearance: none;
+    box-sizing: content-box;
+    border: 1px solid #007db5;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+    margin: -7px 0 0 0;
+  }
+  input[type="range"]:active::-webkit-slider-thumb {
+    transform: scale(1.2);
+    background: #007db5;
+  }
+  input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 3px;
+    cursor: pointer;
+    background: linear-gradient(to right, rgba(0, 125, 181, 0.6) var(--buffered-width), rgba(0, 125, 181, 0.2) var(--buffered-width));
+      }
+  input[type="range"]::-moz-range-progress {
+    background-color: #007db5;
+  }
+  input[type="range"]::-moz-focus-outer {
+    border: 0;
+  }
+  input[type="range"]::-moz-range-thumb {
+    box-sizing: content-box;
+    border: 1px solid #007db5;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  input[type="range"]:active::-moz-range-thumb {
+    transform: scale(1.2);
+    background: #007db5;
+  }
+  input[type="range"]::-ms-track {
+    width: 100%;
+    height: 3px;
+    cursor: pointer;
+    background: transparent;
+    border: solid transparent;
+    color: transparent;
+  }
+  input[type="range"]::-ms-fill-lower {
+    background-color: #007db5;
+  }
+  input[type="range"]::-ms-fill-upper {
+    background: linear-gradient(to right, rgba(0, 125, 181, 0.6) var(--buffered-width), rgba(0, 125, 181, 0.2) var(--buffered-width));
+      }
+  input[type="range"]::-ms-thumb {
+    box-sizing: content-box;
+    border: 1px solid #007db5;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  input[type="range"]:active::-ms-thumb {
+    transform: scale(1.2);
+    background: #007db5;
+  }
+
+  @media screen and (max-width: 1000px){
+
+    .audio-players {
+      flex-direction: column; 
+    }
+    .audio-player {
+      display: flex;
+      flex: 0 1 95%;
+      width: 95%;
+      margin: 2.5% 0;
+    }
+    .audio-player:nth-of-type(2){
+    margin-bottom: 10vh;
+    }
+  }
+
+  @media screen and (max-width: 767px){
+
+    .audio-players {
+      height: calc(100vh - 185px);
+    }
+  }
+
+</style>
+
+<div class="audio-players">
+
+  <div id='audio-player-1' class="audio-player results-form__selector">
+                            <h2 class="results-form__heading">Tap Play To Listen</h2>
+    <div class="anime-wrap">
+      <lottie-player class="anime" src="https://assets9.lottiefiles.com/packages/lf20_xtzqdoif.json"  background="transparent"  speed="1"  loop ></lottie-player>
+      <div class="play-button">
+        <span class="PlayPause"></span>
+      </div>
+    </div>
+    <audio class="player" src='{{ audio_link-1 }}' preload=”metadata” loop ></audio>
+    <div class="audio-controls">
+      <div class="volume">
+        <label class="volume-label">volume</label>
+        <!--                         <output class="volume-output">80</output> -->
+        <input type="range" class="volume-slider" max="100" value="50">
+      </div>
+      <button class="results-form__selector quiz--image-buttons--left btn" type="button" onclick="setAnswerInput('left')" >Choose this sound</button>                      
+    </div>
+  </div>
+
+  <div id="audio-player-2" class="audio-player results-form__selector">
+                            <h2 class="results-form__heading">Tap Play to Listen</h2>
+    <div class="anime-wrap">
+      <lottie-player class="anime" src="https://assets9.lottiefiles.com/packages/lf20_xtzqdoif.json"  background="transparent"  speed="1"  loop ></lottie-player>
+      <div class="play-button">
+        <span class="PlayPause"></span>
+      </div>
+    </div>
+    <audio class="player" src='{{ audio_link-2 }}' preload=”metadata” loop ></audio>
+    <div class="audio-controls">
+      <div class="volume">
+        <label class="volume-label">volume</label>
+        <!--                         <output class="volume-output">80</output> -->
+        <input type="range" class="volume-slider" max="100" value="50">
+      </div>
+      <button class="results-form__selector quiz--image-buttons--right btn" type="button" onclick="setAnswerInput('right')" >Choose this sound</button>
+    </div>               
+  </div>
+
+</div>
+
+<button id="results-form__submit" class="results-form__submit hidden-submit" type="submit" >Submit</button>
+
+
+
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+<script >
+
+  window.addEventListener('DOMContentLoaded', (e) => {
+    
+    e.preventDefault();
+    
+    console.log('start audio player');
+    
+    const audioPlayers = document.querySelectorAll('.audio-player'); 
+    // variable for the button that will contain both icons
+    let animations = document.querySelectorAll('.audio-player .anime');
+    // variable that will store the button’s current state (play or pause)
+
+    audioPlayers.forEach((audioPlayer) => {
+
+      let audio = audioPlayer.querySelector('audio.player');
+      let animeWrap = audioPlayer.querySelector('.anime-wrap');
+      let anime = audioPlayer.querySelector('.anime');
+      let playButton = audioPlayer.querySelector('.play-button');
+      let volumeSlider = audioPlayer.querySelector('.volume-slider');
+      //  let outputContainer = audioPlayer.querySelector('.volume-output');
+
+      volumeSlider.addEventListener('input', (e) => {
+        let value = e.target.value;
+        //  outputContainer.textContent = value;
+        audio.volume = value / 100;
+      });
+
+      //    console.dir( audio);
+
+      animeWrap.addEventListener('click', () => {
+//         console.dir(animeWrap.parentElement);
+            
+        let animeParent = animeWrap.parentElement;
+        // pause audio that's already playing.                         
+		let isPlaying = document.querySelector('.audio-player.playing');
+        if(isPlaying && animeParent !== isPlaying) {
+//           console.log("isPlaying: ", isPlaying);
+          isPlaying.classList.remove('playing');
+          let pauseAudio = isPlaying.querySelector('audio.player');
+          let pauseAnime = isPlaying.querySelector('lottie-player');
+          pauseAudio.pause();
+          pauseAnime.seek(0);
+          pauseAnime.pause();
+        }
+           
+        if(audioPlayer.classList.contains('playing')){
+          audioPlayer.classList.remove('playing');
+          anime.seek(0);
+          anime.pause();
+          audio.pause();
+        } else {
+          audioPlayer.classList.add('playing');
+          anime.play();
+          audio.play();
+        }
+
+      });
+
+    });                                              
+
+  });
+
+</script>

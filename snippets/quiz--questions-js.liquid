@@ -1,0 +1,1097 @@
+<script>
+  // form.js
+  
+  
+  var _learnq = _learnq || [];
+  
+  const formId = "results-form"; // ID of the form
+  const url = location.href; //  href for the page
+  const formIdentifier = "pinrose_quiz_result_data"; // Identifier used to identify the form
+  const resultsIdentifier = "pinrose_quiz_calculated_results"; // Identifier used to identify the stored results
+  const saveButton = document.querySelector(".results-form__submit"); // select save button
+  const alertBox = document.querySelector(".alert"); // select alert display div
+  let form = document.querySelector(`#${formId}`); // select form
+  let formElements = form.elements; // get the elements in the form
+  let email_input = $('#question_quiz-email');
+  let email_signup_checkbox = $('#results-form__subscribe');
+  
+  // data to save in google spreadsheet
+  var gs_name = "";
+  var gs_email = "";
+  var gs_winner = "";
+  var gs_palette = "";
+  var gs_profile = "";
+
+  {% if page.handle == 'quiz-email' %}
+   
+     
+  // start onload listener  
+//   window.addEventListener('load', (e) => {
+//     console.log("email form loaded");
+//     e.preventDefault();
+    
+//     const klaviyoForm = document.querySelector('form[data-testid="klaviyo-form-TD34LT"]');
+// //     klaviyoButton.innerHTML = "NEXT";
+// //     klaviyoButton.innerText = "NEXT";
+//     saveButton.onclick = function submitForm(){
+//       console.log("setTimeout init");
+//       const klaviyoButton = document.querySelector('button.kl-private-reset-css-Xuajs1');
+//       console.dir(klaviyoButton);
+//       klaviyoButton.click()
+//       setTimeout(() => {form.requestSubmit(saveButton)}, 3000);
+      
+//     }
+// //     klaviyoForm.requestSubmit(klaviyoSubmit)          
+//   	// end onload listener  
+//   });  
+        
+ 
+  email_input.change(function (e) {
+    klaviyo_email = $(this).val();
+    
+    // Do some light validation. Klaviyo will do more validation when the data is received.
+    if (validateEmail(klaviyo_email)) {
+      _learnq.push(['identify', { 
+        '$email': klaviyo_email
+      }]);
+
+       console.log("learnq pushed email");
+    }else {
+		console.log("failed learnq push email");
+    }
+  });
+  
+  email_input.keyup(function (e) {
+    klaviyo_email = $(this).val();
+    
+    // Do some light validation. Klaviyo will do more validation when the data is received.
+    if (validateEmail(klaviyo_email)) {
+      hideAlert();
+      //saveButton.classList.remove('disabled');
+    }else {
+      console.log("klaviyo email validator");
+      const message = "Please enter a valid email address.";
+      displayAlert(message);
+      //saveButton.classList.add('disabled');
+    }
+  }); 
+  
+  {% endif %}
+      
+  const validateEmail = email => {
+    return email && /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+  }   
+  
+ /**
+ * This function gets the values in the form
+ * and returns them as an object with the
+ * [formIdentifier] as the object key
+ * @returns {Object}
+ */
+  const getFormData = () => {
+    let data = { [formIdentifier]: {} }; // create an empty object with the formIdentifier as the key and an empty object as its value
+    for (const element of formElements) {
+      if (element.name.length > 0) {
+        data[formIdentifier][element.name] = element.value;
+      }
+    }
+    return data;
+  };
+  
+//   VALIDATE THE NAME FIELD
+  function validateForm() {
+    var x = document.forms["results-form"]["question_quiz-name"].value;
+    //console.log(x);
+    if (x == "") {
+     // alert("Name must be filled out");
+      return false;
+    }
+    if (x != "") {
+
+     savebuttonFunction();
+    }
+  }
+  
+  {% if page.handle == 'quiz-email' %}
+
+  saveButton.onclick = event => {
+//     event.preventDefault();
+    console.log("saveButton clicked");
+    const klaviyoButton = document.querySelector('button.kl-private-reset-css-Xuajs1');
+    console.dir(klaviyoButton);
+    klaviyoButton.click()
+    setTimeout(() => {validateForm()}, 000); 
+    
+  };
+
+  {% else %}
+  
+  saveButton.onclick = event => {
+    validateForm();
+  };
+  
+  {% endif %}
+  
+  function savebuttonFunction(){
+    
+   event.preventDefault();
+    data = getFormData();
+    localStorage.setItem(formIdentifier, JSON.stringify(data[formIdentifier]));
+    const message = "Form draft has been saved!";
+    
+    
+    {% if page.handle == 'quiz-email' %}
+    const savedData = JSON.parse(localStorage.getItem(formIdentifier));
+  
+//      _learnq.push(['identify', { 
+        
+//         'Quiz Profile': profile_title
+//       }]);
+    
+//     alert(savedData)
+    if (email_signup_checkbox.is(':checked')) {
+      _learnq.push(['track', 'Quiz Subscribe Checked']);
+  
+//       alert("email is checked: " + savedData['question_quiz-email'])
+      
+//       const options = {
+//         method: 'POST',
+//         headers: {Accept: 'application/json', 'Content-Type': 'application/json'},
+//         body: JSON.stringify({
+//           profiles: [
+//             {email: savedData['question_quiz-email']}
+//           ]
+//         })
+//       };
+//       fetch('https://a.klaviyo.com/api/v2/list/R6ZHvk/members?api_key=pk_0909284856df0dab4dbdd43d30a72c592b', options)
+//       .then(response => response.json())
+//       .then(response => alert(response))
+//       .catch(err => alert("fetch error" + err));
+      
+      
+      
+//       $.ajax({ 
+//         url: "https://a.klaviyo.com/api/v2/list/JPm2cy/subscribe",
+//         crossDomain: true,
+//         dataType: "jsonp",
+//         async: true,
+//         headers: {
+//           "accept": "application/json",
+//           "Access-Control-Allow-Origin":"*"
+//         },
+//         type: "POST",
+// //         "dataType": 'jsonp',
+//         data: {
+//     	"api_key": "pk_0909284856df0dab4dbdd43d30a72c592b",
+//         "profiles": [
+//             {
+//               "email": "dylan@undefined.agency"
+//             }
+//           ]
+//         },
+//         success: function(data) {
+//           alert(data);
+//         },
+//         error: function(jqXHR, textStatus, ex) {
+//          alert("ajax error msg: " + textStatus + "," + ex + "," + jqXHR.responseText);
+//         }
+//       });
+      
+         
+    }
+    	
+//     console.log("savedData after ajax: " + savedData['question_quiz-email'] );
+    
+      _learnq.push(['identify', { 
+        '$name': savedData['question_quiz-email']       
+      }]);
+    {% endif %}
+    
+    form.submit(); 
+    
+  }
+  /**
+ * This function displays a message
+ * on the page for 1 second
+ *
+ * @param {String} message
+ */
+  const displayAlert = message => {
+    alertBox.innerText = message; // add the message into the alert box
+    alertBox.style.display = "block"; // make the alert box visible
+  };
+  
+  const hideAlert = () => {
+    alertBox.style.display = "none"; // make the alert box visible
+  };
+
+  /**
+ * This function populates the form
+ * with data from localStorage
+ *
+ */
+  const populateForm = () => {
+    if (localStorage.key(formIdentifier)) {
+      const savedData = JSON.parse(localStorage.getItem(formIdentifier)); // get and parse the saved data from localStorage
+      console.log(savedData);
+      
+      if(savedData){
+        for (const element of formElements) {
+          if (element.name in savedData) {
+            element.value = savedData[element.name];
+          }
+        }
+      }
+      const message = "Form has been refilled with saved data!";
+//       displayAlert(message);
+    }
+   
+  };
+    
+  
+  
+  
+  
+    /**
+ * This function populates the form
+ * with data from localStorage
+ *
+ */
+  const calculateResults = () => {
+    
+    if (localStorage.key(formIdentifier)) {
+      let product_scores = {
+        'bold_soul': 0,
+        'campfire_rebel':0,
+        'cuddle_punk':0,
+        'gilded_fox': 0,
+        'lil_dipper': 0,        
+        'merry_maker': 0,
+        'mystical_misfit': 0,
+        'pillowtalk_poet': 0, 
+        'pinrose': 0,
+        'secret_genius': 0,
+        'sun_saint': 0,
+        'tambourine_dreamer': 0,
+        'treehouse_royal':0,
+        'wild_child': 0
+
+      };
+      
+      let perfume_palette = '';
+      let perfume_palette_number = 1;
+     
+      
+      const savedData = JSON.parse(localStorage.getItem(formIdentifier)); // get and parse the saved data from localStorage
+      
+      console.log(savedData);
+      
+      answer_map = {
+        'name': savedData['question_quiz-name'],
+        'email': savedData['question_quiz-email'],
+        'shape': savedData['question_quiz-shape'] == 'left' ? "spikey" : "cloudy",
+        'element_one': savedData['question_quiz-element-one'] == 'left' ? "dewey" : "sky",
+        'element_two': savedData['question_quiz-element-two'] == 'left' ? "honey" : "mossy",
+        'texture_one': savedData['question_quiz-texture-one'] == 'left' ? "apple" : "caramel",
+        'texture_two': savedData['question_quiz-texture-two'] == 'left' ? "powder" : "cream",
+        'energy': savedData['question_quiz-energy'] == 'left' ? "waves" : "sunset",
+        'green_gold': savedData['question_quiz-green-gold'] == 'left' ? "green" : "gold",
+        'beach_mountain': savedData['question_quiz-beach-mountain'] == 'left' ? "beach" : "mountain",
+        'ingredient_one': savedData['question_quiz-ingredient-one'] == 'left' ? "fruity" : "spicy",
+        'ingredient_two': savedData['question_quiz-ingredient-two'] == 'left' ? "floral" : "wood",	
+        'audio_one': savedData['question_quiz-pick-a-sound'] == 'left' ? "simple" : "complex",	
+        'audio_two': savedData['question_quiz-pick-a-sound-2'] == 'left' ? "relaxed" : "high energy"
+      }
+      
+      console.log(answer_map);
+      console.log("answer map ^^^^");
+      
+      window.dataLayer.push({
+        'event': 'quizResults',
+        'results': {
+          'name': answer_map.name,
+          'email': answer_map.email,
+          'shape': answer_map.shape,
+          'element-one': answer_map.element_one,
+          'element-two': answer_map.element_two,
+          'texture-one': answer_map.texture_one,
+          'texture-two': answer_map.texture_two,
+          'energy': answer_map.energy,
+          'green-gold': answer_map.green_gold,
+          'beach-mountain': answer_map.beach_mountain,	
+          'ingredient_one': answer_map.ingredient_one,	
+          'ingredient_two': answer_map.ingredient_two,	
+          'audio_one': answer_map.audio_one,	
+          'audio_two': answer_map.audio_two           
+        },
+      });
+      
+      for (const property in savedData) {
+        console.log(`${property}: ${savedData[property]}`);
+        
+        if(property == 'question_quiz-shape'){
+          if(savedData[property] == 'left'){
+            product_scores.bold_soul += 0;
+            product_scores.campfire_rebel += 0;
+            product_scores.cuddle_punk += 1.9;
+            product_scores.gilded_fox += 2.5;
+            product_scores.lil_dipper += 0;
+            product_scores.merry_maker += 1.8;
+            product_scores.mystical_misfit += 2.1; 
+            product_scores.pillowtalk_poet += 0;
+            product_scores.pinrose += 1.4;
+            product_scores.secret_genius += 0;
+            product_scores.sun_saint += 0;
+            product_scores.tambourine_dreamer += 0;
+            product_scores.treehouse_royal += 1.8;
+            product_scores.wild_child += 2.8;
+           
+           
+
+          }else{
+            product_scores.bold_soul += 1.2;
+            product_scores.campfire_rebel += 1.2;
+            product_scores.cuddle_punk += 0;
+            product_scores.gilded_fox += 0;
+            product_scores.lil_dipper += 1.4;
+            product_scores.merry_maker += 0;
+            product_scores.mystical_misfit += 0; 
+            product_scores.pillowtalk_poet += 1.5;
+            product_scores.pinrose += 0;
+            product_scores.secret_genius += 1.1;
+            product_scores.sun_saint += 1.2;
+            product_scores.tambourine_dreamer += 1.3;
+            product_scores.treehouse_royal += 0;
+            product_scores.wild_child += 0;
+          }
+          
+        }
+        if(property == 'question_quiz-element-one'){
+          if(savedData[property] == 'left'){
+            product_scores.bold_soul += 1.7;
+            product_scores.campfire_rebel += 0;
+            product_scores.cuddle_punk += 0;
+            product_scores.gilded_fox += 1.4;
+            product_scores.lil_dipper += 0;
+            product_scores.merry_maker += 1.3;
+            product_scores.mystical_misfit += 1.9; 
+            product_scores.pillowtalk_poet += 0;
+            product_scores.pinrose += 1.3;
+            product_scores.secret_genius += 0;
+            product_scores.sun_saint += 0;
+            product_scores.tambourine_dreamer += 1.7;
+            product_scores.treehouse_royal += 1.4;
+            product_scores.wild_child += 1.3;
+          }else{
+             product_scores.bold_soul += 0;
+            product_scores.campfire_rebel += 1.4;
+            product_scores.cuddle_punk += 1.5;
+            product_scores.gilded_fox += 0;
+            product_scores.lil_dipper += 1.6;
+            product_scores.merry_maker += 0;
+            product_scores.mystical_misfit += 0; 
+            product_scores.pillowtalk_poet += 1.7;
+            product_scores.pinrose += 0;
+            product_scores.secret_genius += 1.4;
+            product_scores.sun_saint += 1.4;
+            product_scores.tambourine_dreamer += 0;
+            product_scores.treehouse_royal += 0;
+            product_scores.wild_child += 0;
+          }
+          
+        }
+        if(property == 'question_quiz-element-two'){
+          if(savedData[property] == 'left'){
+           product_scores.bold_soul += 0;
+            product_scores.campfire_rebel += 1.5;
+            product_scores.cuddle_punk += 0;
+            product_scores.gilded_fox += 1.4;
+            product_scores.lil_dipper += 1.2;
+            product_scores.merry_maker += 1;
+            product_scores.mystical_misfit += 0; 
+            product_scores.pillowtalk_poet += 0;
+            product_scores.pinrose += 0;
+            product_scores.secret_genius += 1.5;
+            product_scores.sun_saint += 0;
+            product_scores.tambourine_dreamer += 0;
+            product_scores.treehouse_royal += 0;
+            product_scores.wild_child += 1;
+          }else{
+            product_scores.bold_soul += 1.7;
+            product_scores.campfire_rebel += 0;
+            product_scores.cuddle_punk += 1.2;
+            product_scores.gilded_fox += 0;
+            product_scores.lil_dipper += 0;
+            product_scores.merry_maker += 0;
+            product_scores.mystical_misfit += 1.2; 
+            product_scores.pillowtalk_poet += 1.2;
+            product_scores.pinrose += 2.4;
+            product_scores.secret_genius += 0;
+            product_scores.sun_saint += 1.0;
+            product_scores.tambourine_dreamer += 1.3;
+            product_scores.treehouse_royal += 1.3;
+            product_scores.wild_child += 0;
+          }    
+          
+        }
+        if(property == 'question_quiz-texture-one'){
+          if(savedData[property] == 'left'){
+            product_scores.bold_soul += 0;
+            product_scores.campfire_rebel += 0;
+            product_scores.cuddle_punk += 0;
+            product_scores.gilded_fox += 0;
+            product_scores.lil_dipper += 1.4;
+            product_scores.merry_maker += 0;
+            product_scores.mystical_misfit += 1.6; 
+            product_scores.pillowtalk_poet += 1.3;
+            product_scores.pinrose += 1.2;
+            product_scores.secret_genius += 0;
+            product_scores.sun_saint += 1.2;
+            product_scores.tambourine_dreamer += 1.1;
+            product_scores.treehouse_royal += 1.4;
+            product_scores.wild_child += 2;
+          }else{
+            product_scores.bold_soul += 1.3;
+            product_scores.campfire_rebel += 1.7;
+            product_scores.cuddle_punk += 1.6;
+            product_scores.gilded_fox += 1.4;
+            product_scores.lil_dipper += 0;
+            product_scores.merry_maker += 1.3;
+            product_scores.mystical_misfit += 0; 
+            product_scores.pillowtalk_poet += 0;
+            product_scores.pinrose += 0;
+            product_scores.secret_genius += 1.8;
+            product_scores.sun_saint += 0;
+            product_scores.tambourine_dreamer += 0;
+            product_scores.treehouse_royal += 0;
+            product_scores.wild_child += 0;
+          }    
+          
+        }
+        if(property == 'question_quiz-texture-two'){
+          if(savedData[property] == 'left'){
+          product_scores.bold_soul += 1.2;
+            product_scores.campfire_rebel += 0;
+            product_scores.cuddle_punk += 0;
+            product_scores.gilded_fox += 1.2;
+            product_scores.lil_dipper += 0;
+            product_scores.merry_maker += 1;
+            product_scores.mystical_misfit += 0; 
+            product_scores.pillowtalk_poet += 2.0;
+            product_scores.pinrose += 1.5;
+            product_scores.secret_genius += 0;
+            product_scores.sun_saint += 0;
+            product_scores.tambourine_dreamer += 1.7;
+            product_scores.treehouse_royal += 1.2;
+            product_scores.wild_child += 0;
+          }else{
+           product_scores.bold_soul += 0;
+            product_scores.campfire_rebel += 1.5;
+            product_scores.cuddle_punk += 1.6;
+            product_scores.gilded_fox += 0;
+            product_scores.lil_dipper += 1.2;
+            product_scores.merry_maker += 0;
+            product_scores.mystical_misfit += 1.0; 
+            product_scores.pillowtalk_poet += 0;
+            product_scores.pinrose += 0;
+            product_scores.secret_genius += 2;
+            product_scores.sun_saint += 1.7;
+            product_scores.tambourine_dreamer += 0;
+            product_scores.treehouse_royal += 0;
+            product_scores.wild_child += 1.0;
+          }    
+          
+        }
+        if(property == 'question_quiz-energy'){
+          if(savedData[property] == 'left'){
+            product_scores.bold_soul += 1.4;
+            product_scores.campfire_rebel += 1.5;
+            product_scores.cuddle_punk += 1.3;
+            product_scores.gilded_fox += 1.4;
+            product_scores.lil_dipper += 1.2;
+            product_scores.merry_maker += 1.2;
+            product_scores.mystical_misfit += 1.5; 
+            product_scores.pillowtalk_poet += 0;
+            product_scores.pinrose += 1.5;
+            product_scores.secret_genius += 0;
+            product_scores.sun_saint += 0;
+            product_scores.tambourine_dreamer += 0;
+            product_scores.treehouse_royal += 0;
+            product_scores.wild_child += 1.5;
+            
+            perfume_palette = 'Quiz22';
+          }else{
+            product_scores.bold_soul += 0;
+            product_scores.campfire_rebel += 0;
+            product_scores.cuddle_punk += 0;
+            product_scores.gilded_fox += 0;
+            product_scores.lil_dipper += 0;
+            product_scores.merry_maker += 0;
+            product_scores.mystical_misfit += 0; 
+            product_scores.pillowtalk_poet += 1.7;
+            product_scores.pinrose += 0;
+            product_scores.secret_genius += 1.2;
+            product_scores.sun_saint += 1.9;
+            product_scores.tambourine_dreamer += 1.5;
+            product_scores.treehouse_royal += 2.2;
+            product_scores.wild_child += 0;
+            
+            perfume_palette = 'Quiz22';
+           // perfume_palette = 'subtle';
+          }    
+          
+        }
+        if(property == 'question_quiz-green-gold'){
+          if(savedData[property] == 'left'){
+            product_scores.bold_soul += 1.4;
+            product_scores.campfire_rebel += 0;
+            product_scores.cuddle_punk += 1.1;
+            product_scores.gilded_fox += 0;
+            product_scores.lil_dipper += 1.4;
+            product_scores.merry_maker += 0;
+            product_scores.mystical_misfit += 1.4; 
+            product_scores.pillowtalk_poet += 0;
+            product_scores.pinrose += 1.6;
+            product_scores.secret_genius += 0;
+            product_scores.sun_saint += 0;
+            product_scores.tambourine_dreamer += 1.5;
+            product_scores.treehouse_royal += 1.2;
+            product_scores.wild_child += 0;
+          }else{
+            product_scores.bold_soul += 0;
+            product_scores.campfire_rebel += 1.7;
+            product_scores.cuddle_punk += 0;
+            product_scores.gilded_fox += 1.0;
+            product_scores.lil_dipper += 0;
+            product_scores.merry_maker += 2.7;
+            product_scores.mystical_misfit += 0; 
+            product_scores.pillowtalk_poet += 1.5;
+            product_scores.pinrose += 0;
+            product_scores.secret_genius += 1.8;
+            product_scores.sun_saint += 1.8;
+            product_scores.tambourine_dreamer += 0;
+            product_scores.treehouse_royal += 0;
+            product_scores.wild_child += 1.2;
+          }    
+          
+        }
+        if(property == 'question_quiz-beach-mountain'){
+          if(savedData[property] == 'left'){
+            product_scores.bold_soul += 0;
+            product_scores.campfire_rebel += 0;
+            product_scores.cuddle_punk += 0;
+            product_scores.gilded_fox += 0;
+            product_scores.lil_dipper += 1.2;
+            product_scores.merry_maker += 1.6;
+            product_scores.mystical_misfit += 1.3; 
+            product_scores.pillowtalk_poet += 0;
+            product_scores.pinrose += 0;
+            product_scores.secret_genius += 0;
+            product_scores.sun_saint += 2.1;
+            product_scores.tambourine_dreamer += 1.7;
+            product_scores.treehouse_royal += 0;
+            product_scores.wild_child += 0;
+          }else{
+            product_scores.bold_soul += 1.7;
+            product_scores.campfire_rebel += 1.0;
+            product_scores.cuddle_punk += 1.1;
+            product_scores.gilded_fox += 1.3;
+            product_scores.lil_dipper += 0;
+            product_scores.merry_maker += 0;
+            product_scores.mystical_misfit += 0; 
+            product_scores.pillowtalk_poet += 1.6;
+            product_scores.pinrose += 1.7;
+            product_scores.secret_genius += 1.3;
+            product_scores.sun_saint += 0;
+            product_scores.tambourine_dreamer += 0;
+            product_scores.treehouse_royal += 1.6;
+            product_scores.wild_child += 1.0;
+          }    
+          
+        }
+        if(property == 'question_quiz-ingredient-one'){
+          if(savedData[property] == 'left'){
+            product_scores.bold_soul += 0;
+            product_scores.campfire_rebel += 0;
+            product_scores.cuddle_punk += 0;
+            product_scores.gilded_fox += 0;
+            product_scores.lil_dipper += 1.9;
+            product_scores.merry_maker += 1.7;
+            product_scores.mystical_misfit += 1.6; 
+            product_scores.pillowtalk_poet += 0;
+            product_scores.pinrose += 1.2;
+            product_scores.secret_genius += 0;
+            product_scores.sun_saint += 1.7;
+            product_scores.tambourine_dreamer += 0;
+            product_scores.treehouse_royal += 1.2;
+            product_scores.wild_child += 0;
+            
+           // perfume_palette = perfume_palette + ',fruity';
+          }else{
+           product_scores.bold_soul += 2.0;
+            product_scores.campfire_rebel += 1.7;
+            product_scores.cuddle_punk += 1.7;
+            product_scores.gilded_fox += 1.8;
+            product_scores.lil_dipper += 0;
+            product_scores.merry_maker += 0;
+            product_scores.mystical_misfit += 0; 
+            product_scores.pillowtalk_poet += 1.3;
+            product_scores.pinrose += 0;
+            product_scores.secret_genius += 1.5;
+            product_scores.sun_saint += 0;
+            product_scores.tambourine_dreamer += 1.2;
+            product_scores.treehouse_royal += 0;
+            product_scores.wild_child += 1.6;
+            
+           // perfume_palette = perfume_palette + ',spicy';
+          }    
+          
+        }
+        if(property == 'question_quiz-ingredient-two'){
+          if(savedData[property] == 'left'){
+            product_scores.bold_soul += 1.4;
+            product_scores.campfire_rebel += 0;
+            product_scores.cuddle_punk += 0;
+            product_scores.gilded_fox += 0;
+            product_scores.lil_dipper += 1.7;
+            product_scores.merry_maker += 1.4;
+            product_scores.mystical_misfit += 0; 
+            product_scores.pillowtalk_poet += 1.2;
+            product_scores.pinrose += 1.2;
+            product_scores.secret_genius += 0;
+            product_scores.sun_saint += 1.0;
+            product_scores.tambourine_dreamer += 1.4;
+            product_scores.treehouse_royal += 0;
+            product_scores.wild_child += 1.6;
+            
+           // perfume_palette = perfume_palette + ',floral';
+          }else{
+            product_scores.bold_soul += 0;
+            product_scores.campfire_rebel += 1.7;
+            product_scores.cuddle_punk += 1.8;
+            product_scores.gilded_fox += 1.6;
+            product_scores.lil_dipper += 0;
+            product_scores.merry_maker += 0;
+            product_scores.mystical_misfit += 1.4; 
+            product_scores.pillowtalk_poet += 0;
+            product_scores.pinrose += 0;
+            product_scores.secret_genius += 1.4;
+            product_scores.sun_saint += 0;
+            product_scores.tambourine_dreamer += 0;
+            product_scores.treehouse_royal += 1.9;
+            product_scores.wild_child += 0;
+            
+           // perfume_palette = perfume_palette + ',woods';
+          }    
+          
+        }
+
+        //   Audio Scores copied from Ingredients:            	
+        if(property == 'question_quiz-pick-a-sound'){	
+          if(savedData[property] == 'left'){	
+            product_scores.bold_soul += 0;	
+            product_scores.campfire_rebel += 0;	
+            product_scores.cuddle_punk += 0;	
+            product_scores.gilded_fox += 0;	
+            product_scores.lil_dipper += 1.4;	
+            product_scores.merry_maker += 0;	
+            product_scores.mystical_misfit += 1.6; 	
+            product_scores.pillowtalk_poet += 1.3;	
+            product_scores.pinrose += 1.2;	
+            product_scores.secret_genius += 0;	
+            product_scores.sun_saint += 1.2;	
+            product_scores.tambourine_dreamer += 1.1;	
+            product_scores.treehouse_royal += 1.4;	
+            product_scores.wild_child += 2.0;	
+            	
+           // perfume_palette = perfume_palette + ',fruity';	
+          }else{	
+           product_scores.bold_soul += 1.3;	
+            product_scores.campfire_rebel += 1.7;	
+            product_scores.cuddle_punk += 1.6;	
+            product_scores.gilded_fox += 1.4;	
+            product_scores.lil_dipper += 0;	
+            product_scores.merry_maker += 1.3;	
+            product_scores.mystical_misfit += 0; 	
+            product_scores.pillowtalk_poet += 0;	
+            product_scores.pinrose += 0;	
+            product_scores.secret_genius += 1.8;	
+            product_scores.sun_saint += 0;	
+            product_scores.tambourine_dreamer += 0;	
+            product_scores.treehouse_royal += 0;	
+            product_scores.wild_child += 0;	
+            	
+           // perfume_palette = perfume_palette + ',spicy';	
+          }    	
+          	
+        }	
+
+        if(property == 'question_quiz-pick-a-sound-2'){	
+          if(savedData[property] == 'left'){	
+            product_scores.bold_soul += 0;	
+            product_scores.campfire_rebel += 0;	
+            product_scores.cuddle_punk += 0;	
+            product_scores.gilded_fox += 0;	
+            product_scores.lil_dipper += 0;	
+            product_scores.merry_maker += 0;	
+            product_scores.mystical_misfit += 0; 	
+            product_scores.pillowtalk_poet += 1.7;	
+            product_scores.pinrose += 0;	
+            product_scores.secret_genius += 1.2;	
+            product_scores.sun_saint += 1.9;	
+            product_scores.tambourine_dreamer += 1.5;	
+            product_scores.treehouse_royal += 2.2;	
+            product_scores.wild_child += 0;	
+            	
+           // perfume_palette = perfume_palette + ',floral';	
+          }else{	
+            product_scores.bold_soul += 1.4;	
+            product_scores.campfire_rebel += 1.5;	
+            product_scores.cuddle_punk += 1.3;	
+            product_scores.gilded_fox += 1.4;	
+            product_scores.lil_dipper += 1.2;	
+            product_scores.merry_maker += 1.2;	
+            product_scores.mystical_misfit += 1.5; 	
+            product_scores.pillowtalk_poet += 0;	
+            product_scores.pinrose += 1.5;	
+            product_scores.secret_genius += 0;	
+            product_scores.sun_saint += 0;	
+            product_scores.tambourine_dreamer += 0;	
+            product_scores.treehouse_royal += 0;	
+            product_scores.wild_child += 1.5;	
+            	
+           // perfume_palette = perfume_palette + ',woods';	
+          }    	
+          	
+        }
+        
+      }
+      
+//       if(perfume_palette == 'subtle,spicy,woods'){
+//          perfume_palette_number = 8;
+//       }else if(perfume_palette == 'bold,spicy,woods'){
+//          perfume_palette_number = 7;
+//       }else if(perfume_palette == 'subtle,fruity,woods'){
+//          perfume_palette_number = 6;
+//       }else if(perfume_palette == 'bold,fruity,woods'){
+//          perfume_palette_number = 5;
+//       }else if(perfume_palette == 'subtle,spicy,floral'){
+//          perfume_palette_number = 4;
+//       }else if(perfume_palette =='bold,spicy,floral'){
+//          perfume_palette_number = 3;
+//       }else if(perfume_palette == 'subtle,fruity,floral'){
+//          perfume_palette_number = 2;
+//       }else if(perfume_palette == 'bold,fruity,floral'){
+//          perfume_palette_number = 1;
+//       }
+        
+        
+      console.log(`Perfume Palette: ${perfume_palette} | #${perfume_palette_number}`);
+      console.log(product_scores);
+      let high_score = 0;
+      let winner = '';
+      for (const score in product_scores) {
+        if(product_scores[score] >= high_score ){
+        	winner = score;
+           high_score = product_scores[score];
+        }
+        console.log(`Product: ${score} | Score: ${product_scores[score]}`);
+        console.log(`Winner: ${winner} | Score: ${high_score}`);
+      }
+      
+      winner = winner.replace('_', '-');
+      console.log(`Winner: ${winner}`);
+      
+      
+//       document.getElementById('winner_span').innerHTML = winner;
+//       document.getElementById('profile_span').innerHTML = `${perfume_palette} (${perfume_palette_number})`;
+      
+      let calculated_results = {
+        'product_slug': winner,
+        'perfume_profile': perfume_palette_number,
+        'perfume_palette': perfume_palette
+      }
+      
+      jQuery.getJSON('/products/' + winner + '.js',function(product) {
+        console.log(product);
+
+        calculated_results.product = product.title;
+        
+        localStorage.setItem(resultsIdentifier, JSON.stringify(calculated_results));
+      });
+      
+      
+      
+      gs_name = savedData['question_quiz-name'];
+      gs_email = savedData['question_quiz-email'];
+      gs_winner = winner;
+      gs_palette = perfume_palette;
+      gs_profile = perfume_palette_number;
+      
+    }
+  };
+  
+  const redirectToEmail = () => {	
+    window.location.replace("https://pinrose.com/pages/quiz-email");	
+  }
+  const redirectToResults = () => {
+    window.location.replace("https://pinrose.com/pages/quiz-results");
+  }
+
+  const sendToKlaviyo = () => {
+    // Klaviyo
+    var _learnq = _learnq || [];
+    var email = '';
+  
+    email = $('#question_quiz-email').val();
+    console.log('Name: ' + gs_name);
+    // Do some light validation. Klaviyo will do more validation when the data is received.
+
+      _learnq.push(['identify', { 
+        '$name': savedData['question_quiz-name']       
+      }]);
+//     }
+
+  
+  
+//   function track_step(step_number, step_name){
+//     console.log(step_number + ': ' + step_name);
+
+//     var step = "Step " + step_number;
+
+//     _learnq.push(['identify', { 
+//       [step]: step_name
+//      }]);
+//   }    
+  
+  // end klaviyo
+  
+  }
+  
+  
+  {% if page.handle == 'quiz-analysis' or page.handle == 'quiz-analyze' %}	
+		document.onload = calculateResults(); // populate the form when the document is loaded	
+//      setTimeout( redirectToEmail, 18000);    	
+	    setTimeout( redirectToResults, 18000);	
+  {% elsif page.handle == 'quiz-email' %}	
+  	
+// 	document.onload = calculateResults(); // populate the form when the document is loaded    	
+// 	setTimeout( redirectToResults, 18000);	
+  
+  {% else %}
+  	document.onload = populateForm(); // populate the form when the document is loaded
+  {% endif %}
+  
+</script>
+
+
+{% if page.handle == 'quiz-analysis' or page.handle == 'quiz-analyze' %}
+<button id="authorize_button" style="display: none;">Authorize</button>
+    <button id="signout_button" style="display: none;">Sign Out</button>
+
+    <pre id="content" style="white-space: pre-wrap;"></pre>
+
+
+
+    <script type="text/javascript">
+      // Google Sheets API scripts
+      // Client ID and API key from the Developer Console
+      var CLIENT_ID = '437991795601-6coskia9d0sd8a9bg6993p3b9228amn5.apps.googleusercontent.com';
+      var API_KEY = 'AIzaSyACWCCt52kGePd2_LvRyX8RPZu0n0GwdWE';
+
+      // Array of API discovery doc URLs for APIs used by the quickstart
+      var DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
+
+      // Authorization scopes required by the API; multiple scopes can be
+      // included, separated by spaces.
+      var SCOPES = "https://www.googleapis.com/auth/spreadsheets";
+
+      var authorizeButton = document.getElementById('authorize_button');
+      var signoutButton = document.getElementById('signout_button');
+
+      /**
+       *  On load, called to load the auth2 library and API client library.
+       */
+      function handleClientLoad() {
+        gapi.load('client:auth2', initClient);
+      }
+
+      /**
+       *  Initializes the API client library and sets up sign-in state
+       *  listeners.
+       */
+      function initClient() {
+        gapi.client.init({
+          apiKey: API_KEY,
+          clientId: CLIENT_ID,
+          discoveryDocs: DISCOVERY_DOCS,
+          scope: SCOPES
+        }).then(function () {
+          // Listen for sign-in state changes.
+          gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+
+          // Handle the initial sign-in state.
+          updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+//           authorizeButton.onclick = handleAuthClick;
+//           signoutButton.onclick = handleSignoutClick;
+        }, function(error) {
+          appendPre(JSON.stringify(error, null, 2));
+        });
+      }
+
+      /**
+       *  Called when the signed in status changes, to update the UI
+       *  appropriately. After a sign-in, the API is called.
+       */
+      function updateSigninStatus(isSignedIn) {
+        if (isSignedIn) {
+          
+          var timestamp = new Date();
+//           var formatted_date = `${timestamp.getMonth()}/${timestamp.getDate()}/${timestamp.getFullYear()}`;
+          var profileTitle = getProfileTitle(gs_profile);
+
+          addResultsToSpreadsheet(gs_name, gs_email, gs_winner, gs_palette, profileTitle, timestamp);
+          listResults();
+          
+        } else {
+
+        }
+      }
+
+      /**
+       *  Sign in the user upon button click.
+       */
+      function handleAuthClick(event) {
+        gapi.auth2.getAuthInstance().signIn();
+      }
+
+      /**
+       *  Sign out the user upon button click.
+       */
+      function handleSignoutClick(event) {
+        gapi.auth2.getAuthInstance().signOut();
+      }
+
+      /**
+       * Append a pre element to the body containing the given message
+       * as its text node. Used to display the results of the API call.
+       *
+       * @param {string} message Text to be placed in pre element.
+       */
+      function appendPre(message) {
+        var pre = document.getElementById('content');
+        var textContent = document.createTextNode(message + '\n');
+        pre.appendChild(textContent);
+      }
+
+      /**
+       * Print the names and majors of students in a sample spreadsheet:
+       * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
+       */
+      function listResults() {
+        gapi.client.sheets.spreadsheets.values.get({
+          spreadsheetId: '1JR-QAkgUrMHO2eXRPYfxBKLgxKCuQbxBdLdZschumv0',
+          range: 'A2',
+        }).then(function(response) {
+          var range = response.result;
+          console.log(range);
+          if (range.values.length > 0) {
+            appendPre('Quiz Results Data:');
+            for (i = 0; i < range.values.length; i++) {
+              var row = range.values[i];
+              // Print columns A and E, which correspond to indices 0 and 4.
+              appendPre(row[0] + ', ' + row[4]);
+            }
+          } else {
+            appendPre('No data found.');
+          }
+        }, function(response) {
+          appendPre('Error: ' + response.result.error.message);
+        });
+      }
+      
+    function addResultsToSpreadsheet(name, email, product, palette, profile, timestamp) {
+      var params = {
+        // The ID of the spreadsheet to update.
+        spreadsheetId: '1JR-QAkgUrMHO2eXRPYfxBKLgxKCuQbxBdLdZschumv0',  // TODO: Update placeholder value.
+
+        // The A1 notation of a range to search for a logical table of data.
+        // Values will be appended after the last row of the table.
+        range: 'A2',  // TODO: Update placeholder value.
+
+        // How the input data should be interpreted.
+        valueInputOption: 'USER_ENTERED',  // TODO: Update placeholder value.
+
+        // How the input data should be inserted.
+        insertDataOption: 'INSERT_ROWS',  // TODO: Update placeholder value.
+      };
+
+      var valueRangeBody = {
+         "majorDimension": "ROWS",
+          "range": "A2",
+          "values": [
+            [
+              name,
+              email,
+              product,
+              palette,
+              profile,
+              timestamp
+            ]
+           ]
+      };
+
+      var request = gapi.client.sheets.spreadsheets.values.append(params, valueRangeBody);
+      request.then(function(response) {
+        // TODO: Change code below to process the `response` object:
+        console.log(response.result);
+      }, function(reason) {
+        console.error('error: ' + reason.result.error.message);
+      });
+    }
+      
+      function getProfileTitle(profile_number) {
+        var profile_title = "";
+        
+		switch(profile_number) {
+  		        
+          case 1:
+            profile_title = 'Gentle And Fierce';
+            break;
+          case 2:
+            profile_title = 'Earthy And Divine';
+            break;
+          case 3:
+            profile_title = 'Joyous And Free';
+            break;
+          case 4:
+            profile_title = 'Light And Sparkling';
+            break;
+          case 5:
+            profile_title = 'Lush And Moody';
+            break;
+          case 6:
+            profile_title = 'Magnetic And Lush';
+            break;
+          case 7:
+            profile_title = 'Smart And Free';
+            break;
+          case 8:
+            profile_title = 'Seductive And Serene';
+            break;
+          default:
+            // code block
+      	}  
+        
+        return profile_title;
+        
+      }
+
+    </script>
+
+    <script async defer src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
+
+{% endif %}

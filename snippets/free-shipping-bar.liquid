@@ -1,0 +1,28 @@
+{% assign fs_amount =  settings.free_shipping_amount | plus: 0 %}
+{% assign cart_subtotal = cart.items_subtotal_price | money_without_currency | plus: 0 %}
+{% assign zero = 0 %}
+
+<div id="free_shipping_bar">
+  {%if settings.free_shipping_link != blank %}
+ <a href="{{ settings.free_shipping_link }}">
+   {%endif%}
+
+  {% if cart_subtotal == zero %}
+  
+   {{settings.free_shipping_label}} <span id="fs_amount">{{settings.free_shipping_amount | prepend: '$'}}</span>
+  
+  {% elsif cart_subtotal < fs_amount %}
+          <p>
+            Only
+            <span id="fs_amount"> {{ fs_amount | minus: cart_subtotal | prepend: '$' }}</span>
+            Away from FREE SHIPPING!
+          </p>
+  {% elsif cart_subtotal > fs_amount %}
+  
+      Congratulations! You've got free shipping!
+  
+  {% endif %}
+    {%if settings.free_shipping_link != blank %}
+  </a>
+     {%endif%}
+</div>

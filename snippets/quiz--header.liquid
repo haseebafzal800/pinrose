@@ -1,0 +1,12 @@
+<div id="quiz--header"> 
+  {% if prev_page != blank %}
+  <a href="/pages/{{ prev_page }}" class="btn--back">{% include 'icon-quiz-back' %}<span class="fallback-text" >back</span></a>
+  {% endif %}
+  <div class="logo-box">
+    <img class="" src="//cdn.shopify.com/s/files/1/1979/4109/files/Logo_black_220x.png?v=1565387593" srcset="//cdn.shopify.com/s/files/1/1979/4109/files/Logo_black_220x.png?v=1565387593 1x, //cdn.shopify.com/s/files/1/1979/4109/files/Logo_black_220x@2x.png?v=1565387593 2x" alt="Pinrose" itemprop="logo">
+    <span>SCENT PROFILE QUIZ</span>
+  </div>
+  {% if restart_page != blank %}
+  <a href="/pages/{{ restart_page }}" class="btn--restart">{% include 'icon-quiz-restart' %}<span class="fallback-text" >reset</span></a>
+  {% endif %}
+</div>

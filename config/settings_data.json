@@ -1,0 +1,3307 @@
+{
+  "current": {
+    "color_body_bg": "#ffffff",
+    "color_body_text": "#000000",
+    "color_price": "#1c1d1d",
+    "color_savings_text": "#ff4e4e",
+    "color_borders": "#e8e8e1",
+    "color_button": "#000000",
+    "color_button_text": "#fff",
+    "color_cart_dot": "#ff4f33",
+    "color_small_image_bg": "#fff",
+    "color_large_image_bg": "#ffffff",
+    "color_header": "#ffffff",
+    "color_header_text": "#000000",
+    "color_announcement": "#000000",
+    "color_announcement_text": "#ffffff",
+    "color_footer": "#ffffff",
+    "color_footer_text": "#000000",
+    "color_drawer_background": "#ffffff",
+    "color_drawer_text": "#000000",
+    "color_drawer_border": "#e8e8e1",
+    "color_drawer_button": "#111111",
+    "color_drawer_button_text": "#ffffff",
+    "color_modal_overlays": "#e6e6e6",
+    "color_image_text": "#000000",
+    "color_image_overlay": "#ffffff",
+    "color_image_overlay_opacity": 10,
+    "color_image_overlay_text_shadow": 5,
+    "type_header_font_family": "helvetica_n3",
+    "type_header_spacing": "0",
+    "type_header_base_size": 30,
+    "type_header_line_height": 1,
+    "type_header_capitalize": true,
+    "type_headers_align_text": true,
+    "type_base_font_family": "helvetica_n4",
+    "type_base_spacing": "0",
+    "type_base_size": 17,
+    "type_base_line_height": 1.4,
+    "type_body_align_text": true,
+    "type_navigation_style": "body",
+    "type_navigation_size": 12,
+    "type_product_style": "body",
+    "type_collection_font": "body",
+    "type_collection_size": 19,
+    "button_style": "square",
+    "icon_weight": "3px",
+    "icon_linecaps": "miter",
+    "vendor_enable": false,
+    "sku_enable": false,
+    "quantity_enable": true,
+    "variant_labels_enable": true,
+    "variant_type": "dropdown",
+    "enable_payment_button": true,
+    "inventory_enable": false,
+    "product_save_amount": true,
+    "product_save_type": "dollar",
+    "product_zoom_enable": true,
+    "quick_shop_enable": true,
+    "quick_shop_text": "Quick view",
+    "product_grid_image_size": "natural",
+    "product_hover_image": true,
+    "product_color_swatches": false,
+    "collection_color_swatches": false,
+    "swatch_style": "round",
+    "product_content_1": "",
+    "product_content_collapse_1": true,
+    "product_content_2": "",
+    "product_content_collapse_2": true,
+    "product_content_3": "",
+    "product_content_collapse_3": true,
+    "product_contact": false,
+    "product_contact_title": "Ask a question",
+    "product_contact_show_phone": false,
+    "enable_product_reviews": false,
+    "reviews_layout": "expandable",
+    "collection_grid_style": "below",
+    "collection_grid_shape": "landscape",
+    "collection_grid_image": "product",
+    "collection_grid_text_align": "center",
+    "collection_grid_tint": "#000000",
+    "collection_grid_opacity": 0,
+    "collection_grid_gutter": true,
+    "cart_type": "page",
+    "cart_additional_buttons": false,
+    "cart_notes_enable": false,
+    "cart_terms_conditions_enable": false,
+    "cart_terms_conditions_link": "",
+    "social_facebook_link": "https:\/\/www.facebook.com\/pinrosescents",
+    "social_twitter_link": "",
+    "social_pinterest_link": "http:\/\/www.pinterest.com\/pinrosescents\/",
+    "social_instagram_link": "https:\/\/www.instagram.com\/pinrosescents",
+    "social_snapchat_link": "",
+    "social_tumblr_link": "",
+    "social_linkedin_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "share_facebook": true,
+    "share_twitter": false,
+    "share_pinterest": true,
+    "favicon": "shopify:\/\/shop_images\/bottles.jpg",
+    "search_type": "product",
+    "show_breadcrumbs": false,
+    "free_shipping_amount": "75",
+    "free_shipping_label": "Free shipping over",
+    "free_shipping_link": "shopify:\/\/collections",
+    "checkout_header_image": "",
+    "checkout_logo_image": "",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "small",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#ffffff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#ffffff",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#111111",
+    "checkout_button_color": "#111111",
+    "checkout_error_color": "#ff89ce",
+    "product_video_width": "960",
+    "product_video_height": "1280",
+    "product_video_style": "muted",
+    "enable_currencies": false,
+    "currency_format": "money_format",
+    "supported_currencies": "USD CAD INR GBP AUD EUR JPY",
+    "default_currency": "USD",
+    "homepage_social_image": "",
+    "breadcrumb": true,
+    "sections": {
+      "header": {
+        "type": "header",
+        "blocks": {
+          "1524770014057": {
+            "type": "logo",
+            "settings": {
+              "logo": "shopify:\/\/shop_images\/Logo_black.png",
+              "logo-inverted": "shopify:\/\/shop_images\/Logo_white.png",
+              "desktop_logo_width": 220,
+              "mobile_logo_width": 130
+            }
+          }
+        },
+        "block_order": [
+          "1524770014057"
+        ],
+        "custom_css": [
+
+        ],
+        "settings": {
+          "main_menu_link_list": "impulse-menu",
+          "mega_menu_images": true,
+          "main_menu_alignment": "center",
+          "header_style": "normal",
+          "sticky_index": false,
+          "sticky_collection": false,
+          "announcement_compact": false,
+          "announcement_above_header": false,
+          "toolbar_menu": "",
+          "toolbar_social": false,
+          "show_locale_selector": true,
+          "show_currency_selector": true,
+          "show_currency_flags": true
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "1494301487049": {
+            "type": "menu",
+            "settings": {
+              "show_footer_title": false,
+              "menu": "footer",
+              "container_width": 65
+            }
+          },
+          "1494301487048": {
+            "type": "logo_social",
+            "settings": {
+              "desktop_logo_height": 40,
+              "container_width": 95
+            }
+          },
+          "5d4d6ef5-f6ab-45fc-a59d-75e78db1a986": {
+            "type": "newsletter",
+            "settings": {
+              "show_footer_title": true,
+              "title": "Connect With Us",
+              "text": "",
+              "container_width": 35
+            }
+          }
+        },
+        "block_order": [
+          "1494301487049",
+          "1494301487048",
+          "5d4d6ef5-f6ab-45fc-a59d-75e78db1a986"
+        ],
+        "settings": {
+          "show_locale_selector": false,
+          "show_currency_selector": false,
+          "show_currency_flags": false,
+          "show_payment_icons": false,
+          "show_copyright": true,
+          "copyright_text": ""
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "description_position": "top",
+          "subcollection_style": "none",
+          "subcollections_per_row": 5,
+          "enable_collection_count": false,
+          "per_row": 3,
+          "rows_per_page": 15,
+          "mobile_flush_grid": false
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "description_style": "default",
+          "social_enable": true,
+          "image_position": "left",
+          "image_size": "large",
+          "thumbnail_position": "below",
+          "thumbnail_arrows": false,
+          "enable_video_looping": true,
+          "product_video_style": "muted"
+        }
+      },
+      "article-template": {
+        "type": "article-template",
+        "settings": {
+          "blog_show_tags": true,
+          "blog_show_date": true,
+          "blog_show_comments": true,
+          "blog_show_author": false,
+          "social_sharing_blog": true
+        }
+      },
+      "blog-template": {
+        "type": "blog-template",
+        "settings": {
+          "blog_show_tag_filter": false,
+          "blog_show_rss": false,
+          "blog_show_tags": false,
+          "blog_show_date": false,
+          "blog_show_comments": false,
+          "blog_show_author": false,
+          "blog_show_excerpt": false,
+          "blog_image_size": "wide"
+        }
+      },
+      "product-sections-template": {
+        "type": "product-sections-template",
+        "blocks": {
+          "1571771487433": {
+            "type": "hero-video",
+            "settings": {
+              "title": "Demo Video",
+              "title_size": 80,
+              "subheading": "Example Subheadline",
+              "link_text": "Play Now",
+              "link": "",
+              "text_align": "vertical-center horizontal-center",
+              "video_url": "https:\/\/youtu.be\/gWhrbP0GHKs",
+              "section_height": "650px",
+              "mobile_height": "auto"
+            }
+          },
+          "1571772040090": {
+            "type": "testimonials",
+            "settings": {
+              "title": "Featured Testimonials",
+              "align_text": "center",
+              "round_images": true,
+              "testimonial_1": "<p><em>I'm a professional in my 30s, so smelling like the typical sugar-sweet perfumes is simply not appropriate much of the time, but I happen to like vanilla. I love Secret Genius because it is a very mature vanilla scent. It is not even remotely sickly sweet, and yet it is delicious like cream soda, egg nog, and sugar cookies...but not like sticky, syrupy, or sickly sweet scents.<\/em><\/p>",
+              "image_1": "",
+              "author_1": "Anne, California",
+              "testimonial_2": "<p><em>This vanilla is so grown up because of the touch of sandalwood, but still sweet and warm. It has a creaminess to it that reminds me of cream soda. Delicious. Really really beautiful scent for fellow vanilla fans.<\/em><\/p>",
+              "image_2": "",
+              "author_2": "Rosalita, Florida"
+            }
+          },
+          "product-background-image-text": {
+            "type": "background-image-text",
+            "settings": {
+              "subtitle": "Scent notes",
+              "title": "Madagascan vanilla, caramel & sandalwood",
+              "text": "",
+              "button_label": "",
+              "button_link": "",
+              "image": "shopify:\/\/shop_images\/homemade-ice-cream-sandwiches.jpg",
+              "alignment": "center",
+              "color_border": "#f4f4f4",
+              "layout": "right",
+              "height": 550,
+              "parallax": true
+            }
+          },
+          "1571772325674": {
+            "type": "custom-html",
+            "settings": {
+              "full_width": false,
+              "space_around": true,
+              "code": "<iframe width=\"100%\" height=\"300\" scrolling=\"no\" frameborder=\"no\" allow=\"autoplay\" src=\"https:\/\/w.soundcloud.com\/player\/?url=https%3A\/\/api.soundcloud.com\/playlists\/344575124&color=%23f27aa8&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true\">\n<\/iframe>\n\n<a data-pin-do=\"embedBoard\" data-pin-board-width=\"400\" data-pin-scale-height=\"240\" data-pin-scale-width=\"80\" href=\"https:\/\/www.pinterest.com\/pinrosescents\/secret-genius\/\"><\/a>"
+            }
+          },
+          "1571774713765": {
+            "type": "rich-text",
+            "settings": {
+              "title": "Product Reviews",
+              "text": "<p>This section is a placeholder for the full product reviews.&nbsp;<\/p>",
+              "align_text": "left",
+              "narrow_column": true,
+              "enlarge_text": true
+            }
+          },
+          "1571775071125": {
+            "type": "text-and-image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ErikaShumate_Pinrose_WEB-800x382.jpg",
+              "image_width": 500,
+              "subtitle": "Founder Story",
+              "title": "Secret Genius",
+              "text": "<p>Secret Genius was one of the original scents we created when we started Pinrose. I was walking down the street and noticed the fresh smell of baked cookies in the distance on my way to a speakeasy in Francisco. I thought it'd be fun to create a fragrance that brought back childhood memories and the secrets we whisper during our childhood with best friends at sleepover parties. A mix of vanilla, common in bringing back memboies of home, and caramel, make this one of my favorite Pinrose fragrances.<\/p>",
+              "button_label": "",
+              "button_link": "",
+              "layout": "left"
+            }
+          },
+          "1571853452340": {
+            "type": "custom-html",
+            "settings": {
+              "full_width": false,
+              "space_around": true,
+              "code": "<iframe src=\"https:\/\/open.spotify.com\/embed\/playlist\/7Bt7cIQqG3eNzCrdPJmFPx\" width=\"1200\" height=\"380\" frameborder=\"0\" allowtransparency=\"true\" allow=\"encrypted-media\"><\/iframe>"
+            }
+          }
+        },
+        "block_order": [
+          "1571771487433",
+          "1571772040090",
+          "product-background-image-text",
+          "1571772325674",
+          "1571774713765",
+          "1571775071125",
+          "1571853452340"
+        ],
+        "settings": {
+        }
+      },
+      "page-sections-template": {
+        "type": "page-sections-template",
+        "blocks": {
+          "1600389376985": {
+            "type": "rich-text",
+            "settings": {
+              "title": "",
+              "text": "<p>Our mission is to deliver fun, quirky and quality perfumes wrapped in an original and playful experience that&rsquo;s uniquely yours.<\/p>",
+              "align_text": "center",
+              "narrow_column": true,
+              "enlarge_text": true
+            }
+          },
+          "1600394348732": {
+            "type": "text-and-image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/EllieSquare_2b69b47d-e260-444b-b371-fcf22a0f9205.jpg",
+              "image_width": 500,
+              "subtitle": "",
+              "title": "BORN TO PLAY",
+              "text": "<p>Perfume is personal, and the process of finding yours should be, too. This is our North Star, and why we started Pinrose. We didn&rsquo;t want to cater to trends; we wanted to offer perfumes with personality, and bring your preferences into play.<\/p>",
+              "button_label": "",
+              "button_link": "",
+              "layout": "left"
+            }
+          },
+          "1600394428175": {
+            "type": "text-and-image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Drop.jpg",
+              "image_width": 500,
+              "subtitle": "",
+              "title": "IN A PERSONAL WAY",
+              "text": "<p><br> We combined the psychology of olfaction with our business to not only create unique and colorful scents, but also suss out your perfume matches via the science of synesthesia (the interconnectedness of your five senses) and our unique quiz.<\/p>",
+              "button_label": "",
+              "button_link": "",
+              "layout": "right"
+            }
+          },
+          "1600394751573": {
+            "type": "text-and-image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/bee.jpg",
+              "image_width": 500,
+              "subtitle": "",
+              "title": "CLEAN BEAUTY SMELLS (AND DOES) BEAUTIFUL",
+              "text": "<p>From day one we&rsquo;ve been committed to toxin-free perfumes, so we work closely with our suppliers to source ingredients that won&rsquo;t hurt you or the environment, though sometimes synthetic is actually better on both counts! And we never test on animals.<\/p>",
+              "button_label": "",
+              "button_link": "",
+              "layout": "left"
+            }
+          },
+          "1600395100629": {
+            "type": "text-and-image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ocean.jpg",
+              "image_width": 500,
+              "subtitle": "",
+              "title": "DESTINATION SUSTAINABLE",
+              "text": "<p>Planet earth deserves clean beauty, too. That&rsquo;s why we take sustainability seriously. We&rsquo;re currently working on more sustainable packaging for everything from cartons to spray pumps, and our goal is for everything we make and sell to be sustainably sourced.<\/p>",
+              "button_label": "",
+              "button_link": "",
+              "layout": "right"
+            }
+          },
+          "1600395309893": {
+            "type": "text-and-image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/colorburst.jpg",
+              "image_width": 500,
+              "subtitle": "",
+              "title": "WE FIND YOUR SCENTS WITH YOUR SENSES",
+              "text": "<p>Our unique Scent Profile quiz assesses your sensory preferences to determine which of our 13 multifaceted perfumes are perfect for you. (And that&rsquo;s from over 1,048,000 combinations!)<\/p>",
+              "button_label": "",
+              "button_link": "",
+              "layout": "left"
+            }
+          },
+          "1600395387541": {
+            "type": "text-and-image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Herbs.jpg",
+              "image_width": 500,
+              "subtitle": "",
+              "title": "AND ONE SMELL DOESN’T FIT ALL",
+              "text": "<p>Perfume is about more than just smelling delicious; it&rsquo;s about discovering and expressing who you are and want to be. There&rsquo;s no such thing as &ldquo;too young&rdquo; or &ldquo;too mature&rdquo; or too anything when it comes to perfume. Let it come to your senses and speak to your spirit.<\/p>",
+              "button_label": "",
+              "button_link": "",
+              "layout": "right"
+            }
+          },
+          "1600395583146": {
+            "type": "rich-text",
+            "settings": {
+              "title": "READY TO SMELL LIFE IN COLOR™?",
+              "text": "<p>We&rsquo;re transforming the way people discover the fragrances that tickle their noses and hearts. <br>Come join the fun!<\/p>",
+              "align_text": "center",
+              "narrow_column": true,
+              "enlarge_text": true
+            }
+          }
+        },
+        "block_order": [
+          "1600389376985",
+          "1600394348732",
+          "1600394428175",
+          "1600394751573",
+          "1600395100629",
+          "1600395309893",
+          "1600395387541",
+          "1600395583146"
+        ],
+        "settings": {
+          "page_title_enable": false,
+          "page_content_enable": true
+        }
+      },
+      "newsletter-popup": {
+        "type": "newsletter-popup",
+        "settings": {
+          "mode": "disabled",
+          "popup_seconds": 5,
+          "popup_days": 30,
+          "popup_title": "Sign up and save",
+          "popup_text": "<p>Entice customers to sign up for your mailing list with discounts or exclusive offers. Include an image for extra impact.<\/p>",
+          "close_text": "No thanks",
+          "enable_newsletter": true,
+          "button_label": "Optional button",
+          "button_link": "",
+          "enable_button": false
+        }
+      },
+      "collection-header": {
+        "type": "collection-header",
+        "settings": {
+          "enable": true,
+          "collection_image_enable": true,
+          "parallax": false
+        }
+      },
+      "collection-sidebar": {
+        "type": "collection-sidebar",
+        "blocks": {
+          "1524772785241": {
+            "type": "subcollections",
+            "settings": {
+              "enable_subsubcollections": true,
+              "enable_count": false,
+              "collapsed": false
+            }
+          }
+        },
+        "block_order": [
+          "1524772785241"
+        ],
+        "settings": {
+          "enable_sidebar": false,
+          "filter_style": "sidebar",
+          "tags_combine": false,
+          "enable_sort": true
+        }
+      },
+      "collection-promotions": {
+        "type": "collection-promotions",
+        "settings": {
+          "gutter_size": 20
+        }
+      },
+      "footer-promotions": {
+        "type": "footer-promotions",
+        "blocks": {
+          "footer-promotions-0": {
+            "type": "promotion",
+            "disabled": true,
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/Quiz_bannerImgs_c3208c41-e1cc-4642-bbc2-929c858c4620.jpg",
+              "title": "START WITH THE QUIZ",
+              "text": "<p>Take our synesthesia-based quiz to get your personalized Scent Profile.<\/p>",
+              "button_label": "Discover My Scent Profile",
+              "button_link": "shopify:\/\/pages\/quiz"
+            }
+          },
+          "1567019440040": {
+            "type": "promotion",
+            "disabled": true,
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/SAMPLER-KIT-PETAL-BOX.jpg",
+              "title": "TRY THE SAMPLER KIT",
+              "text": "<p>Not sure? Check out the Sampler Kit to explore the entire PINROSE collection. <\/p>",
+              "button_label": "Shop Now",
+              "button_link": "shopify:\/\/products\/the-sampler-kit"
+            }
+          }
+        },
+        "block_order": [
+          "footer-promotions-0",
+          "1567019440040"
+        ],
+        "settings": {
+          "hide_homepage": true,
+          "image_size": "wide"
+        }
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "show_product_recommendations": true,
+          "product_recommendations_heading": "You may also like",
+          "related_count": 6
+        }
+      },
+      "recently-viewed": {
+        "type": "recently-viewed",
+        "settings": {
+          "show_section": true,
+          "recent_count": 5
+        }
+      },
+      "1565406957339": {
+        "type": "slideshow",
+        "blocks": {
+          "606c2f66-042b-40ab-9efa-89fa9613adad": {
+            "type": "image",
+            "disabled": true,
+            "settings": {
+              "top_subheading": "OUR END OF SUMMER SALE IS HERE",
+              "title": "TAKE 25% OFF SITEWIDE",
+              "subheading": "USE CODE TAKE25",
+              "heading_size": 18,
+              "title_size": 48,
+              "paragraph_size": 18,
+              "link": "shopify:\/\/collections\/shop-all",
+              "link_text": "SHOP NOW",
+              "link_2": "",
+              "link_text_2": "",
+              "color_accent": "#000000",
+              "text_align": "vertical-center horizontal-right",
+              "image": "shopify:\/\/shop_images\/pinrose-main-banner_1.png",
+              "focal_point": "center center",
+              "mobile_heading_size": 14,
+              "mobile_title_size": 16,
+              "mobile_paragraph_size": 12
+            }
+          },
+          "fea9afeb-9d3e-438d-a995-ddbb4ec8bf69": {
+            "type": "image",
+            "disabled": true,
+            "settings": {
+              "top_subheading": "our memorial day sale takes flight",
+              "title": "travel light",
+              "subheading": "Purse and pocket perfumes, all ready to go!",
+              "heading_size": 18,
+              "title_size": 90,
+              "paragraph_size": 18,
+              "link": "shopify:\/\/collections\/travel-sprays",
+              "link_text": "buy 3, get 1 free",
+              "link_2": "",
+              "link_text_2": "",
+              "color_accent": "#000000",
+              "text_align": "vertical-center horizontal-right",
+              "image": "shopify:\/\/shop_images\/PINROSE_smell-life-in-color_June-21_hp_v1_rs.jpg",
+              "focal_point": "20% 50%",
+              "mobile_heading_size": 14,
+              "mobile_title_size": 16,
+              "mobile_paragraph_size": 12
+            }
+          },
+          "844cedb4-6337-4804-a252-42896ff2924f": {
+            "type": "image",
+            "settings": {
+              "top_subheading": "The Scents of Your Senses",
+              "title": "Seductive Comforting Clever",
+              "subheading": "An intoxicating blend of caramel, Madagascan vanilla and sandalwood",
+              "heading_size": 18,
+              "title_size": 48,
+              "paragraph_size": 18,
+              "link": "shopify:\/\/collections\/secret-genius-collection",
+              "link_text": "Shop Secret Genius",
+              "link_2": "shopify:\/\/collections\/secret-genius-collection",
+              "link_text_2": "",
+              "color_accent": "#000000",
+              "text_align": "vertical-center horizontal-right",
+              "image": "shopify:\/\/shop_images\/Secret_Genius-Desktop.jpg",
+              "focal_point": "center center",
+              "mobile-image": "shopify:\/\/shop_images\/Asset_1.png",
+              "mobile_heading_size": 8,
+              "mobile_title_size": 32,
+              "mobile_paragraph_size": 14
+            }
+          }
+        },
+        "block_order": [
+          "606c2f66-042b-40ab-9efa-89fa9613adad",
+          "fea9afeb-9d3e-438d-a995-ddbb4ec8bf69",
+          "844cedb4-6337-4804-a252-42896ff2924f"
+        ],
+        "settings": {
+          "section_height": "750px",
+          "mobile_height": "400px",
+          "parallax": false,
+          "style": "minimal",
+          "autoplay": true,
+          "autoplay_speed": 10
+        }
+      },
+      "1565738750889": {
+        "type": "text-columns",
+        "blocks": {
+          "1565738750889-0": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/smell-life-in-color_PINROSE_HOME-PAGE-CANDLE_2.jpg",
+              "image_width": 400,
+              "title": "",
+              "text": "<p>A beautiful space: <br\/>Fill the air with PINROSE scents!<\/p>",
+              "button_label": "Shop Candles",
+              "button_link": "shopify:\/\/collections\/gifts-candles"
+            }
+          },
+          "1567106085389": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/smell-life-in-color_PINROSE_HOME-PAGE-PETALS.jpg",
+              "image_width": 400,
+              "title": "",
+              "text": "<p>The Petal Sampler Kit:<br\/>An ultra-portable, perfect dose of fragrance.<\/p>",
+              "button_label": "SHOP NOW",
+              "button_link": "shopify:\/\/products\/the-sampler-kit"
+            }
+          },
+          "1565738750889-1": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/smell-life-in-color_PINROSE_HOME-PAGE-TRAVEL-SPRAY.jpg",
+              "image_width": 400,
+              "title": "",
+              "text": "<p>Take your favorite scents with you, <br\/>wherever you may go.<\/p>",
+              "button_label": "Shop Travel sprays",
+              "button_link": "shopify:\/\/collections\/travel-sprays"
+            }
+          }
+        },
+        "block_order": [
+          "1565738750889-0",
+          "1567106085389",
+          "1565738750889-1"
+        ],
+        "settings": {
+          "title": "PINROSE PLAY FAVORITES",
+          "align_text": "center",
+          "divider": false
+        }
+      },
+      "list-collections-template": {
+        "type": "list-collections-template",
+        "settings": {
+          "title_enable": true,
+          "display_type": "all",
+          "sort": "alphabetical",
+          "grid": "3"
+        }
+      },
+      "page-contact-template": {
+        "type": "page-contact-template",
+        "blocks": {
+          "page-contact-template-0": {
+            "type": "contact-form",
+            "settings": {
+              "title": "",
+              "show_phone": false,
+              "narrow_column": true
+            }
+          }
+        },
+        "block_order": [
+          "page-contact-template-0"
+        ],
+        "settings": {
+          "page_title_enable": true,
+          "page_content_enable": true
+        }
+      },
+      "1567117002287": {
+        "type": "text-columns",
+        "blocks": {
+          "1567117002287-0": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": false,
+              "image_width": 60,
+              "title": "CLEAN BEAUTY",
+              "text": "<p>All PINROSE products are<br\/>paraben and phthalate free.<\/p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "1567117002287-1": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": false,
+              "image": "shopify:\/\/shop_images\/IconsArtboard_1_copy.jpg",
+              "image_width": 120,
+              "title": "SUSTAINABLY PACKAGED",
+              "text": "<p>We’re eco-friendly and packaged<br\/>in FSC-certified materials.<\/p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "1567117002287-2": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": false,
+              "image": "shopify:\/\/shop_images\/IconsArtboard_1_copy_2.jpg",
+              "image_width": 120,
+              "title": "VEGAN AND CRUELTY FREE",
+              "text": "<p>We never test on animals or<br\/>use animal ingredients.<\/p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1567117002287-0",
+          "1567117002287-1",
+          "1567117002287-2"
+        ],
+        "settings": {
+          "title": "",
+          "align_text": "center",
+          "divider": false
+        }
+      },
+      "quiz--welcome": {
+        "type": "quiz--welcome",
+        "settings": {
+          "heading": "MAKE SCENTS OF YOUR SENSES!",
+          "content": "<p>Our synesthesia-based quiz susses out your sensory preferences to reveal the scents you love.<\/p>",
+          "subtext": "In fewer than 3 minutes you'll be smelling la vie en rose.",
+          "font_color": "#000000",
+          "background_image": "shopify:\/\/shop_images\/IntroBackground_copy.jpg",
+          "background_color": ""
+        }
+      },
+      "quiz--questions": {
+        "type": "quiz--questions",
+        "blocks": {
+          "1589203434459": {
+            "type": "name",
+            "settings": {
+              "thispage": "quiz-name",
+              "title": "What's Your First Name?",
+              "nextpage": "quiz-email",
+              "prevpage": "quiz",
+              "background_color": "#ffffff"
+            }
+          },
+          "dd407274-e61f-4fad-8dfe-d007459aeb18": {
+            "type": "email",
+            "settings": {
+              "thispage": "quiz-email",
+              "title": "NEED TO NOSE BASIS",
+              "content": "Before we reveal your match, we’d love it if you’d let us tickle your nose and inbox with nosey news. (If you just want to start the quiz, hit NEXT.)",
+              "nextpage": "quiz-shape",
+              "prevpage": "quiz-name",
+              "background_color": ""
+            }
+          },
+          "1588714922406": {
+            "type": "question",
+            "settings": {
+              "thispage": "quiz-shape",
+              "image_1": "shopify:\/\/shop_images\/121537050-colorful-rainbow-holi-paint-color-powder-explosion-isolated-on-white-background.jpg",
+              "image_2": "shopify:\/\/shop_images\/colourful-explosion-happy-holi-powder-color-powder-explosion-background_36326-2774.jpg",
+              "nextpage": "quiz-element-one",
+              "prevpage": "quiz-name"
+            }
+          },
+          "1588715333881": {
+            "type": "question",
+            "settings": {
+              "thispage": "quiz-element-one",
+              "image_1": "shopify:\/\/shop_images\/element1_dewy.jpg",
+              "image_2": "shopify:\/\/shop_images\/blue-1973844_rs.jpg",
+              "nextpage": "quiz-element-two",
+              "prevpage": "quiz-shape"
+            }
+          },
+          "1589200711663": {
+            "type": "question",
+            "settings": {
+              "thispage": "quiz-element-two",
+              "image_1": "shopify:\/\/shop_images\/GUMMIE-BEARS-FINAL_097cd159-e6b8-4735-b491-5b8f8e9edb77.jpg",
+              "image_2": "shopify:\/\/shop_images\/green-moss-2043740_2.jpg",
+              "nextpage": "quiz-did-you-know-one",
+              "prevpage": "quiz-element-one"
+            }
+          },
+          "1589211850658": {
+            "type": "info",
+            "settings": {
+              "thispage": "quiz-did-you-know-one",
+              "title": "YOUR MIND'S EYE",
+              "content": "The images you're attracted to tell us the type of fragrance you'll spark to. It's the science of scent known as Synesthesia.",
+              "background_color": "#f06ba9",
+              "nextpage": "quiz-texture-one",
+              "prevpage": "quiz-element-two"
+            }
+          },
+          "1589224704422": {
+            "type": "question",
+            "settings": {
+              "thispage": "quiz-texture-one",
+              "image_1": "shopify:\/\/shop_images\/APPLES-FINAL.jpg",
+              "image_2": "shopify:\/\/shop_images\/AVACADOS.jpg",
+              "nextpage": "quiz-texture-two",
+              "prevpage": "quiz-did-you-know-one"
+            }
+          },
+          "1589224838066": {
+            "type": "question",
+            "settings": {
+              "thispage": "quiz-texture-two",
+              "image_1": "shopify:\/\/shop_images\/JEANS-FINAL.jpg",
+              "image_2": "shopify:\/\/shop_images\/LEATHER-JACKET-4.jpg",
+              "nextpage": "quiz-energy",
+              "prevpage": "quiz-texture-one"
+            }
+          },
+          "1589224907881": {
+            "type": "question",
+            "settings": {
+              "thispage": "quiz-energy",
+              "image_1": "shopify:\/\/shop_images\/WAVES-FINAL.jpg",
+              "image_2": "shopify:\/\/shop_images\/BEACH-FINAL.jpg",
+              "nextpage": "quiz-did-you-know-two",
+              "prevpage": "quiz-texture-two"
+            }
+          },
+          "1589214027923": {
+            "type": "info",
+            "settings": {
+              "thispage": "quiz-did-you-know-two",
+              "title": "MEMORY CARD",
+              "content": "Smells take a direct route to the regions of your brain tied to emotion and memory, instantly triggering the \"scent track\" of your life.",
+              "background_color": "#f06ba9",
+              "nextpage": "quiz-green-gold",
+              "prevpage": "quiz-energy"
+            }
+          },
+          "1589225402844": {
+            "type": "question",
+            "settings": {
+              "thispage": "quiz-green-gold",
+              "image_1": "shopify:\/\/shop_images\/FORREST-FINAL_8063998f-c1fd-4202-927a-b868c9a7ed6c.jpg",
+              "image_2": "shopify:\/\/shop_images\/FIELD-FINAL_a5705d7d-a582-47ca-b186-d5737a419c50.jpg",
+              "nextpage": "quiz-beach-mountain",
+              "prevpage": "quiz-did-you-know-two"
+            }
+          },
+          "1589225490504": {
+            "type": "question",
+            "settings": {
+              "thispage": "quiz-beach-mountain",
+              "image_1": "shopify:\/\/shop_images\/ISLANDBEACH.jpg",
+              "image_2": "shopify:\/\/shop_images\/MOUNTAINSIDE-FINAL.jpg",
+              "nextpage": "quiz-ingredient-one",
+              "prevpage": "quiz-green-gold"
+            }
+          },
+          "1589225586411": {
+            "type": "question",
+            "settings": {
+              "thispage": "quiz-ingredient-one",
+              "image_1": "shopify:\/\/shop_images\/CITRUS-FRUIT-2.jpg",
+              "image_2": "shopify:\/\/shop_images\/SPICES-2.jpg",
+              "nextpage": "quiz-ingredient-two",
+              "prevpage": "quiz-beach-mountain"
+            }
+          },
+          "1589225665897": {
+            "type": "question",
+            "settings": {
+              "thispage": "quiz-ingredient-two",
+              "image_1": "shopify:\/\/shop_images\/FLOWERS-FINAL.jpg",
+              "image_2": "shopify:\/\/shop_images\/GAWOOD-CHIPS-FINAL.jpg",
+              "nextpage": "music-to-your-nose",
+              "prevpage": "quiz-ingredient-one"
+            }
+          },
+          "86a48fe8-f146-41fe-a6b3-d2a29c979bab": {
+            "type": "info",
+            "settings": {
+              "thispage": "music-to-your-nose",
+              "title": "Music To Your Nose",
+              "content": "Nothing defines a time in your life more than music, and next to smell, your sense of hearing is the most powerful when it comes to memories.",
+              "background_color": "#ff89ce",
+              "nextpage": "quiz-pick-a-sound",
+              "prevpage": "quiz-ingredient-two"
+            }
+          },
+          "b42e3c27-3cb9-46ee-bc90-2fdecbe5f5a8": {
+            "type": "audio",
+            "settings": {
+              "thispage": "quiz-pick-a-sound",
+              "title": "Pick The One You Like Best.",
+              "content": "",
+              "audio_title-1": "Simple Soft Life In Color",
+              "audio_link-1": "https:\/\/cdn.pixabay.com\/download\/audio\/2022\/07\/12\/audio_f776431857.mp3?filename=synth_pop-2-114772.mp3",
+              "audio_title-2": "Complex Guitar Solo",
+              "audio_link-2": "https:\/\/cdn.pixabay.com\/download\/audio\/2022\/07\/12\/audio_176c2f4517.mp3?filename=synth_pop-1-114770.mp3",
+              "background_color": "#ffffff",
+              "nextpage": "quiz-pick-a-sound-2",
+              "prevpage": "music-to-your-nose"
+            }
+          },
+          "a008c761-929e-4b15-99ae-a39f1583c19d": {
+            "type": "audio",
+            "settings": {
+              "thispage": "quiz-pick-a-sound-2",
+              "title": "Pick The One You Like Best",
+              "content": "",
+              "audio_title-1": "Chill Trance",
+              "audio_link-1": "https:\/\/cdn.pixabay.com\/download\/audio\/2022\/07\/12\/audio_ae689719fa.mp3?filename=underground_trance-2-114771.mp3",
+              "audio_title-2": "Underground Trance",
+              "audio_link-2": "https:\/\/cdn.pixabay.com\/download\/audio\/2022\/07\/12\/audio_4784041aaa.mp3?filename=underground_trance-114773.mp3",
+              "background_color": "#eeeeee",
+              "nextpage": "quiz-analyze",
+              "prevpage": "quiz-pick-a-sound"
+            }
+          },
+          "519845ba-de38-4d54-9cc8-c31b8117fe06": {
+            "type": "info",
+            "settings": {
+              "thispage": "quiz-analyze",
+              "title": "Quiz Analyze",
+              "content": "",
+              "background_color": "#ff89ce",
+              "nextpage": "quiz-results",
+              "prevpage": "quiz-pick-a-sound-2"
+            }
+          },
+          "1589228471526": {
+            "type": "info",
+            "disabled": true,
+            "settings": {
+              "thispage": "quiz-analysis",
+              "title": "",
+              "content": "",
+              "image": "shopify:\/\/shop_images\/ResultsAnimationGif_b.gif",
+              "background_color": "#ffffff",
+              "nextpage": "quiz-results",
+              "prevpage": "quiz-email"
+            }
+          }
+        },
+        "block_order": [
+          "1589203434459",
+          "dd407274-e61f-4fad-8dfe-d007459aeb18",
+          "1588714922406",
+          "1588715333881",
+          "1589200711663",
+          "1589211850658",
+          "1589224704422",
+          "1589224838066",
+          "1589224907881",
+          "1589214027923",
+          "1589225402844",
+          "1589225490504",
+          "1589225586411",
+          "1589225665897",
+          "86a48fe8-f146-41fe-a6b3-d2a29c979bab",
+          "b42e3c27-3cb9-46ee-bc90-2fdecbe5f5a8",
+          "a008c761-929e-4b15-99ae-a39f1583c19d",
+          "519845ba-de38-4d54-9cc8-c31b8117fe06",
+          "1589228471526"
+        ],
+        "settings": {
+          "startpage": "quiz"
+        }
+      },
+      "quiz--results": {
+        "type": "quiz--results",
+        "blocks": {
+          "1589462420265": {
+            "type": "product",
+            "settings": {
+              "product": "tambourine-dreamer-parfum",
+              "secondary-product": "tambourine-dreamer-starter-kit-30-petal-box",
+              "products_featured_collection": "tambourine-dreamer-collection",
+              "subtitle": "Natural • Spontaneous • Affectionate",
+              "description": "<p>A fresh floral with notes of lily of the valley, white musk and cedarwood. <\/p>",
+              "content": "Try Tambourine Dreamer and its perfect pairings: Pillowtalk Poet; a sensual composition with notes of powder, ambergris and musk, and Wild Child; a tropical bouquet of Tiare flower, jasmine and vanilla.",
+              "quote": "“Tambourine Dreamer was my recommended scent based on my quiz, and it's exactly right! This scent is everything - fresh, clean, light, elegant. It's like floating in a cloud of white flowers! I absolutely love it.”"
+            }
+          },
+          "1589832271596": {
+            "type": "product",
+            "settings": {
+              "product": "mystical-misfit-parfum",
+              "secondary-product": "mystical-misfit-starter-kit-30-petal-box",
+              "products_featured_collection": "mystical-misfit-collection",
+              "subtitle": "Surprising • Lovable • Offbeat",
+              "description": "<p>A perfectly choreographed fruity-floral chypre of red currant, pink rose and patchouli. <\/p>",
+              "content": "Try Mystical Misfit and its perfect pairings: Secret Genius; intoxicating layers of caramel, Madagascan vanilla and sandalwood, and Wild Child; a tropical bouquet of Tiare flower, jasmine and vanilla.",
+              "quote": "“Please do not EVER get rid of this perfume, this is literally me in a bottle. This is now my signature scent and it last all day and night.”"
+            }
+          },
+          "1589832438133": {
+            "type": "product",
+            "settings": {
+              "product": "wild-child-parfum",
+              "secondary-product": "wild-child-starter-kit-30-petal-box",
+              "products_featured_collection": "wild-child-collection",
+              "subtitle": "Flirty • Frisky • Fierce",
+              "description": "<p>A frolicsome tropical bouquet of Tiare flower, jasmine and vanilla.<\/p>",
+              "content": "Try Wild Child and its perfect pairings: Mystical Misfit; a fruity-floral chypre of red currant, pink rose and patchouli, and Tambourine Dreamer; a fresh floral with notes of lily of the valley, white musk and cedarwood.",
+              "quote": "I have worn this perfume for over four years now. It is such a lovely light scent, not overpoweringly floral. It smells sweet after it dries down and is rather long-lasting. This will always be my go-to daily perfume!"
+            }
+          },
+          "1589890258912": {
+            "type": "product",
+            "settings": {
+              "product": "pillowtalk-poet-parfum",
+              "secondary-product": "pillowtalk-poet-starter-kit-30-petal-box",
+              "products_featured_collection": "pillowtalk-poet-collection",
+              "subtitle": "Tender • Devoted • Revealing",
+              "description": "<p>An intimate, sensual composition with notes of powder, ambergris and musk.<\/p>",
+              "content": "Try Pillowtalk Poet and its perfect pairings: Lil’ Dipper; a cool floral with notes of lemon peel, peony and sandalwood, and Sun Saint; gentle waves of lime, sea salt and sun-warmed coconut wood.",
+              "quote": "“So, this was the scent that was suggested to me by the \"scent finder\" tool. I didn't initially trust the suggestion because these are not notes I usually wear. I bought the Playdate sample pack, and this one is absolutely my favorite scent. Initially it smells like a clean Spring day, but when the scent settles its all complex and subtle unidentifiable notes that evoke nostalgic feelings. This is the most cozy scent I have ever tried and I always get compliments on it. If the term \"rose colored glasses\" had a scent, this would be the scent. It is incredible.”"
+            }
+          },
+          "1589890365116": {
+            "type": "product",
+            "settings": {
+              "product": "gilded-fox-parfum",
+              "secondary-product": "gilded-fox-starter-kit-30-petal-box",
+              "products_featured_collection": "gilded-fox-collection",
+              "subtitle": "Artful • Amorous • Lush",
+              "description": "<p>A romantic gourmand with notes of cocoa spice, buttered rum and amber.<\/p>",
+              "content": "Try Gilded Fox and its perfect pairings: Secret Genius; intoxicating layers of caramel, Madagascan vanilla and sandalwood, and Sun Saint; gentle waves of lime, sea salt and sun-warmed coconut wood.",
+              "quote": "“Longtime PINROSE fan here-love this combo! Gilded fox is spicy and sophisticated, then when you add Secret Genius it smells like a decadent dessert, and combined with Sun Saint it’s breezy and fun. I like the fragrances by themselves and combined.”"
+            }
+          },
+          "1589890398225": {
+            "type": "product",
+            "settings": {
+              "product": "sun-saint-parfum",
+              "secondary-product": "sun-saint-starter-kit-30-petal-box",
+              "products_featured_collection": "sun-saint-collection",
+              "subtitle": "Breezy • Sparkling • Chill",
+              "description": "<p>Gentle waves of lime, sea salt and sun-warmed coconut wood.<\/p>",
+              "content": "Try Sun Saint and its perfect pairings: Pillowtalk Poet; a sensual composition with notes of powder, ambergris and musk, and Merry Maker; a sunny floral with notes of nectaine, violet and Tonka bean.",
+              "quote": "“This is a wonderful summer\/beach fragrance that has a complexity to it that most other scents like this just never achieve. Let me tell you what it ISN'T: It's not a coconut bomb, it does not smell like suntan lotion, you will not feel like a fruity umbrella drink, and you not get tired of it after a full day's wear. The notes dance around each other throughout each hour of wear, and as is apparently very typical with PINROSE, it settles into the skin quickly and becomes more blended with one's skin chemistry. The lime balances out the coconut and the effect definitely puts you in the mind of tropical vacation but in a subtle and sophisticated way. I am rarely impressed by fragrances like this and I absolutely love this one.”"
+            }
+          },
+          "1589890445045": {
+            "type": "product",
+            "settings": {
+              "product": "secret-genius-parfum",
+              "secondary-product": "secret-genius-starter-kit",
+              "products_featured_collection": "secret-genius-collection",
+              "subtitle": "Seductive • Comforting • Clever",
+              "description": "<p>An intoxicating blend of caramel, Madagascan vanilla and sandalwood.<\/p>",
+              "content": "Try Secret Genius and its perfect pairings: Mystical Misfit; a fruity-floral chypre of red currant, pink rose and patchouli, and Sun Saint; gentle waves of lime, sea salt and sun-warmed coconut wood.",
+              "quote": "I fall in love with this scent every time I use it (which is daily). It's sweet with notes of vanilla and caramel but not overbearing, so it still smells light and fresh! I've been searching for my signature scent and I think I've finally found it!"
+            }
+          },
+          "1589890484018": {
+            "type": "product",
+            "settings": {
+              "product": "lil-dipper-parfum",
+              "secondary-product": "lil-dipper-starter-kit-30-petal-box",
+              "products_featured_collection": "lil-dipper-collection",
+              "subtitle": "Ethereal • Intriguing • Shy",
+              "description": "<p>A cool floral with notes of lemon peel, peony and sandalwood. <\/p>",
+              "content": "Try Lil' Dipper and its perfect pairings: Pillowtalk Poet; a sensual composition with notes of powder, ambergris and musk, and Mystical Misfit; a fruity-floral chypre of red currant, pink rose and patchouli.",
+              "quote": "Lil Dipper smells expensive. Lil Dipper was that luxurious fragrance I was missing from my vegan and cruelty free collection. It's not your typical floral or citrus fragrance. It's this perfect combination of scents. I wear this everyday along with Secret Genius. My co-worker even started wearing the same fragrance combo. I love how this smells so much I think I'm on my 3rd bottle now!"
+            }
+          },
+          "1589890510894": {
+            "type": "product",
+            "settings": {
+              "product": "one-of-a-kind-parfum",
+              "secondary-product": "one-of-a-kind-petal-kit-8-count-draft",
+              "products_featured_collection": "one-of-a-kind-collection",
+              "subtitle": "Deep • Magnetic • RICH",
+              "description": "<p>A regal blend of Bulgarian rose, Turkish clove and patchouli.<\/p>",
+              "content": "Try One of a Kind and its perfect pairings: Lil' Dipper; a cool floral with notes of lemon peel, peony and sandalwood, and Secret Genius; intoxicating layers of caramel, Madagascan vanilla and sandalwood.",
+              "quote": "I first smelled this a few years ago and I loved it at first sniff. When I went back to get it, it was gone. I was obsessed with it after that. I finally ended up getting a small sample set, but it wasn't enough. I just ordered two full bottles and I'm happy to have it in my collection. I like unique scents and this is an uncommon interpretation of a rose perfume. It is not an \"old\" rose. It is not a plain rose. It's a mysterious, spicy, edgy rose. Don't be afraid of the leather note; it's not overpowering. I like clove notes in fragrance as well and the clove in this works great without smelling like some strange dessert. The longevity and sillage are amazing for a clean perfume (most clean scents don't last at all). I'm very impressed. I'll definitely be back for more."
+            }
+          },
+          "1589890551969": {
+            "type": "product",
+            "settings": {
+              "product": "merry-maker-parfum",
+              "secondary-product": "merry-maker-starter-kit-30-petal-box",
+              "products_featured_collection": "merry-maker-collection",
+              "subtitle": "Animated • Joyous • Bright",
+              "description": "<p>A sunny floral with notes of nectarine, violet and Tonka bean.<\/p>",
+              "content": "Try Merry Maker and its perfect pairings: Secret Genius; intoxicating layers of caramel, Madagascan vanilla and sandalwood, and Sun Saint; gentle waves of lime, sea salt and sun-warmed coconut wood.",
+              "quote": "I have fallen in love with this scent. It's unique, uplifting and addictive. I find myself reaching for it all the time. It leaves you in a delightful little scent cloud of sunshine fruits and dainty florals."
+            }
+          },
+          "b64c2380-5a8a-49e9-ab94-5ea27d2d849a": {
+            "type": "product",
+            "settings": {
+              "product": "bold-soul",
+              "secondary-product": "bold-soul-petal-kit-8-count-draft",
+              "products_featured_collection": "bold-soul-collection",
+              "subtitle": "Effusive • Colorful • BRAVE",
+              "description": "<p>A fearless floral with notes of crushed blackberry, tuberose and vanilla.<\/p>",
+              "content": "Try Bold Soul and its perfect pairings: Wild Child; a tropical bouquet of Tiare flower, jasmine and vanilla, and One of a Kind; a regal blend of Bulgarian rose, Turkish clove and patchouli.",
+              "quote": "“I recently took the new quiz and this was the scent recommended. I was a little hesitant about trying the fragrance as I'm not given to bolder perfumes but I decided to trust the quiz. I ordered this and love it! It is more bolder than my typical choices and not as floral which was surprising to me. This scent is a little heavier but not so heavy that it bothers my sensitive sinuses. It really is a very nice balance of fragrance that I like to wear for evening. It seems to like the heavier evening air and lasts throughout the evening with out replication on my dry skin. Love this scent!”"
+            }
+          },
+          "39344768-fe26-43c2-b268-5f7e5702e7e4": {
+            "type": "product",
+            "settings": {
+              "product": "campfire-rebel-parfum",
+              "secondary-product": "campfire-rebel-petal-kit-8-count-draft",
+              "products_featured_collection": "campfire-rebel-collection",
+              "subtitle": "Gritty • Incendiary • Captivating",
+              "description": "<p>A bold brew of whiskey, burning oud wood and Bourbon vanilla.<\/p>",
+              "content": "Try Campfire Rebel and its perfect pairings: Treehouse Royal; a sophisticated woody floral with notes of bergamot, fig and moss, and One of a Kind; a regal blend of Bulgarian rose, Turkish clove and patchouli.",
+              "quote": "“I’m not sure if this is my 4th or 5th bottle of Campfire Rebel. I do know when they did not have it for awhile, I was in panic mode. I thought, like everything else, when you find that special something (like a pair of jeans that fit you perfectly) the manufacturer stops making them. PINROSE did not disappoint though. Thank you! Please don’t stop creating this blend. LOVE IT. I am super sensitive to fragrances and was using essential oil blends for a very long time. I have no reaction to PINROSE and so happy with this smoky-vetivery scent.”"
+            }
+          },
+          "0ea85f59-7ccf-4677-b882-9bc16c87c387": {
+            "type": "product",
+            "settings": {
+              "product": "cuddle-punk-parfum",
+              "secondary-product": "cuddle-punk-petal-kit-8-count-draft",
+              "products_featured_collection": "cuddle-punk-collection",
+              "subtitle": "Edgy • Loving • Inspired",
+              "description": "<p>An unconventional blend of apricot, pipe tobacco and vanilla.<\/p>",
+              "content": "Try Cuddle Punk and its perfect pairings: Secret Genius; intoxicating layers of caramel, Madagascan vanilla and sandalwood, and Merry Maker; a sunny floral with notes of nectarine, violet and Tonka bean.",
+              "quote": "“I am so happy that Cuddle Punk is finally back in stock! I love this light scent so much that I was stalking resale sites to get backups. All through the day, it makes me smile when I get a whiff of the apricot and warmness.\""
+            }
+          },
+          "8fd2ef0a-6eba-42e8-97df-0a0c7fa1a692": {
+            "type": "product",
+            "settings": {
+              "product": "treehouse-royal-parfum",
+              "secondary-product": "treehouse-royal-petal-kit-8-count-draft",
+              "products_featured_collection": "treehouse-royal-collection",
+              "subtitle": "Fresh • Bright • Enchanting",
+              "description": "<p>A sophisticated woody floral with notes of bergamot, fig and moss.<\/p>",
+              "content": "Try Treehouse Royal and its perfect pairings: Merry Maker; a sunny floral with notes of nectarine, violet and Tonka bean, and Bold Soul; a fearless floral with notes of crushed blackberry, tuberose and vanilla.",
+              "quote": "“I LOVE the scent of this, smells just like the name Treehouse Royal, the scent is strong and lasts ALL day & makes me feel like Royalty. You need this perfume in your life, it is different than all the other scents and really will make u stand out amongst the crowd! Everybody going to be saying” what smells so good” and just raise your hand and say It’s Treehouse Royal! I am beyond happy with this perfume and will keep it restocked ! I do not want to live without this perfume in my collection! It is just THAT AMAZING!”"
+            }
+          }
+        },
+        "block_order": [
+          "1589462420265",
+          "1589832271596",
+          "1589832438133",
+          "1589890258912",
+          "1589890365116",
+          "1589890398225",
+          "1589890445045",
+          "1589890484018",
+          "1589890510894",
+          "1589890551969",
+          "b64c2380-5a8a-49e9-ab94-5ea27d2d849a",
+          "39344768-fe26-43c2-b268-5f7e5702e7e4",
+          "0ea85f59-7ccf-4677-b882-9bc16c87c387",
+          "8fd2ef0a-6eba-42e8-97df-0a0c7fa1a692"
+        ],
+        "settings": {
+          "startpage": "quiz",
+          "prevpage": "quiz-pick-a-sound-2",
+          "bannertext": "Use promo code",
+          "bannertext-code": "QUIZ",
+          "bannertext-2": "for 20% off your perfume match!",
+          "bannerenable": true,
+          "codecolor": "#ffffff",
+          "banner-bg": "#cf92b7",
+          "banner-text-color": "#ffffff"
+        }
+      },
+      "1599872215361": {
+        "type": "text-columns",
+        "blocks": {
+          "1599872215361-0": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/HOLIDAY-SAMPLER-KIT_homepage-tout_v2_web.jpg",
+              "image_width": 500,
+              "title": "THE HOLIDAY SAMPLER KIT",
+              "text": "<p>The holidays will smell like magic with this adorable <strong>limited-edition<\/strong> kit!<\/p>",
+              "button_label": "Shop the kit",
+              "button_link": "shopify:\/\/products\/limited-edition-holiday-sampler-petal-kit"
+            }
+          },
+          "1599872215361-1": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/holiday_2020_v1_rs.jpg",
+              "image_width": 500,
+              "title": "THE PINROSE HOLIDAY SALE",
+              "text": "<p>Our holiday deals are available now and supplies are limited!<\/p>",
+              "button_label": "shop the gift guide",
+              "button_link": "shopify:\/\/collections\/gifts"
+            }
+          }
+        },
+        "block_order": [
+          "1599872215361-0",
+          "1599872215361-1"
+        ],
+        "disabled": true,
+        "settings": {
+          "title": "",
+          "align_text": "center",
+          "divider": false
+        }
+      },
+      "1600280941939": {
+        "type": "advanced-content",
+        "blocks": {
+          "1600280941939-1": {
+            "type": "html",
+            "settings": {
+              "code": "<br><br><center>\n<h2>“The quiz matched me with the perfect perfume—you guys should do a dating app!”<\/h2>\n<p>The most enthusiastic praise (and business advice) we’ve ever received.<\/p>\n<\/center><br><br>",
+              "width": "100%",
+              "alignment": "center"
+            }
+          }
+        },
+        "block_order": [
+          "1600280941939-1"
+        ],
+        "settings": {
+          "full_width": false,
+          "space_around": true
+        }
+      },
+      "1600447729100": {
+        "type": "slideshow",
+        "blocks": {
+          "1600447729100-0": {
+            "type": "image",
+            "settings": {
+              "top_subheading": "",
+              "title": "WHY PINROSE?",
+              "subheading": "Discover how the sensory experience\u0003of synesthesia delivers perfumes tailored to your unique sense of smell.",
+              "heading_size": 18,
+              "title_size": 55,
+              "paragraph_size": 18,
+              "link": "shopify:\/\/pages\/about-us",
+              "link_text": "learn more",
+              "link_2": "",
+              "link_text_2": "",
+              "color_accent": "#ffffff",
+              "text_align": "vertical-center horizontal-right",
+              "image": "shopify:\/\/shop_images\/B0008742_3024xopti.jpg",
+              "focal_point": "top center",
+              "mobile_heading_size": 14,
+              "mobile_title_size": 16,
+              "mobile_paragraph_size": 12
+            }
+          }
+        },
+        "block_order": [
+          "1600447729100-0"
+        ],
+        "settings": {
+          "section_height": "450px",
+          "mobile_height": "auto",
+          "parallax": false,
+          "style": "minimal",
+          "autoplay": true,
+          "autoplay_speed": 5
+        }
+      },
+      "16057039308cf94593": {
+        "type": "slideshow",
+        "blocks": {
+          "16057039308cf94593-0": {
+            "type": "image",
+            "settings": {
+              "top_subheading": "",
+              "title": "READY TO \nMAKE SCENTS \nOF YOUR SENSES?",
+              "subheading": "Our science-based quiz pinpoints your perfect scent.",
+              "heading_size": 18,
+              "title_size": 60,
+              "paragraph_size": 18,
+              "link": "shopify:\/\/pages\/quiz",
+              "link_text": "Take our quiz",
+              "link_2": "",
+              "link_text_2": "",
+              "color_accent": "#ffffff",
+              "text_align": "vertical-center horizontal-right",
+              "image": "shopify:\/\/shop_images\/Ellie_Poppy_Banner_v4_notype_1944x_-opti.jpg",
+              "focal_point": "top center",
+              "mobile_heading_size": 14,
+              "mobile_title_size": 16,
+              "mobile_paragraph_size": 12
+            }
+          }
+        },
+        "block_order": [
+          "16057039308cf94593-0"
+        ],
+        "disabled": true,
+        "settings": {
+          "section_height": "450px",
+          "mobile_height": "auto",
+          "parallax": false,
+          "style": "minimal",
+          "autoplay": false,
+          "autoplay_speed": 5
+        }
+      },
+      "1608703257e7b62071": {
+        "type": "instafeed",
+        "disabled": true,
+        "settings": {
+          "heading_font": "helvetica_n4",
+          "heading_size": 20,
+          "feed_width": 100,
+          "html_area": "<!-- -->"
+        }
+      },
+      "1610381083b107bcad": {
+        "type": "text-columns",
+        "blocks": {
+          "1610381083b107bcad-0": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/facebook_tout_v2_march2022_rs.jpg",
+              "image_width": 600,
+              "title": "ARE YOU OUR NEXT MUSE?",
+              "text": "<p>PINROSE MUSE is our newest Playground. Home to visual stories, scent memories and musings about the place that fragrance has in our lives. <\/p>",
+              "button_label": "WE SEEK MUSES",
+              "button_link": "https:\/\/bit.ly\/PinrosePlayground"
+            }
+          },
+          "1610381083b107bcad-1": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/Ellie_Poppy_Banner_notype_2000p_v1_rs.jpg",
+              "image_width": 600,
+              "title": "SMELL LIFE IN COLOR",
+              "text": "<p>Find the fragrance that tickles your nose when you take our sensory quiz. <\/p>",
+              "button_label": "get my scent profile",
+              "button_link": "shopify:\/\/pages\/quiz"
+            }
+          }
+        },
+        "block_order": [
+          "1610381083b107bcad-0",
+          "1610381083b107bcad-1"
+        ],
+        "settings": {
+          "title": "",
+          "align_text": "center",
+          "divider": false
+        }
+      },
+      "product-story-sections": {
+        "type": "product-story-sections",
+        "settings": {
+        }
+      },
+      "main-product": {
+        "type": "main-product",
+        "blocks": {
+          "80526d68-b3fc-4f81-b3f7-394fcd21c793": {
+            "type": "image_picker",
+            "settings": {
+              "icon_text": "",
+              "icon_image": "shopify:\/\/shop_images\/Icons_Black_1.png"
+            }
+          }
+        },
+        "block_order": [
+          "80526d68-b3fc-4f81-b3f7-394fcd21c793"
+        ],
+        "settings": {
+          "show_reviews": true,
+          "show_short_description": true,
+          "enable_dynamic_buttons": true
+        }
+      },
+      "product-spec": {
+        "type": "product-spec",
+        "settings": {
+        }
+      },
+      "related-collections": {
+        "type": "related-collections",
+        "custom_css": [
+          ".slider-Two .text {padding: 0 60px; margin-top: 65px;}",
+          "@media only screen and (max-width: 600px) {.slider-Two .text {padding: 0px; margin-top: 65px; text-align: center; } .text h2 {text-align: center; }}"
+        ],
+        "settings": {
+          "heading": "YOU MAY ALSO LIKE"
+        }
+      },
+      "product-reviews": {
+        "type": "product-reviews",
+        "settings": {
+        }
+      },
+      "new-collection-header": {
+        "type": "new-collection-header",
+        "settings": {
+          "enable": true,
+          "collection_image_enable": true,
+          "parallax": true,
+          "text_align": "vertical-center horizontal-right"
+        }
+      },
+      "styled-collection-header": {
+        "type": "styled-collection-header",
+        "settings": {
+          "enable": true,
+          "collection_image_enable": true,
+          "parallax": true,
+          "mobile_height": "300px"
+        }
+      }
+    },
+    "content_for_index": [
+      "1565406957339",
+      "1567117002287",
+      "1610381083b107bcad",
+      "16057039308cf94593",
+      "1600280941939",
+      "1599872215361",
+      "1600447729100",
+      "1565738750889",
+      "1608703257e7b62071"
+    ],
+    "blocks": {
+      "855628211100114053": {
+        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {
+        }
+      }
+    }
+  },
+  "presets": {
+    "Modern": {
+      "color_body_bg": "#ffffff",
+      "color_body_text": "#000000",
+      "color_price": "#1c1d1d",
+      "color_savings_text": "#ff4e4e",
+      "color_borders": "#e8e8e1",
+      "color_button": "#111111",
+      "color_button_text": "#fff",
+      "color_cart_dot": "#ff4f33",
+      "color_small_image_bg": "#fff",
+      "color_large_image_bg": "#0f0f0f",
+      "color_header": "#fff",
+      "color_header_text": "#000",
+      "color_announcement": "#0f0f0f",
+      "color_announcement_text": "#fff",
+      "color_footer": "#ffffff",
+      "color_footer_text": "#000000",
+      "color_drawer_background": "#ffffff",
+      "color_drawer_text": "#000000",
+      "color_drawer_border": "#e8e8e1",
+      "color_drawer_button": "#111111",
+      "color_drawer_button_text": "#ffffff",
+      "color_modal_overlays": "#e6e6e6",
+      "color_image_overlay": "#000",
+      "color_image_overlay_text_shadow": 20,
+      "type_header_font_family": "bauer_bodoni_n7",
+      "type_header_spacing": "0",
+      "type_header_base_size": 40,
+      "type_header_line_height": 1,
+      "type_header_capitalize": false,
+      "type_headers_align_text": true,
+      "type_base_font_family": "futura_n4",
+      "type_base_spacing": "25",
+      "type_base_size": 17,
+      "type_base_line_height": 1.6,
+      "type_body_align_text": true,
+      "type_navigation_style": "body",
+      "type_navigation_size": 18,
+      "type_product_style": "body",
+      "type_collection_font": "heading",
+      "type_collection_size": 26,
+      "button_style": "square",
+      "icon_weight": "3px",
+      "icon_linecaps": "miter",
+      "vendor_enable": false,
+      "sku_enable": false,
+      "quantity_enable": false,
+      "variant_type": "button",
+      "inventory_enable": true,
+      "quick_shop_text": "Quick view",
+      "product_grid_image_size": "natural",
+      "product_hover_image": false,
+      "product_color_swatches": false,
+      "collection_color_swatches": false,
+      "product_video_width": "960",
+      "product_video_height": "1280",
+      "product_video_style": "muted",
+      "product_contact": false,
+      "collection_grid_style": "overlaid",
+      "collection_grid_shape": "square",
+      "collection_grid_image": "product",
+      "collection_grid_text_align": "center",
+      "collection_grid_tint": "#000000",
+      "collection_grid_opacity": 10,
+      "collection_grid_gutter": true,
+      "cart_type": "drawer",
+      "cart_notes_enable": false,
+      "cart_terms_conditions_enable": false,
+      "currency_format": "money_format",
+      "social_facebook_link": "https:\/\/www.facebook.com\/shopify",
+      "social_pinterest_link": "https:\/\/www.pinterest.com\/shopify",
+      "social_instagram_link": "https:\/\/instagram.com\/shopify",
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "small",
+      "checkout_body_background_color": "#fff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_accent_color": "#111111",
+      "checkout_button_color": "#111111",
+      "checkout_error_color": "#ff6d6d",
+      "breadcrumb": true,
+      "sections": {
+        "header": {
+          "type": "header",
+          "blocks": {
+            "1524770014057": {
+              "type": "logo",
+              "settings": {
+                "desktop_logo_width": 140,
+                "mobile_logo_width": 110
+              }
+            },
+            "1524770292306": {
+              "type": "announcement",
+              "settings": {
+                "text": "Free shipping",
+                "link_text": "On all orders over $100"
+              }
+            },
+            "1524770296206": {
+              "type": "announcement",
+              "settings": {
+                "text": "Hassle-free returns",
+                "link_text": "30-day postage paid returns"
+              }
+            }
+          },
+          "block_order": [
+            "1524770014057",
+            "1524770292306",
+            "1524770296206"
+          ],
+          "settings": {
+            "main_menu_link_list": "main-menu",
+            "main_menu_alignment": "center-split",
+            "header_style": "sticky",
+            "sticky_index": false,
+            "sticky_collection": false,
+            "announcement_compact": true,
+            "toolbar_menu": "top",
+            "toolbar_social": true
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "1494301487048": {
+              "type": "logo_social",
+              "settings": {
+                "container_width": 95
+              }
+            },
+            "1494301487049": {
+              "type": "menu",
+              "settings": {
+                "menu": "footer",
+                "container_width": 25
+              }
+            },
+            "1494292487693": {
+              "type": "newsletter",
+              "settings": {
+                "container_width": 33
+              }
+            }
+          },
+          "block_order": [
+            "1494301487049",
+            "1494292487693",
+            "1494301487048"
+          ],
+          "settings": {
+            "show_payment_icons": false
+          }
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "subcollection_style": "above",
+            "subcollections_per_row": 5,
+            "per_row": 4
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {
+            "social_enable": true,
+            "image_size": "large"
+          }
+        },
+        "article-template": {
+          "type": "article-template",
+          "settings": {
+            "blog_show_tags": true,
+            "blog_show_date": true,
+            "blog_show_comments": true,
+            "blog_show_author": false,
+            "social_sharing_blog": true
+          }
+        },
+        "1498163293234": {
+          "type": "featured-content",
+          "settings": {
+            "align_text": "center",
+            "narrow_column": false,
+            "enlarge_text": true,
+            "divider": false
+          }
+        },
+        "blog-template": {
+          "type": "blog-template",
+          "settings": {
+            "blog_show_tag_filter": true,
+            "blog_show_rss": false,
+            "blog_show_tags": true,
+            "blog_show_date": true,
+            "blog_show_comments": true,
+            "blog_show_author": false,
+            "blog_image_size": "wide"
+          }
+        },
+        "1499789718857": {
+          "type": "featured-collections",
+          "blocks": {
+            "1499789718857-0": {
+              "type": "collection",
+              "settings": {
+              }
+            },
+            "1499789718857-1": {
+              "type": "collection",
+              "settings": {
+              }
+            },
+            "1499789718857-2": {
+              "type": "collection",
+              "settings": {
+              }
+            },
+            "1499789718857-3": {
+              "type": "collection",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "1499789718857-0",
+            "1499789718857-1",
+            "1499789718857-2",
+            "1499789718857-3"
+          ],
+          "settings": {
+            "title": "Shop by category",
+            "divider": false,
+            "per_row": 4,
+            "enable_gutter": true
+          }
+        },
+        "1499790633921": {
+          "type": "background-image-text",
+          "settings": {
+            "button_link": "shopify:\/\/collections\/all",
+            "focal_point": "80% 0",
+            "color_border": "#cdb8ac",
+            "layout": "left",
+            "height": 750,
+            "framed": false,
+            "parallax": true
+          }
+        },
+        "product-sections-template": {
+          "type": "product-sections-template",
+          "blocks": {
+            "product-image-row": {
+              "type": "image-row",
+              "settings": {
+                "enable_gutter": false,
+                "enable_zoom": true
+              }
+            },
+            "product-text-and-image": {
+              "type": "text-and-image",
+              "settings": {
+                "layout": "left"
+              }
+            },
+            "product-background-image-text": {
+              "type": "background-image-text",
+              "settings": {
+                "alignment": "center",
+                "color_border": "#f4f4f4",
+                "layout": "right",
+                "height": 550,
+                "parallax": true
+              }
+            },
+            "product-text-columns": {
+              "type": "text-columns",
+              "settings": {
+              }
+            },
+            "product-hero-video": {
+              "type": "hero-video",
+              "settings": {
+                "text_align": "vertical-bottom horizontal-left",
+                "section_height": "650px",
+                "mobile_height": "auto"
+              }
+            }
+          },
+          "block_order": [
+            "product-image-row",
+            "product-text-and-image",
+            "product-background-image-text",
+            "product-text-columns",
+            "product-hero-video"
+          ],
+          "settings": {
+          }
+        },
+        "page-sections-template": {
+          "type": "page-sections-template",
+          "blocks": {
+            "page-image-hero": {
+              "type": "image-hero",
+              "settings": {
+              }
+            },
+            "page-rich-text": {
+              "type": "rich-text",
+              "settings": {
+                "align_text": "center",
+                "narrow_column": true,
+                "enlarge_text": true
+              }
+            },
+            "page-text-columns": {
+              "type": "text-columns",
+              "settings": {
+              }
+            },
+            "page-background-image-text": {
+              "type": "background-image-text",
+              "settings": {
+                "alignment": "center",
+                "color_border": "#f4f4f4",
+                "layout": "right",
+                "height": 550
+              }
+            },
+            "page-featured-collection": {
+              "type": "featured-collection",
+              "settings": {
+                "title": "Featured collection",
+                "per_row": 4,
+                "rows": 1,
+                "view_all": true
+              }
+            }
+          },
+          "block_order": [
+            "page-image-hero",
+            "page-rich-text",
+            "page-text-columns",
+            "page-background-image-text",
+            "page-featured-collection"
+          ],
+          "settings": {
+            "page_title_enable": false,
+            "page_content_enable": false
+          }
+        },
+        "newsletter-popup": {
+          "type": "newsletter-popup",
+          "settings": {
+          }
+        },
+        "1524769873765": {
+          "type": "slideshow",
+          "blocks": {
+            "1524769873765-0": {
+              "type": "image",
+              "settings": {
+                "title_size": 80,
+                "link": "shopify:\/\/collections\/all",
+                "link_text": "Shop all",
+                "text_align": "vertical-center horizontal-left",
+                "focal_point": "top center"
+              }
+            }
+          },
+          "block_order": [
+            "1524769873765-0"
+          ],
+          "settings": {
+            "section_height": "750px",
+            "mobile_height": "auto",
+            "parallax": true,
+            "style": "minimal",
+            "autoplay": false,
+            "autoplay_speed": 7
+          }
+        },
+        "collection-header": {
+          "type": "collection-header",
+          "settings": {
+            "enable": true,
+            "collection_image_enable": true,
+            "parallax": true
+          }
+        },
+        "collection-sidebar": {
+          "type": "collection-sidebar",
+          "blocks": {
+            "1524772785241": {
+              "type": "subcollections",
+              "settings": {
+              }
+            },
+            "1524772580942": {
+              "type": "tags_all",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "1524772785241",
+            "1524772580942"
+          ],
+          "settings": {
+            "enable_sidebar": true,
+            "filter_style": "sidebar",
+            "tags_combine": false,
+            "enable_sort": true
+          }
+        },
+        "1525115199973": {
+          "type": "blog-posts",
+          "settings": {
+            "title": "From the journal",
+            "blog": "news",
+            "post_limit": 3,
+            "blog_show_tags": false,
+            "blog_show_date": true,
+            "blog_show_comments": false,
+            "blog_show_author": false,
+            "view_all": true,
+            "blog_image_size": "wide",
+            "divider": false
+          }
+        },
+        "1525118065355": {
+          "type": "map",
+          "settings": {
+          }
+        },
+        "1525295772132": {
+          "type": "featured-collection",
+          "settings": {
+            "per_row": 4,
+            "rows": 1,
+            "view_all": true,
+            "divider": false
+          }
+        },
+        "1525886124958": {
+          "type": "promo-grid",
+          "blocks": {
+            "1525886482727": {
+              "type": "advanced",
+              "settings": {
+                "cta_link1": "shopify:\/\/collections\/all",
+                "width": "100",
+                "height": 720,
+                "text_size": 120,
+                "focal_point": "80% 50%",
+                "boxed": false,
+                "framed": false
+              }
+            },
+            "1525886854810": {
+              "type": "sale_collection",
+              "settings": {
+                "width": "50",
+                "boxed": false,
+                "framed": true
+              }
+            },
+            "1525911710924": {
+              "type": "sale_collection",
+              "settings": {
+                "width": "50",
+                "boxed": false,
+                "framed": true
+              }
+            }
+          },
+          "block_order": [
+            "1525886482727",
+            "1525886854810",
+            "1525911710924"
+          ],
+          "settings": {
+            "full_width": false,
+            "gutter_size": 20,
+            "space_above": false,
+            "space_below": false
+          }
+        },
+        "1525912530555": {
+          "type": "promo-grid",
+          "blocks": {
+            "1525912530555-0": {
+              "type": "advanced",
+              "settings": {
+                "cta_link1": "shopify:\/\/collections\/all",
+                "width": "50",
+                "height": 800,
+                "text_size": 120,
+                "text_align": "vertical-center horizontal-center",
+                "focal_point": "center",
+                "boxed": false,
+                "framed": true
+              }
+            },
+            "1525912530555-1": {
+              "type": "advanced",
+              "settings": {
+                "cta_link1": "shopify:\/\/collections\/all",
+                "width": "50",
+                "height": 500,
+                "text_size": 120,
+                "text_align": "vertical-bottom horizontal-center",
+                "focal_point": "80% 50%",
+                "boxed": true,
+                "framed": false
+              }
+            }
+          },
+          "block_order": [
+            "1525912530555-0",
+            "1525912530555-1"
+          ],
+          "settings": {
+            "full_width": true,
+            "gutter_size": 20,
+            "space_above": false,
+            "space_below": false
+          }
+        },
+        "collection-promotions": {
+          "type": "collection-promotions",
+          "blocks": {
+            "1526403837307": {
+              "type": "banner",
+              "settings": {
+                "link": "shopify:\/\/collections\/all",
+                "label": "Shop now",
+                "color_tint": "#e95454",
+                "color_tint_opacity": 10,
+                "framed": false
+              }
+            },
+            "1526496043079": {
+              "type": "advanced",
+              "settings": {
+                "cta_link1": "shopify:\/\/collections\/all",
+                "width": "100",
+                "height": 500,
+                "text_size": 120,
+                "text_align": "vertical-center horizontal-center",
+                "focal_point": "center",
+                "boxed": false,
+                "framed": true
+              }
+            }
+          },
+          "block_order": [
+            "1526403837307",
+            "1526496043079"
+          ],
+          "settings": {
+            "gutter_size": 20
+          }
+        }
+      },
+      "content_for_index": [
+        "1524769873765",
+        "1498163293234",
+        "1525912530555",
+        "1499789718857",
+        "1525886124958",
+        "1525295772132",
+        "1499790633921",
+        "1525115199973",
+        "1525118065355"
+      ]
+    },
+    "Vintage": {
+      "color_body_bg": "#ffffff",
+      "color_body_text": "#000000",
+      "color_price": "#1c1d1d",
+      "color_savings_text": "#72acc7",
+      "color_borders": "#f2f2f2",
+      "color_button": "#682d2d",
+      "color_button_text": "#fff",
+      "color_cart_dot": "#682d2d",
+      "color_small_image_bg": "#f7f7f9",
+      "color_large_image_bg": "#682d2d",
+      "color_header": "#ffffff",
+      "color_header_text": "#000000",
+      "color_announcement": "#6a2727",
+      "color_announcement_text": "#ffffff",
+      "color_footer": "#f7f7f9",
+      "color_footer_text": "#593b32",
+      "color_drawer_background": "#ffffff",
+      "color_drawer_text": "#000000",
+      "color_drawer_border": "#e8e8e1",
+      "color_drawer_button": "#682d2d",
+      "color_drawer_button_text": "#ffffff",
+      "color_modal_overlays": "#cdc9c2",
+      "color_image_overlay": "#000",
+      "color_image_overlay_text_shadow": 30,
+      "type_header_font_family": "americana_n8",
+      "type_header_spacing": "0",
+      "type_header_base_size": 36,
+      "type_header_line_height": 1.2,
+      "type_header_capitalize": true,
+      "type_headers_align_text": true,
+      "type_base_font_family": "avenir_next_n4",
+      "type_base_spacing": "0",
+      "type_base_size": 18,
+      "type_base_line_height": 1.5,
+      "type_body_align_text": true,
+      "type_navigation_style": "heading",
+      "type_navigation_size": 17,
+      "type_product_style": "body",
+      "type_collection_font": "heading",
+      "type_collection_size": 20,
+      "button_style": "square",
+      "icon_weight": "3px",
+      "icon_linecaps": "miter",
+      "vendor_enable": false,
+      "sku_enable": false,
+      "quantity_enable": false,
+      "variant_type": "button",
+      "inventory_enable": false,
+      "quick_shop_text": "Quick view",
+      "product_grid_image_size": "square",
+      "product_hover_image": true,
+      "product_color_swatches": false,
+      "collection_color_swatches": false,
+      "product_video_width": "1280",
+      "product_video_height": "720",
+      "product_video_style": "muted",
+      "product_contact": true,
+      "collection_grid_style": "below",
+      "collection_grid_shape": "landscape",
+      "collection_grid_image": "product",
+      "collection_grid_text_align": "top-center",
+      "collection_grid_tint": "#000000",
+      "collection_grid_opacity": 0,
+      "collection_grid_gutter": true,
+      "cart_type": "drawer",
+      "cart_notes_enable": false,
+      "cart_terms_conditions_enable": false,
+      "currency_format": "money_format",
+      "social_facebook_link": "https:\/\/www.facebook.com\/shopify",
+      "social_twitter_link": "https:\/\/twitter.com\/shopify",
+      "social_instagram_link": "https:\/\/instagram.com\/shopify",
+      "social_youtube_link": "https:\/\/www.youtube.com\/user\/shopify",
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_body_background_color": "#fff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_color": "#f5f5f5",
+      "checkout_accent_color": "#682d2d",
+      "checkout_button_color": "#682d2d",
+      "checkout_error_color": "#ff6d6d",
+      "product_fixed_image_height": false,
+      "breadcrumb": true,
+      "sections": {
+        "header": {
+          "type": "header",
+          "blocks": {
+            "1520882467782": {
+              "type": "logo",
+              "settings": {
+              }
+            },
+            "1521051841065": {
+              "type": "announcement",
+              "settings": {
+                "text": "Free shipping",
+                "link_text": "On all orders over $100",
+                "link": "shopify:\/\/collections\/all"
+              }
+            },
+            "1520888647304": {
+              "type": "announcement",
+              "settings": {
+                "text": "Hassle-free returns",
+                "link_text": "30-day postage paid returns",
+                "link": "shopify:\/\/collections\/all"
+              }
+            }
+          },
+          "block_order": [
+            "1520882467782",
+            "1521051841065",
+            "1520888647304"
+          ],
+          "settings": {
+            "main_menu_link_list": "main-menu",
+            "main_menu_alignment": "center-split",
+            "header_style": "normal",
+            "sticky_index": true,
+            "sticky_collection": true,
+            "announcement_compact": true,
+            "toolbar_menu": "toolbar",
+            "toolbar_social": true
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "1494301487048": {
+              "type": "logo_social",
+              "settings": {
+                "container_width": 95
+              }
+            },
+            "1494301487049": {
+              "type": "menu",
+              "settings": {
+                "menu": "footer",
+                "container_width": 25
+              }
+            },
+            "1494292487693": {
+              "type": "newsletter",
+              "settings": {
+                "container_width": 30
+              }
+            }
+          },
+          "block_order": [
+            "1494301487049",
+            "1494292487693",
+            "1494301487048"
+          ],
+          "settings": {
+            "show_payment_icons": false
+          }
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "subcollection_style": "above",
+            "subcollections_per_row": 3,
+            "per_row": 2
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {
+            "social_enable": false,
+            "image_size": "large",
+            "thumbnail_position": "below"
+          }
+        },
+        "article-template": {
+          "type": "article-template",
+          "settings": {
+            "blog_show_tags": true,
+            "blog_show_date": true,
+            "blog_show_comments": true,
+            "blog_show_author": false,
+            "social_sharing_blog": true
+          }
+        },
+        "1498163293234": {
+          "type": "featured-content",
+          "settings": {
+            "align_text": "center",
+            "narrow_column": true,
+            "enlarge_text": true,
+            "divider": false
+          }
+        },
+        "blog-template": {
+          "type": "blog-template",
+          "settings": {
+            "blog_show_tag_filter": true,
+            "blog_show_rss": false,
+            "blog_show_tags": true,
+            "blog_show_date": true,
+            "blog_show_comments": true,
+            "blog_show_author": false,
+            "blog_image_size": "wide"
+          }
+        },
+        "1499790633921": {
+          "type": "background-image-text",
+          "settings": {
+            "button_link": "shopify:\/\/collections\/all",
+            "focal_point": "center",
+            "color_border": "#6a635b",
+            "layout": "right",
+            "height": 750,
+            "framed": true,
+            "parallax": true
+          }
+        },
+        "product-sections-template": {
+          "type": "product-sections-template",
+          "blocks": {
+            "product-image-row": {
+              "type": "image-row",
+              "settings": {
+                "enable_gutter": false,
+                "enable_zoom": true
+              }
+            },
+            "product-text-and-image": {
+              "type": "text-and-image",
+              "settings": {
+                "layout": "left"
+              }
+            },
+            "product-background-image-text": {
+              "type": "background-image-text",
+              "settings": {
+                "alignment": "center",
+                "color_border": "#f4f4f4",
+                "layout": "right",
+                "height": 550,
+                "parallax": true
+              }
+            },
+            "product-text-columns": {
+              "type": "text-columns",
+              "settings": {
+              }
+            },
+            "product-hero-video": {
+              "type": "hero-video",
+              "settings": {
+                "text_align": "vertical-bottom horizontal-left",
+                "section_height": "650px",
+                "mobile_height": "auto"
+              }
+            }
+          },
+          "block_order": [
+            "product-image-row",
+            "product-text-and-image",
+            "product-background-image-text",
+            "product-text-columns",
+            "product-hero-video"
+          ],
+          "settings": {
+          }
+        },
+        "page-sections-template": {
+          "type": "page-sections-template",
+          "blocks": {
+            "page-rich-text": {
+              "type": "rich-text",
+              "settings": {
+                "align_text": "center",
+                "narrow_column": true,
+                "enlarge_text": true
+              }
+            },
+            "page-text-columns": {
+              "type": "text-columns",
+              "settings": {
+              }
+            },
+            "page-background-image-text": {
+              "type": "background-image-text",
+              "settings": {
+                "alignment": "center",
+                "color_border": "#f4f4f4",
+                "layout": "right",
+                "height": 550
+              }
+            },
+            "page-featured-collection": {
+              "type": "featured-collection",
+              "settings": {
+                "per_row": 4,
+                "rows": 1,
+                "view_all": true
+              }
+            }
+          },
+          "block_order": [
+            "page-rich-text",
+            "page-text-columns",
+            "page-background-image-text",
+            "page-featured-collection"
+          ],
+          "settings": {
+            "page_title_enable": false,
+            "page_content_enable": false
+          }
+        },
+        "newsletter-popup": {
+          "type": "newsletter-popup",
+          "settings": {
+          }
+        },
+        "collection-header": {
+          "type": "collection-header",
+          "settings": {
+            "enable": true,
+            "collection_image_enable": true,
+            "parallax": true
+          }
+        },
+        "collection-sidebar": {
+          "type": "collection-sidebar",
+          "blocks": {
+            "1524772785241": {
+              "type": "subcollections",
+              "settings": {
+              }
+            },
+            "1524772580942": {
+              "type": "tags_all",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "1524772785241",
+            "1524772580942"
+          ],
+          "settings": {
+            "enable_sidebar": true,
+            "filter_style": "sidebar",
+            "tags_combine": false,
+            "enable_sort": true
+          }
+        },
+        "1523298253705": {
+          "type": "slideshow",
+          "blocks": {
+            "1523298253705-0": {
+              "type": "image",
+              "settings": {
+              }
+            },
+            "1523298253705-1": {
+              "type": "image",
+              "settings": {
+                "title_size": 80,
+                "text_align": "vertical-bottom horizontal-right",
+                "focal_point": "center center"
+              }
+            }
+          },
+          "block_order": [
+            "1523298253705-0",
+            "1523298253705-1"
+          ],
+          "settings": {
+            "section_height": "100vh",
+            "mobile_height": "500px",
+            "parallax": true,
+            "style": "minimal",
+            "autoplay": true,
+            "autoplay_speed": 7
+          }
+        },
+        "list-collections-template": {
+          "type": "list-collections-template",
+          "settings": {
+            "title_enable": true,
+            "display_type": "all",
+            "sort": "alphabetical",
+            "grid": "3"
+          }
+        },
+        "1523380258742": {
+          "type": "featured-collections",
+          "disabled": true,
+          "blocks": {
+            "1523380258742-0": {
+              "type": "collection",
+              "settings": {
+              }
+            },
+            "1523380258742-1": {
+              "type": "collection",
+              "settings": {
+              }
+            },
+            "1523380258742-2": {
+              "type": "collection",
+              "settings": {
+              }
+            },
+            "1524685811204": {
+              "type": "collection",
+              "settings": {
+              }
+            },
+            "1524685816171": {
+              "type": "collection",
+              "settings": {
+              }
+            },
+            "1524685829380": {
+              "type": "collection",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "1523380258742-0",
+            "1523380258742-1",
+            "1523380258742-2",
+            "1524685811204",
+            "1524685816171",
+            "1524685829380"
+          ],
+          "settings": {
+            "divider": false,
+            "per_row": 3,
+            "enable_gutter": true
+          }
+        },
+        "1524685456938": {
+          "type": "background-image-text",
+          "settings": {
+            "button_link": "shopify:\/\/collections\/all",
+            "focal_point": "center",
+            "color_border": "#655147",
+            "layout": "right",
+            "height": 650,
+            "framed": true,
+            "parallax": true
+          }
+        },
+        "1524685919990": {
+          "type": "featured-collection",
+          "settings": {
+            "per_row": 4,
+            "rows": 1,
+            "view_all": true,
+            "divider": false
+          }
+        },
+        "1524685997883": {
+          "type": "newsletter",
+          "settings": {
+            "color_background": "#f7f7f9",
+            "color_text": "#3f2e2e"
+          }
+        },
+        "1524686167862": {
+          "type": "featured-collection",
+          "settings": {
+            "per_row": 3,
+            "rows": 1,
+            "view_all": true,
+            "divider": false
+          }
+        },
+        "1524686876171": {
+          "type": "featured-collections",
+          "blocks": {
+            "1524686876171-0": {
+              "type": "collection",
+              "settings": {
+              }
+            },
+            "1524686876171-1": {
+              "type": "collection",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "1524686876171-0",
+            "1524686876171-1"
+          ],
+          "settings": {
+            "divider": false,
+            "per_row": 2,
+            "enable_gutter": true
+          }
+        },
+        "1525878145666": {
+          "type": "promo-grid",
+          "blocks": {
+            "1525879359021": {
+              "type": "advanced",
+              "settings": {
+                "cta_link1": "shopify:\/\/collections\/all",
+                "width": "100",
+                "height": 500,
+                "text_size": 120,
+                "text_align": "vertical-center horizontal-center",
+                "focal_point": "80% 50%",
+                "boxed": false,
+                "framed": true
+              }
+            }
+          },
+          "block_order": [
+            "1525879359021"
+          ],
+          "settings": {
+            "full_width": false,
+            "gutter_size": 20,
+            "space_above": false,
+            "space_below": false
+          }
+        },
+        "1525881294487": {
+          "type": "promo-grid",
+          "blocks": {
+            "1525881312850": {
+              "type": "banner",
+              "settings": {
+                "link": "shopify:\/\/collections\/all",
+                "label": "Learn more",
+                "color_tint": "#d69344",
+                "color_tint_opacity": 14,
+                "framed": true
+              }
+            }
+          },
+          "block_order": [
+            "1525881312850"
+          ],
+          "settings": {
+            "full_width": false,
+            "gutter_size": 0,
+            "space_above": false,
+            "space_below": false
+          }
+        },
+        "1525968536765": {
+          "type": "promo-grid",
+          "blocks": {
+            "1525968571112": {
+              "type": "product",
+              "settings": {
+                "label": "New",
+                "enable_price": true,
+                "width": "100",
+                "text_size": 100,
+                "color_tint": "#000",
+                "color_tint_opacity": 0,
+                "framed": false
+              }
+            }
+          },
+          "block_order": [
+            "1525968571112"
+          ],
+          "settings": {
+            "full_width": false,
+            "gutter_size": 20,
+            "space_above": false,
+            "space_below": false
+          }
+        },
+        "1525969002555": {
+          "type": "blog-posts",
+          "settings": {
+            "blog": "news",
+            "post_limit": 3,
+            "blog_show_tags": false,
+            "blog_show_date": true,
+            "blog_show_comments": false,
+            "blog_show_author": false,
+            "view_all": true,
+            "blog_image_size": "wide",
+            "divider": false
+          }
+        },
+        "1526493275292": {
+          "type": "promo-grid",
+          "blocks": {
+            "1526493290477": {
+              "type": "sale_collection",
+              "settings": {
+                "width": "100",
+                "boxed": true,
+                "framed": true
+              }
+            }
+          },
+          "block_order": [
+            "1526493290477"
+          ],
+          "settings": {
+            "full_width": false,
+            "gutter_size": 20,
+            "space_above": false,
+            "space_below": true
+          }
+        },
+        "collection-promotions": {
+          "type": "collection-promotions",
+          "blocks": {
+            "1526501666154": {
+              "type": "sale_collection",
+              "settings": {
+                "width": "100",
+                "boxed": true,
+                "framed": true
+              }
+            },
+            "1526501699095": {
+              "type": "banner",
+              "settings": {
+                "heading": "Free shipping",
+                "link": "shopify:\/\/collections\/all",
+                "label": "Learn more",
+                "color_tint": "#d69344",
+                "color_tint_opacity": 14,
+                "framed": true
+              }
+            }
+          },
+          "block_order": [
+            "1526501666154",
+            "1526501699095"
+          ],
+          "settings": {
+            "gutter_size": 20
+          }
+        }
+      },
+      "content_for_index": [
+        "1523298253705",
+        "1498163293234",
+        "1525878145666",
+        "1523380258742",
+        "1524686876171",
+        "1526493275292",
+        "1524685456938",
+        "1524685919990",
+        "1525881294487",
+        "1524686167862",
+        "1524685997883",
+        "1499790633921",
+        "1525968536765",
+        "1525969002555"
+      ]
+    },
+    "Bold": {
+      "color_body_bg": "#000000",
+      "color_body_text": "#ffffff",
+      "color_price": "#d1ba98",
+      "color_savings_text": "#ff6565",
+      "color_borders": "#2b2a27",
+      "color_button": "#9f8561",
+      "color_button_text": "#ffffff",
+      "color_cart_dot": "#9f8561",
+      "color_small_image_bg": "#000000",
+      "color_large_image_bg": "#111111",
+      "color_header": "#000000",
+      "color_header_text": "#ffffff",
+      "color_announcement": "#cf2424",
+      "color_announcement_text": "#fff",
+      "color_footer": "#000000",
+      "color_footer_text": "#ffffff",
+      "color_drawer_background": "#000000",
+      "color_drawer_text": "#ffffff",
+      "color_drawer_border": "#2b2a27",
+      "color_drawer_button": "#9f8561",
+      "color_drawer_button_text": "#ffffff",
+      "color_modal_overlays": "#67635d",
+      "color_image_overlay": "#000",
+      "color_image_overlay_opacity": 15,
+      "color_image_overlay_text_shadow": 30,
+      "type_header_font_family": "fjalla_one_n4",
+      "type_header_spacing": "150",
+      "type_header_base_size": 45,
+      "type_header_line_height": 1.2,
+      "type_header_capitalize": true,
+      "type_headers_align_text": true,
+      "type_base_font_family": "itc_conduit_n4",
+      "type_base_spacing": "50",
+      "type_base_size": 18,
+      "type_base_line_height": 1.4,
+      "type_body_align_text": true,
+      "type_navigation_style": "heading",
+      "type_navigation_size": 18,
+      "type_product_style": "heading",
+      "type_collection_font": "heading",
+      "type_collection_size": 23,
+      "button_style": "angled",
+      "icon_weight": "5px",
+      "icon_linecaps": "miter",
+      "vendor_enable": false,
+      "sku_enable": false,
+      "quantity_enable": false,
+      "variant_type": "button",
+      "inventory_enable": false,
+      "product_save_amount": true,
+      "product_zoom_enable": false,
+      "quick_shop_enable": true,
+      "quick_shop_text": "Quick view",
+      "product_grid_image_size": "square",
+      "product_hover_image": false,
+      "product_color_swatches": false,
+      "collection_color_swatches": false,
+      "product_video_width": "1280",
+      "product_video_height": "720",
+      "product_video_style": "muted",
+      "product_content_collapse_1": false,
+      "product_content_collapse_2": true,
+      "product_content_collapse_3": true,
+      "product_contact": false,
+      "enable_product_reviews": true,
+      "reviews_layout": "expandable",
+      "collection_grid_style": "overlaid-box",
+      "collection_grid_shape": "landscape",
+      "collection_grid_image": "collection",
+      "collection_grid_text_align": "bottom-center",
+      "collection_grid_tint": "#000000",
+      "collection_grid_opacity": 10,
+      "collection_grid_gutter": true,
+      "cart_type": "drawer",
+      "currency_format": "money_format",
+      "social_facebook_link": "https:\/\/www.facebook.com\/shopify",
+      "social_twitter_link": "https:\/\/twitter.com\/shopify",
+      "social_youtube_link": "https:\/\/www.youtube.com\/user\/shopify",
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "small",
+      "checkout_body_background_color": "#000000",
+      "checkout_input_background_color_mode": "transparent",
+      "checkout_sidebar_background_color": "#000000",
+      "checkout_heading_font": "Helvetica Neue",
+      "checkout_body_font": "Helvetica Neue",
+      "checkout_accent_color": "#ae9878",
+      "checkout_button_color": "#ae9878",
+      "checkout_error_color": "#ff6d6d",
+      "color_image_2": "#cf2424",
+      "color_image_2_opacity": 0,
+      "color_image_1": "#6d1414",
+      "color_image_1_opacity": 0,
+      "type_accent_style": "body",
+      "type_accent_bold": true,
+      "type_accent_capitalize": true,
+      "type_button_font": "heading",
+      "type_button_capitalize": false,
+      "type_header_accent_transform": true,
+      "type_base_accent_transform": true,
+      "collection_grid_font": "heading",
+      "color_image_bg": "#000000",
+      "breadcrumb": true,
+      "color_sale_tag": "#990000",
+      "color_input": "#ffffff",
+      "checkout_banner_background_color": "#fff",
+      "checkout_call_to_action_color": "#a26b25",
+      "sections": {
+        "header": {
+          "type": "header",
+          "blocks": {
+            "1524768779513": {
+              "type": "logo",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "1524768779513"
+          ],
+          "settings": {
+            "main_menu_link_list": "main-menu",
+            "main_menu_alignment": "left-center",
+            "header_style": "normal",
+            "sticky_index": true,
+            "sticky_collection": false,
+            "announcement_compact": false,
+            "toolbar_social": false
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "1494292487693": {
+              "type": "newsletter",
+              "settings": {
+              }
+            },
+            "1526406521795": {
+              "type": "menu",
+              "settings": {
+                "menu": "footer",
+                "container_width": 25
+              }
+            },
+            "1525444454442": {
+              "type": "logo_social",
+              "settings": {
+                "container_width": 95
+              }
+            }
+          },
+          "block_order": [
+            "1494292487693",
+            "1526406521795",
+            "1525444454442"
+          ],
+          "settings": {
+            "show_payment_icons": true
+          }
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "subcollection_style": "above",
+            "subcollections_per_row": 3,
+            "per_row": 5
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {
+            "social_enable": true,
+            "image_size": "large"
+          }
+        },
+        "article-template": {
+          "type": "article-template",
+          "settings": {
+            "blog_show_tags": true,
+            "blog_show_date": true,
+            "blog_show_comments": true,
+            "blog_show_author": false,
+            "social_sharing_blog": true
+          }
+        },
+        "blog-template": {
+          "type": "blog-template",
+          "settings": {
+            "blog_show_tag_filter": true,
+            "blog_show_rss": false,
+            "blog_show_tags": true,
+            "blog_show_date": true,
+            "blog_show_comments": true,
+            "blog_show_author": false,
+            "blog_image_size": "wide"
+          }
+        },
+        "1499790633921": {
+          "type": "background-image-text",
+          "settings": {
+            "button_link": "shopify:\/\/collections\/all",
+            "focal_point": "center",
+            "color_border": "#090909",
+            "layout": "right",
+            "height": 750,
+            "framed": false,
+            "parallax": true
+          }
+        },
+        "product-sections-template": {
+          "type": "product-sections-template",
+          "blocks": {
+            "product-background-image-text": {
+              "type": "background-image-text",
+              "settings": {
+                "button_link": "shopify:\/\/collections\/all",
+                "alignment": "top left",
+                "color_border": "#3a6815",
+                "layout": "right",
+                "height": 550,
+                "parallax": false
+              }
+            },
+            "product-text-columns": {
+              "type": "text-columns",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "product-background-image-text",
+            "product-text-columns"
+          ],
+          "settings": {
+          }
+        },
+        "page-sections-template": {
+          "type": "page-sections-template",
+          "blocks": {
+            "page-rich-text": {
+              "type": "rich-text",
+              "settings": {
+                "align_text": "center",
+                "narrow_column": true,
+                "enlarge_text": true
+              }
+            },
+            "page-text-columns": {
+              "type": "text-columns",
+              "settings": {
+              }
+            },
+            "page-background-image-text": {
+              "type": "background-image-text",
+              "settings": {
+                "alignment": "center",
+                "color_border": "#f4f4f4",
+                "layout": "right",
+                "height": 550
+              }
+            },
+            "page-featured-collection": {
+              "type": "featured-collection",
+              "settings": {
+                "per_row": 4,
+                "rows": 1,
+                "view_all": true
+              }
+            }
+          },
+          "block_order": [
+            "page-rich-text",
+            "page-text-columns",
+            "page-background-image-text",
+            "page-featured-collection"
+          ],
+          "settings": {
+            "page_title_enable": false,
+            "page_content_enable": false
+          }
+        },
+        "newsletter-popup": {
+          "type": "newsletter-popup",
+          "settings": {
+          }
+        },
+        "1524768368258": {
+          "type": "slideshow",
+          "blocks": {
+            "1524768368258-0": {
+              "type": "image",
+              "settings": {
+                "link": "shopify:\/\/collections\/all",
+                "link_text": "Shop all",
+                "text_align": "vertical-center horizontal-left",
+                "focal_point": "top center"
+              }
+            }
+          },
+          "block_order": [
+            "1524768368258-0"
+          ],
+          "settings": {
+            "section_height": "750px",
+            "mobile_height": "auto",
+            "parallax": true,
+            "style": "minimal",
+            "autoplay": true,
+            "autoplay_speed": 5
+          }
+        },
+        "collection-header": {
+          "type": "collection-header",
+          "settings": {
+            "enable": true,
+            "collection_image_enable": false,
+            "parallax": false
+          }
+        },
+        "collection-sidebar": {
+          "type": "collection-sidebar",
+          "blocks": {
+            "1524772785241": {
+              "type": "subcollections",
+              "settings": {
+              }
+            },
+            "1524772580942": {
+              "type": "tags_all",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "1524772785241",
+            "1524772580942"
+          ],
+          "settings": {
+            "enable_sidebar": true,
+            "filter_style": "sidebar",
+            "tags_combine": false,
+            "enable_sort": true
+          }
+        },
+        "1525290496166": {
+          "type": "featured-collections",
+          "blocks": {
+            "1525290496166-0": {
+              "type": "collection",
+              "settings": {
+              }
+            },
+            "1525290496166-2": {
+              "type": "collection",
+              "settings": {
+              }
+            },
+            "1525290496166-1": {
+              "type": "collection",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "1525290496166-0",
+            "1525290496166-2",
+            "1525290496166-1"
+          ],
+          "settings": {
+            "divider": false,
+            "per_row": 3,
+            "enable_gutter": true
+          }
+        },
+        "1525969132569": {
+          "type": "promo-grid",
+          "blocks": {
+            "1525969870126": {
+              "type": "product",
+              "settings": {
+                "link_label": "Shop now",
+                "label": "New",
+                "enable_price": true,
+                "width": "50",
+                "text_size": 100,
+                "color_tint": "#f8ebd4",
+                "color_tint_opacity": 0,
+                "framed": true
+              }
+            },
+            "1525969996422": {
+              "type": "product",
+              "settings": {
+                "link_label": "Shop now",
+                "label": "New",
+                "enable_price": true,
+                "width": "50",
+                "text_size": 100,
+                "color_tint": "#ff0000",
+                "color_tint_opacity": 0,
+                "framed": true
+              }
+            }
+          },
+          "block_order": [
+            "1525969870126",
+            "1525969996422"
+          ],
+          "settings": {
+            "full_width": false,
+            "gutter_size": 5,
+            "space_above": false,
+            "space_below": false
+          }
+        },
+        "1526048428302": {
+          "type": "featured-collection",
+          "settings": {
+            "per_row": 4,
+            "rows": 1,
+            "view_all": false,
+            "divider": false
+          }
+        },
+        "1526048519234": {
+          "type": "newsletter",
+          "settings": {
+            "color_background": "#171615",
+            "color_text": "#ffffff"
+          }
+        },
+        "1526048620689": {
+          "type": "blog-posts",
+          "settings": {
+            "title": "Our blog",
+            "blog": "news",
+            "post_limit": 3,
+            "blog_show_tags": false,
+            "blog_show_date": true,
+            "blog_show_comments": false,
+            "blog_show_author": false,
+            "view_all": true,
+            "blog_image_size": "wide",
+            "divider": false
+          }
+        },
+        "collection-promotions": {
+          "type": "collection-promotions",
+          "blocks": {
+            "1526501090474": {
+              "type": "advanced",
+              "settings": {
+                "cta_link1": "shopify:\/\/collections\/all",
+                "width": "50",
+                "height": 400,
+                "text_size": 120,
+                "text_align": "vertical-center horizontal-center",
+                "focal_point": "center",
+                "boxed": false,
+                "framed": true
+              }
+            },
+            "1526501130849": {
+              "type": "sale_collection",
+              "settings": {
+                "width": "50",
+                "boxed": false,
+                "framed": true
+              }
+            },
+            "1526501360047": {
+              "type": "banner",
+              "settings": {
+                "label": "Shop 2017",
+                "color_tint": "#514f4b",
+                "color_tint_opacity": 20,
+                "framed": false
+              }
+            }
+          },
+          "block_order": [
+            "1526501090474",
+            "1526501130849",
+            "1526501360047"
+          ],
+          "settings": {
+            "gutter_size": 20
+          }
+        },
+        "1526480838446": {
+          "type": "background-image-text",
+          "settings": {
+            "button_link": "shopify:\/\/collections\/all",
+            "focal_point": "center",
+            "color_border": "#f4f4f4",
+            "layout": "left",
+            "height": 750,
+            "framed": false,
+            "parallax": true
+          }
+        },
+        "1526481284428": {
+          "type": "featured-content",
+          "settings": {
+            "align_text": "center",
+            "narrow_column": true,
+            "enlarge_text": true,
+            "divider": false
+          }
+        },
+        "1526481405629": {
+          "type": "promo-grid",
+          "blocks": {
+            "1526481405629-1": {
+              "type": "advanced",
+              "settings": {
+                "width": "100",
+                "height": 660,
+                "text_size": 120,
+                "text_align": "vertical-center horizontal-center",
+                "focal_point": "center",
+                "boxed": false,
+                "framed": false
+              }
+            }
+          },
+          "block_order": [
+            "1526481405629-1"
+          ],
+          "settings": {
+            "full_width": false,
+            "gutter_size": 34,
+            "space_above": false,
+            "space_below": true
+          }
+        }
+      },
+      "content_for_index": [
+        "1524768368258",
+        "1526481284428",
+        "1525969132569",
+        "1525290496166",
+        "1526048428302",
+        "1526480838446",
+        "1499790633921",
+        "1526048519234",
+        "1526048620689",
+        "1526481405629"
+      ]
+    }
+  }
+}

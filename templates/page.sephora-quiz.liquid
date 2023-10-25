@@ -1,0 +1,2626 @@
+<!-- /templates/page.sephoraz-quiz.liquid -->
+{% layout none %}
+{% assign formatted_initial_value = gift_card.initial_value | money_without_trailing_zeros: gift_card.currency %}
+{% assign formatted_initial_value_stripped = formatted_initial_value | strip_html %}
+<!doctype html>
+<!--[if IE 8]><html class="template-giftcard no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie9 template-giftcard no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="template-giftcard no-js"> <!--<![endif]-->
+<head>
+
+  <!-- Basic page needs ================================================== -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  {% if settings.favicon_enable %}
+  <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/png" />
+  {% endif %}
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MPD7QJC');</script>
+<!-- End Google Tag Manager -->
+  <!-- Title and description ================================================== -->
+  <title>Sephora</title>
+  <meta name="description" content="{{ 'gift_cards.issued.subtext' | t }}">
+
+  <!-- Helpers ================================================== -->
+  <link rel="canonical" href="{{ canonical_url }}">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  
+  {% include 'google-fonts' %}
+<!--   <script>window.fonts = [];</script> -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script type="application/javascript" async 
+ src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=JPm2cy"></script>
+	{{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+	{{ 'timber.scss.css' | asset_url | stylesheet_tag }}
+<style>
+
+  #res_loading {
+    height: calc(100vh - 103px);
+/*     position: fixed; */
+/*     top: 103px; */
+/*     bottom: 0; */
+    z-index: 9;
+  }
+  
+  @media screen and (min-width: 767px) {
+    #res_loading {
+      height: calc(100vh - 128px);
+/*       top: 128px; */
+    }  
+  }
+  
+  #sec_dob #outer_dob {
+    background-image: url({{'birthday-back.jpg' | asset_url }});
+  }
+  .outer_email {
+    background-image: url(https://cdn.shopify.com/s/files/1/1979/4109/files/quiz_email_bg.jpg?531);
+  }
+  .img_container {
+    display: flex !important;
+    height: calc(100vh - 103px);
+    justify-content: center;
+  }
+  
+  @media screen and (min-width: 767px) {
+  
+    .img_container {
+      display: flex !important;
+      height: calc(100vh - 128px);
+    }
+  }
+  
+  .img_container img {
+    object-fit: cover;
+  }
+  
+  .js-drawer-open #PageContainer  {
+  	opacity: .2;
+  }
+  
+  .supports-js .product-form {
+    visibility: visible;
+  }
+  
+  .homepage-hero-module .main_heading {
+/*   	letter-spacing: 6px; */
+    line-height: 1.2 !important;
+  }
+  
+  @media screen and (min-width: 992px) {
+  	.homepage-hero-module .main_heading {
+      letter-spacing: 8px;
+      font-size: 80px;
+    }
+  }
+  
+  #result_div .ajaxified-cart-feedback.success {
+  	display: none !important;
+  }
+
+  #sampler-callout > .grid__item {
+    display: flex;
+    flex-direction: column;
+    margin: 45px auto 100px;
+    border: 2px solid #ffcbe2;
+    padding: 5px 0 0;
+    justify-content: center;
+    max-width: 100%;
+  }
+  
+  @media screen and (min-width: 767px) {
+    #sampler-callout > .grid__item {
+      flex-direction: row;
+      min-width: 573px;
+    }
+  }
+  
+  .sampler-callout__content {
+    min-width: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .sampler-callout__content h3 {
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+  .sampler-callout__content p {
+    font-size: 17px;
+    margin: 0;
+  }
+  #img_sampler {
+    max-width: 180px;
+  }
+
+  #sec_sys h2 {
+  	background-image: url(https://cdn.shopify.com/s/files/1/1979/4109/files/bg-five_personas.png?626);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: contain;
+    padding-top: 132px;
+    max-width: 715px;
+  }
+  
+  #content-mail {
+    font-size: 18px;
+    max-width: 470px;
+    text-align: left;
+    text-transform: uppercase;
+}
+  #button_15 {
+  width: 100% !important;
+  }
+  a.button--start-over, a.button--go-back, a.button--learn-more {
+    align-items: center;
+    display: flex;
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    font-size: 18px;
+    text-shadow: 0 0 3px #fff;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  a.button--start-over img, a.button--go-back img {
+    max-height: 30px;
+  }
+  a.button--start-over {
+    right: 40px;
+  }
+  a.button--start-over img {
+  	margin-left: 10px;
+  }
+  a.button--go-back, a.button--learn-more {
+    left: 40px;
+  }
+  a.button--learn-more {
+    font-size: 16px;
+    text-decoration: underline;
+    font-family: "Crimson Text",serif;
+    font-style: italic;
+  }
+  a.button--go-back img {
+  	margin-right: 10px;
+  }
+  
+  @media screen and (max-width: 480px) {
+    .homepage-hero-module .main_heading {
+    	font-size: 35px;
+    }
+    #sec_sys #result_outer {
+      padding: 20px;
+      max-width: 100%;
+    }
+    #sec_sys #btn_result {
+      margin: 0 auto;
+      width: 100%;
+      font-size: 15px;
+    }
+    #sec_sys p br {
+      display: none;
+    }
+    a.button--start-over, a.button--go-back, a.button--learn-more {
+      font-size: 14px;
+    }
+    a.button--start-over img, a.button--go-back img {
+      max-height: 20px;
+    }
+   
+    #sec_dob .button--go-back, #sec_dob .button--start-over, #sec_email .button--go-back, #sec_email .button--start-over {
+/*       bottom: 15px;
+      position: fixed;
+      background-color: rgba(255,255,255,.7);
+      padding: 3px 10px;
+      border-radius: 34px;
+      width: 110px;
+      display: flex;
+      justify-content: center; */
+    }
+  }
+  .title-container p, date p {
+      font-size: 18px;
+      line-height: 24px;
+  }
+  
+  @media screen and (min-width: 767px) {
+    .title-container p, .date p {
+      font-size: 23px;
+      line-height: 35px;
+    }  
+  }  
+  
+  .main-content {
+    padding: 0px;
+    margin-bottom: 0px!important;
+  }
+  div#shopify-section-footer{
+  display:none;
+  }
+  
+.blink_me{
+opacity: 0;
+  animation: blinking 2s linear infinite;
+}
+@-webkit-keyframes blinking {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+  
+.take_quiz:hover{
+    
+    background-color:black; 
+/*     font-family: Futurabook; */
+    color:#fff;
+  }
+  
+.take_quiz {
+  color:#000;
+/*   font-family: Futurabook; */
+  font-size:18px;
+  font-weight:900;
+  border: 2px solid #000;
+  border-radius: 2px;
+  padding-top:15px;
+  padding-bottom:11px;
+  padding-left:60px;
+  padding-right:60px;
+  letter-spacing: 6px;
+  margin-top: 25px;
+
+
+}
+
+  .quiz-subheading{
+  color:#000;
+  font-family: Futurabook;
+  text-transform: uppercase;
+  font-size:24px;
+  }
+  
+#img_container {
+    position:relative;
+    display:table-cell;
+    text-align:center;
+}
+#img_container:hover {
+    cursor:pointer;
+}
+  #button_15
+  {
+     border: 2px;
+     border-style: solid;
+  	 background-color: rgba(234, 237, 237, 0.9);
+     width:250px;
+     height:55px;
+     font-size:20px;
+     font-family: Futurabook;
+     letter-spacing:6px;
+     font-weight: bold;
+  }
+  #date-year,#date-day,#date-month
+  {
+    border: 2px solid #ffc8df;
+    background-color: #fff; 
+    font-size: 16px;
+    font-weight: 900;
+    text-transform: uppercase;
+    border-radius: 8px;
+  }
+  .date h3
+  {
+    line-height: 1.25;
+    padding: 0;
+    margin-top:100px;
+    margin-bottom: -30px;
+    font-size:60px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+  @media screen and (max-width: 766px) {
+    .date h3 {
+      line-height: 1;
+      margin-top: 30px;
+      margin-bottom: -10px;
+      font-size: 30px;
+    }
+  }
+  .date h2 
+  {
+        padding-bottom: 14px;
+    line-height: 1em;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 3px;
+    margin: 40px auto 0.25em auto;
+   /* padding-top: 100px;
+    background: transparent url(https://s3-us-west-2.amazonaws.com/pinroseecom-assets/quiz/bg-five_personas.png) 0 0 no-repeat;
+    background-size: contain;*/
+    font-family: "akzidenz-grotesk-light";
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+  
+  .date p
+  {
+/*     font-size:18px; */
+  }
+  
+
+.main-content {
+    padding: 0px;
+  	margin-bottom:20px;
+}
+  
+.main_heading
+  {
+   font-size:64px;
+   font-family: Futurabook;
+  }
+.date{
+  	margin-top:50px;
+  	margin: 0 auto;
+	padding:200px;
+    text-align: center;
+    vertical-align: middle;
+  	font-weight: 900;
+
+}
+
+#popup-mail
+{
+   /* display:none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left:-155px;
+    margin-top:-110px;
+    border:1px solid #000;
+    padding:30px;
+    z-index:102;
+    font-size:10pt;
+    font-weight:bold; */
+}
+#content-mail
+{
+   /* height:auto;
+    margin:30px auto;
+    padding-left:30px;
+  	padding-right:30px;*/
+}
+#popupclose-mail
+{
+   /* margin:25px 0 0 70px;
+    width:50px;*/
+    
+}
+#popupclose-first:hover{
+    
+    background-color:black; 
+    font-family: Futurabook;
+    color:#fff;
+  }
+  
+#popupclose-first{
+  margin-top:20px;
+  color:#000;
+  background:#fff;
+  font-family: Futurabook;
+  font-size:18px;
+  border: 2px solid #000;
+  border-radius: 2px;
+  padding-top:15px;
+  padding-bottom:11px;
+  padding-left:60px;
+  padding-right:60px;
+
+}
+
+#popup-first
+{
+        left:0; right:0;
+        top:0; bottom:0;
+        margin:auto;
+
+    display:none;
+  	width:500px;
+  	height:350px;
+    position: fixed;
+    border:1px solid #000;
+    padding:30px;
+    z-index:10002;
+    font-size:16pt;
+    font-weight:bold;
+}
+  .popup-first
+{
+        left:0; right:0;
+        top:0; bottom:0;
+        margin:auto;
+
+    display:none;
+  	width:500px;
+  	height:250px;
+    position: fixed;
+    border:1px solid #000;
+    padding:30px;
+    z-index:10002;
+    font-size:16pt;
+    font-weight:bold;
+}
+  #mail_id_field
+  {
+    width:100%;
+    background:white;
+  }
+  #popupmail-send
+  {
+    margin-left: -5px;background-color: #000;
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #fff;
+    width: auto;
+  }
+#content-first
+{
+    height:auto;
+    margin:35px auto;
+    padding-left:10px;
+  	padding-right:10px;
+  	text-align:center;
+}
+  .content-first
+{
+    height:auto;
+    margin:35px auto;
+    padding-left:10px;
+  	padding-right:10px;
+  	text-align:center;
+}
+.content-first h3
+  {
+    font-size: 38px;
+    border-bottom: solid 2px #000;
+    padding-bottom: 0.4em;
+  }
+  
+  
+#popup-first-close{position:absolute;width:45px;right:-23px; top:-23px;cursor: pointer;} 
+  .popup-first-close{position:absolute;width:45px;right:-23px; top:-23px;cursor: pointer;}
+
+  
+.full-width {
+  width: 100%;
+  padding:10px;
+  background: #000;
+  margin-top: -10px;
+}
+.full-width-results {
+  width: 100%;
+  padding:10px;
+}
+  
+.quiz_foo {
+  width:33%;
+  display:inline-block;
+}
+.quiz_foo2 {
+  width:33%;
+  display:inline-block;
+}
+
+#outer {
+   display: flex;
+   width: 100%;
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   justify-content: center;
+   table-layout: fixed;
+/*  background-image:url("{{'BirthdayBkgrd.jpg' | asset_url }}");*/
+  
+}
+#outer_dob {
+   height: auto;
+  min-height: calc(100vh - 128px);
+   background-position: center;
+   background-repeat: no-repeat;
+}
+#outer_dob em {
+    font-style: normal;
+}
+#outer_res {
+   height: 100%;
+   background-position: center;
+   background-repeat: no-repeat;
+  
+  
+}
+#res_lt_sniff{
+  color:#fff;
+  font-size:40px;
+  font-family: Futurabook;
+  padding-top:140px;
+  margin-bottom:200px;
+  text-shadow: 2px 2px 20px #000;
+  }
+  
+  #result_outer
+  {
+    padding:120px;
+  }
+
+
+.button {
+    position:absolute;
+  	background-color: rgba(234, 237, 237, 0.9);
+    width:250px;
+    height:55px;
+    bottom: 20%;
+/*     right: auto; */
+/*     left: 50%; */
+/*     margin-left: -100px; */
+    font-size:20px;
+    font-family: Futurabook;
+    letter-spacing:6px;
+    font-weight: bold;
+}
+
+  
+ @media only screen and (max-width: 600px) {
+ 
+ .button {
+   bottom: 25%;
+    position:absolute;
+/*   	background-color: rgba(234, 237, 237, 0.5); */
+    width:115px;
+    height:35px;
+/*     bottom: 30%; */
+/*         right: 0px!important; */
+/*     margin-left: -20%!important; */
+    font-size:12px;
+   letter-spacing: 4px;
+  font-family: Futurabook;
+   font-weight: bold;
+}
+  
+} 
+  
+.button_dob_skip {
+
+    text-decoration: underline;
+}  
+.button_dob_skip:hover {
+
+    cursor: pointer;
+}
+.button_dob {
+
+  	background-color: rgba(234, 237, 237, 0.9);
+    width:250px;
+    height:55px;
+    font-size:20px;
+    font-family: Futurabook;
+    letter-spacing:6px;
+    font-weight: bold;
+  	max-width: 300px;
+}
+  
+hp {
+  color:#000;
+  font-family: 'Raleway', sans-serif;
+  font-size:64px;
+  letter-spacing:10px;
+  
+  
+  
+}
+
+.homepage-hero-module {
+  border-right: none;
+  border-left: none;
+  position: relative;
+}
+.no-video .video-container video,
+.touch .video-container video {
+  display: none;
+}
+.no-video .video-container .poster,
+.touch .video-container .poster {
+  display: block !important;
+}
+.video-container {
+  position: relative;
+  bottom: 0%;
+  left: 0%;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+}
+.video-container .poster img {
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+}
+.video-container .filter {
+  z-index: 100;
+  position: absolute;
+ /* background: rgba(0, 0, 0, 0.4);*/
+  width: 100%;
+}
+.video-container .title-container {
+  z-index: 1000;
+  position: absolute;
+  top: 20%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+.video-container .description .inner {
+  font-size: 1em;
+  width: 45%;
+  margin: 0 auto;
+}
+  
+#pprev 
+  {
+    visibility:hidden;
+    text-align:left;
+    color: #fff;
+  }
+#pprev:hover{
+  color: #fff;
+  cursor: pointer;
+  }
+#pprev-results
+  {
+    text-align:left;
+    color: #000;
+  }
+#pprev-results:hover{
+  color: #6E6E6E;
+  cursor: pointer;
+  }
+#pcur{
+  text-align:center;
+}
+#pcur-results{
+  text-align:center;
+}
+#pcur-results:hover{
+  cursor: pointer;
+  }
+#pcur-results2{
+  text-align:center;
+}
+#pid
+  {
+    text-align:right;
+    color:#fff; 
+  }
+#pid:hover
+  {
+    cursor: pointer;
+  }
+#pid-results
+  {
+    text-align:right;
+    color:#000; 
+  }
+#pid-results:hover
+  {
+    color: #6E6E6E;
+  	cursor: pointer;
+  }
+ #res_loading
+  {
+    height: 100%;
+        padding:220px;
+   background-position: inherit;
+   background-repeat: no-repeat;
+   background-size: cover;
+    background-image:url('{{'tb1.jpg' | asset_url }}');
+  }
+  #btn_result
+  {
+/*     position: absolute; */
+/*     background-color: rgba(234, 237, 237, 0.3); */
+    /* bottom: 30%; */
+/*     right: 50%; */
+/*     width: 180px; */
+/*     height: 55px; */
+/*     margin: 0px -90px -15px 0px; */
+    border-width: 0;
+    border-style: solid;
+    background-color: rgba(255,255,255,.5);
+    width: 400px;
+    height: 55px;
+    font-size: 20px;
+    font-family: Futurabook;
+    letter-spacing: 6px;
+    font-weight: bold;
+  }
+  #btn_sys
+  {
+    float:left;
+    margin-left: 20px;
+    font-family: "Crimson Text",serif;
+    font-style: italic;
+  }
+#btn_sys
+  {
+    float:center;
+    margin-left: 20px;
+    font-family: "Crimson Text",serif;
+    font-style: italic;
+  }
+  #btn_sys1
+  {
+    float:right;
+       margin-right: 20px;
+    font-family: "Crimson Text",serif;
+    font-size: 18px;
+    
+  }
+  
+  
+  @media (max-width: 657px) {
+  	.sampler-callout__content {
+    	padding: 0 10px;
+      	min-width: 0;
+    }
+    .sampler-callout__content p {
+    	line-height: 1;
+    }
+  }  
+  
+  
+  
+  
+  
+  @media (max-width: 480px) {
+    #beg_div .title-container p {
+    	padding: 0 15px;
+    }
+    #result_div a.button--start-over, #result_div a.button--learn-more {
+      right: 0;
+      left: 0;
+      justify-content: center;
+      width: 100%;
+    }
+    
+    #result_div a.button--start-over {
+      bottom: 80px;
+    }
+    
+    #res_loading
+    {
+      height: 100vh;
+    }
+    #sec_dob #button_15 {
+      margin: 30px auto;
+      display: block !important;
+    }
+
+    #sec_dob br {
+    	display: none;
+    }
+    .homepage-hero-module p br {
+      display: none;
+    }
+    #sec_dob .date-element {
+      align-items: center;
+      display: flex !important;
+      padding-left: 0 !important;
+      width: 250px;
+      margin: 0 auto 5px;
+    }
+    #sec_dob .date-element span{
+      display: inline-block;
+      width: 150px;
+      text-align: left;
+      margin-right: 10px;
+    }
+    #sec_dob .date-element select{
+      width: 100px !important;
+      border-width: 0;
+    }
+    .video-container .title-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      height: 100%;
+      margin-top: 50px;
+      top: 0;
+    }
+    .take_quiz {
+      padding-left: 12px;
+      padding-right: 12px;
+      font-size: 14px;
+      line-height: 1;
+      padding-bottom: 15px;
+    }
+    .quiz_foo2 {
+      width: 100%;
+    }
+    #pprev-results {
+      text-align: center;
+    }
+    #pid-results {
+      text-align: center;
+      margin-top: 20px;
+    }
+    #pcur-results {
+      margin-top: 20px;
+    }
+    #pcur-results2 {
+      margin-top: 20px;
+    }
+    #outer_dob {
+/*       height: 800px; */
+      padding-bottom: 100px;
+      min-height: calc(100vh - 104px);
+    }
+
+    #popup-first
+    {
+
+      width:275px;
+      height:450px;
+      font-size:15pt;
+    }
+    .popup-first
+    {
+      width:275px;
+      height:385px;
+      font-size:15pt;
+    }
+    #popupmail-send
+    {
+      margin-top:10px;
+    }
+    #popupclose-first {font-size: 12px;}
+    .popupclose-first {font-size:12px;}
+    .main_heading
+    {
+
+      font-size: 30px;
+      letter-spacing: 2px !important;
+      line-height: 40px !important;
+
+    }
+    .quiz-subheading {
+      font-size: 18px !important;
+      margin-top: 10px !important;
+    }
+    #pid
+    {
+      margin-left: -10px;
+      color:#fff;
+
+    }
+    /*   #button_01,#button_03,#button_05,#button_07,#button_09,#button_11,#button_13
+    {
+    width:50%;
+    margin-left:-10px;
+  }
+
+    #button_02,#button_04,#button_06,#button_08,#button_10,#button_12,#button_14
+    {
+    width:50%;
+    margin-left:20px;
+  } */
+    .date
+    {
+      padding:2px;
+      padding-top: 10px;
+    }
+    .button_dob
+    {
+      margin-top: 60px;
+      margin-bottom: 40px;
+
+    }
+    #res_loading
+    {
+      padding: 0px;
+    }
+    hp
+    {
+      font-size: 20px;
+      letter-spacing: 0px;
+    }
+
+    #btn_result
+    {
+      margin-left: -85px;
+      right: initial;
+    }
+
+    #result_outer {
+      padding: 20px;
+    }
+
+  }
+  
+   @media only screen and (max-width: 961px) and (min-width: 481px) {
+.quiz_foo2 {
+    width: 100%;
+}
+     
+#pprev-results {
+    text-align: center;
+}
+#pid-results {
+    text-align: center;
+    margin-top: 20px;
+}
+#pcur-results {
+    margin-top: 20px;
+}
+ #pcur-results2 {
+    margin-top: 20px;
+}  
+     #pid
+    {
+      margin-left: -15px;
+      color:#fff;
+    }
+ /*      #button_01,#button_03,#button_05,#button_07,#button_09,#button_11,#button_13
+    {
+      width:50%;
+      margin-left:-10px;
+    }
+    
+    #button_02,#button_04,#button_06,#button_08,#button_10,#button_12,#button_14
+    {
+      width:50%;
+      margin-left:30px;
+    } */
+      .date
+    {
+      padding:2px;
+      padding-top: 100px;
+    }
+    .button_dob
+    {
+          margin-top: 60px;
+          margin-bottom: 60px;
+          margin-left:40px;
+      
+    }
+     #res_loading
+    {
+          padding:130px;
+    }
+     hp
+     {
+       font-size: 44px;
+       letter-spacing: 1px;
+     }
+      #btn_sys1
+     {
+    float:right;
+       margin-right: 70px;
+    font-family: "Crimson Text",serif;
+    font-size: 18px;
+    }
+     
+  }
+  @media (min-width: 992px)
+    {
+      .date h2
+      {
+        margin: 0.25em auto 0.25em auto;
+   /* padding-top: 120px;*/
+    font-size: 60px;
+    letter-spacing: 0.2em;
+      }
+ /*      #button_01,#button_03,#button_05,#button_07,#button_09,#button_11,#button_13,#button_02,#button_04,#button_06,#button_08,#button_10,#button_12,#button_14
+    {
+      
+      margin-left:20px;font-size: 24px;
+      letter-spacing: 0.25em; */
+     /*padding: 0.5em 2em;*/
+  /*    background: rgba(255,255,255,0.5);
+    }
+  */
+    }
+  
+  
+ 
+  
+ 
+  
+</style>
+</head>
+<body>
+<!-- SECTION BEGINNING   -->
+    <div style="max-height: 60px; margin-bottom: -5px;"><img src="https://cdn.shopify.com/s/files/1/1979/4109/files/SephoraQuizHeader.jpg?1148" style="max-height: 70px;"></div>
+
+<div class="text-center" id="beg_div">
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="homepage-hero-module">
+
+    <div class="video-container" style="cursor: pointer;" onclick="first_popup()">
+        <div class="title-container">
+
+<div style="" class="main_heading">UNLOCK YOUR<br>PERSONALIZED <br>SCENT STYLE<br></div>  
+<div style="letter-spacing: .5px;font-size: 18px;"><p>
+  We're going to show you a series of images, shapes,<br>and colors. On each screen, select the one that you <br>are instantly and instinctively drawn towards.</p></div>
+<div id="text">
+   <button id="start-button-quiz" class="take_quiz" onclick="init_fun();ga('send','pageview','/find-your-scent/step2');">LET'S GET STARTED!</button>
+</div>
+        </div>
+        <div class=""></div>
+        <video autoplay loop class="fillWidth"style="width:100%;display: block;">
+            <source src="https://s3-us-west-2.amazonaws.com/pinroseecom-assets/quiz/nordstrom/slide1.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.</video>
+        <div class="poster hidden">
+        </div>
+    </div>
+</div>
+</div>
+<!-- /container -->
+
+<script type="text/javascript">
+/** Document Ready Functions **/
+/********************************************************************/
+
+$( document ).ready(function() {
+
+    // Resize video
+    scaleVideoContainer();
+
+    initBannerVideoSize('.video-container .poster img');
+    initBannerVideoSize('.video-container .filter');
+    initBannerVideoSize('.video-container video');
+        
+    $(window).on('resize', function() {
+        scaleVideoContainer();
+        scaleBannerVideoSize('.video-container .poster img');
+        scaleBannerVideoSize('.video-container .filter');
+        scaleBannerVideoSize('.video-container video');
+    });
+
+});
+
+/** Reusable Functions **/
+/********************************************************************/
+
+function scaleVideoContainer() {
+
+    var height = $(window).height();
+    var unitHeight = parseInt(height) + 'px';
+    $('.homepage-hero-module').css('height',unitHeight);
+
+}
+
+function initBannerVideoSize(element){
+    
+    $(element).each(function(){
+        $(this).data('height', $(this).height());
+        $(this).data('width', $(this).width());
+    });
+
+    scaleBannerVideoSize(element);
+
+}
+
+function scaleBannerVideoSize(element){
+
+    var windowWidth = $(window).width(),
+        windowHeight = $(window).height(),
+        videoWidth,
+        videoHeight;
+    
+    $(element).each(function(){
+        var videoAspectRatio = $(this).data('height')/$(this).data('width'),
+            windowAspectRatio = windowHeight/windowWidth;
+
+        if (videoAspectRatio > windowAspectRatio) {
+            videoWidth = windowWidth;
+            videoHeight = videoWidth * videoAspectRatio;
+            $(this).css({'top' : -(videoHeight - windowHeight) / 2 + 'px', 'margin-left' : 0});
+        } else {
+            videoHeight = windowHeight;
+            videoWidth = videoHeight / videoAspectRatio;
+            $(this).css({'margin-top' : 0, 'margin-left' : -(videoWidth - windowWidth) / 2 + 'px'});
+        }
+
+        $(this).width(videoWidth).height(videoHeight);
+
+        $('.homepage-hero-module .video-container video').addClass('fadeIn animated');
+        
+
+    });
+}  
+</script>
+
+<!-- SECTION LOADING -->
+
+<div class="text-center" id="res_loading" hidden="hidden">
+          
+<div id="res_lt_sniff" class="blink_me">
+  <strong><span>SNIFFING OUT YOUR RESULTS...</span></strong>
+</div>
+</div>
+
+<!-- SECTION 01 -->
+
+<div id="sec_1" hidden="hidden" >
+<div id="outer">
+<div id="img_container" class="img_container">
+  
+  {% assign s1_imageL='color-pink.jpg' %}
+  {% assign s1_imageR='color-green.jpg' %}
+  
+    <img src="{{ s1_imageL | asset_url }}" onclick="track_step(1, '{{ s1_imageL }}');main_quiz('11');"/>
+     <button class="button" id="button_01" onclick="track_step(1, '{{ s1_imageL }}');main_quiz('11');ga('send','pageview','/find-your-scent/step3a');">SELECT</button>
+  	<a class="button--go-back" href="/pages/find-your-scent" ><img src="https://cdn.shopify.com/s/files/1/1979/4109/files/back.png?494" /><span>Back</span></a>
+     
+</div>
+<div id="img_container" class="img_container"> 
+    <img src="{{ s1_imageR | asset_url }}" onclick="track_step(1, '{{ s1_imageR }}');main_quiz('12');"/>
+    <button class="button" id="button_02" onclick="track_step(1, '{{ s1_imageR }}');main_quiz('12');ga('send','pageview','/find-your-scent/step3b');">SELECT</button>
+  	<a class="button--start-over" href="/pages/find-your-scent" ><span>Start Over</span><img src="https://cdn.shopify.com/s/files/1/1979/4109/files/start_over_9f856c30-f5e4-42a6-b7d0-08dceb8e242d.png?490" /></a>
+   
+</div>
+</div>
+</div>
+
+<!-- SECTION 02 -->
+
+<div id="sec_2" hidden="hidden">
+<div id="outer">
+<div id="img_container" class="img_container">
+  
+  {% assign s2_imageL='shape-spikey.jpg' %}
+  {% assign s2_imageR='shape-dreamy.jpg' %}
+  
+    <img src="{{ s2_imageL | asset_url }}" onclick="track_step(2, '{{ s2_imageL }}');main_quiz('21')"/>
+    <button class="button" id="button_03" onclick="track_step(2, '{{ s2_imageL }}');main_quiz('21');ga('send','pageview','/find-your-scent/step4a');">SELECT</button>
+  	<a class="button--go-back" onclick="main_quiz('2001');" ><img src="https://cdn.shopify.com/s/files/1/1979/4109/files/back.png?494" /><span>Back</span></a>
+  </div>
+<div id="img_container" class="img_container">
+    <img src="{{ s2_imageR | asset_url }}" onclick="track_step(2, '{{ s2_imageR }}');main_quiz('22')"/>
+    <button class="button" id="button_04" onclick="track_step(2, '{{ s2_imageR }}');main_quiz('22');ga('send','pageview','/find-your-scent/step4b');">SELECT</button>
+   	<a class="button--start-over" href="/pages/find-your-scent" ><span>Start Over</span><img src="https://cdn.shopify.com/s/files/1/1979/4109/files/start_over_9f856c30-f5e4-42a6-b7d0-08dceb8e242d.png?490" /></a>
+</div>
+</div>
+</div>
+
+<!-- SECTION 03 -->
+
+<div id="sec_3" hidden="hidden">
+<div id="outer">
+<div id="img_container" class="img_container">
+  
+  {% assign s3_imageL='place-fields.jpg' %}
+  {% assign s3_imageR='place-woods.jpg' %}
+  
+    <img src="{{ s3_imageL | asset_url }}" onclick="track_step(3, '{{ s3_imageL }}');main_quiz('31')"/>
+     <button class="button" id="button_05" onclick="track_step(3, '{{ s3_imageL }}');main_quiz('31');ga('send','pageview','/find-your-scent/step5a');">SELECT</button>
+  	<a class="button--go-back" onclick="main_quiz('2002');" ><img src="https://cdn.shopify.com/s/files/1/1979/4109/files/back.png?494" /><span>Back</span></a>
+   
+</div>
+<div id="img_container" class="img_container">
+    <img src="{{ s3_imageR | asset_url }}" onclick="track_step(3, '{{ s3_imageR }}');main_quiz('32')"/>
+    <button class="button" id="button_06" onclick="track_step(3, '{{ s3_imageR }}');main_quiz('32');ga('send','pageview','/find-your-scent/step5b');">SELECT</button>
+   	<a class="button--start-over" href="/pages/find-your-scent" ><span>Start Over</span><img src="https://cdn.shopify.com/s/files/1/1979/4109/files/start_over_9f856c30-f5e4-42a6-b7d0-08dceb8e242d.png?490" /></a>
+</div>
+</div>
+</div>
+
+<!-- SECTION 04 -->
+
+<div id="sec_4" hidden="hidden">
+<div id="outer">
+<div id="img_container" class="img_container">
+  
+  {% assign s4_imageL='ocean-wave.jpg' %}
+  {% assign s4_imageR='ocean-calm.jpg' %}
+  
+    <img src="{{ s4_imageL | asset_url }}" onclick="track_step(4, '{{ s4_imageL }}');main_quiz('41')"/>
+    <button class="button" id="button_07" onclick="track_step(4, '{{ s4_imageL }}');main_quiz('41');ga('send','pageview','/find-your-scent/step6a');">SELECT</button>
+  	<a class="button--go-back" onclick="main_quiz('2003');" ><img src="https://cdn.shopify.com/s/files/1/1979/4109/files/back.png?494" /><span>Back</span></a>
+</div>
+<div id="img_container" class="img_container">
+    <img src="{{ s4_imageR | asset_url }}" onclick="track_step(4, '{{ s4_imageR }}');main_quiz('42')"/>
+    <button class="button" id="button_08" onclick="track_step(4, '{{ s4_imageR }}');main_quiz('42');ga('send','pageview','/find-your-scent/step6b');">SELECT</button>
+	<a class="button--start-over" href="/pages/find-your-scent" ><span>Start Over</span><img src="https://cdn.shopify.com/s/files/1/1979/4109/files/start_over_9f856c30-f5e4-42a6-b7d0-08dceb8e242d.png?490" /></a>
+  </div>
+</div>
+</div>
+
+<!-- SECTION 05 -->
+
+<div id="sec_5" hidden="hidden">
+<div id="outer">
+<div id="img_container" class="img_container">
+  
+  {% assign s5_imageL='ground-sand.jpg' %}
+  {% assign s5_imageR='ground-grass.jpg' %}
+  
+    <img src="{{ s5_imageL | asset_url }}" onclick="track_step(5, '{{ s5_imageL }}');main_quiz('51')"/>
+     <button class="button" id="button_09" onclick="track_step(5, '{{ s5_imageL }}');main_quiz('51');ga('send','pageview','/find-your-scent/step7a');">SELECT</button>
+  	<a class="button--go-back" onclick="main_quiz('2004');" ><img src="https://cdn.shopify.com/s/files/1/1979/4109/files/back.png?494" /><span>Back</span></a>
+   
+</div>
+<div id="img_container" class="img_container">
+    <img src="{{ s5_imageR | asset_url }}" onclick="track_step(5, '{{ s5_imageR }}');main_quiz('52')"/>
+    <button class="button" id="button_10" onclick="track_step(5, '{{ s5_imageR }}');main_quiz('52');ga('send','pageview','/find-your-scent/step7b');">SELECT</button>
+   	<a class="button--start-over" href="/pages/find-your-scent" ><span>Start Over</span><img src="https://cdn.shopify.com/s/files/1/1979/4109/files/start_over_9f856c30-f5e4-42a6-b7d0-08dceb8e242d.png?490" /></a>
+</div>
+</div>
+</div>
+
+<!-- SECTION 06 -->
+
+<div id="sec_6" hidden="hidden">
+<div id="outer">
+<div id="img_container" class="img_container">
+  
+  {% assign s6_imageL='girl-nextdoor.jpg' %}
+  {% assign s6_imageR='girl-bombshell.jpg' %}
+  
+    <img src="{{ s6_imageL | asset_url }}" onclick="track_step(6, '{{ s6_imageL }}');main_quiz('61')"/>
+     <button class="button" id="button_11" onclick="track_step(6, '{{ s6_imageL }}');main_quiz('61');ga('send','pageview','/find-your-scent/step8a');">SELECT</button>
+  	<a class="button--go-back" onclick="main_quiz('2005');" ><img src="https://cdn.shopify.com/s/files/1/1979/4109/files/back.png?494" /><span>Back</span></a>
+   
+</div>
+<div id="img_container" class="img_container">
+    <img src="{{ s6_imageR | asset_url }}" onclick="track_step(6, '{{ s6_imageR }}');main_quiz('62')"/>
+    <button class="button" id="button_12" onclick="track_step(6, '{{ s6_imageR }}');main_quiz('62');ga('send','pageview','/find-your-scent/step8b');">SELECT</button>
+   	<a class="button--start-over" href="/pages/find-your-scent" ><span>Start Over</span><img src="https://cdn.shopify.com/s/files/1/1979/4109/files/start_over_9f856c30-f5e4-42a6-b7d0-08dceb8e242d.png?490" /></a>
+</div>
+</div>
+</div>
+
+<!-- SECTION 07 -->
+
+<div id="sec_7" hidden="hidden">
+<div id="outer">
+<div id="img_container" class="img_container">
+  
+  {% assign s7_imageL='bathroom-classic.jpg' %}
+  {% assign s7_imageR='bathroom-modern.jpg' %}
+  
+    <img src="{{ s7_imageL | asset_url }}" onclick="track_step(7, '{{ s7_imageL }}');main_quiz('71')"/>
+     <button class="button" id="button_13" onclick="track_step(7, '{{ s7_imageL }}');main_quiz('71');ga('send','pageview','/find-your-scent/step9a');">SELECT</button>
+  	<a class="button--go-back" onclick="main_quiz('2006');" ><img src="https://cdn.shopify.com/s/files/1/1979/4109/files/back.png?494" /><span>Back</span></a>
+   
+</div>
+<div id="img_container" class="img_container">
+    <img src="{{ s7_imageR | asset_url }}" onclick="track_step(7, '{{ s7_imageR }}');main_quiz('72')"/>
+    <button class="button" id="button_14" onclick="track_step(7, '{{ s7_imageR }}');main_quiz('72');ga('send','pageview','/find-your-scent/step9b');">SELECT</button>
+   	<a class="button--start-over" href="/pages/find-your-scent" ><span>Start Over</span><img src="https://cdn.shopify.com/s/files/1/1979/4109/files/start_over_9f856c30-f5e4-42a6-b7d0-08dceb8e242d.png?490" /></a>
+</div>
+</div>
+</div>
+
+<!-- SECTION DOB -->
+
+<div id="sec_dob" hidden="hidden" style="position: relative;">
+<div id="outer_dob" style="">
+  <div class="date">
+    <h3><em>When is your birthday?</em></h3><p style=""><em>Hint...your zodiac sign tells us a lot about you.</em></p>
+        <br><div class="date-element" style="display: inline-block;">
+          <!--<label>Month</label>--><span>MONTH</span>
+          <select class="date-component" id="date-month">
+              <option value="1">Jan</option>
+              <option value="2">Feb</option>
+              <option value="3">Mar</option>
+              <option value="4">Apr</option>
+              <option value="5">May</option>
+              <option value="6">Jun</option>
+              <option value="7">Jul</option>
+              <option value="8">Aug</option>
+              <option value="9">Sep</option>
+              <option value="10">Oct</option>
+              <option value="11">Nov</option>
+              <option value="12">Dec</option>
+          </select>
+        </div>
+        <div class="date-element" style="display: inline-block;padding-left: 20px;">
+          <!--<label>Day</label>--><span>DAY</span>
+          <select class="date-component" id="date-day">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+              <option value="29">29</option>
+              <option value="30">30</option>
+              <option value="31">31</option>
+          </select>
+        </div>
+        <div class="date-element"  style="display: inline-block;padding-left: 20px;">
+          <!--<label>Year</label>--><span>YEAR</span>
+          <select class="date-component" id="date-year">
+              <option value="1900">1900</option>
+              <option value="1901">1901</option>
+              <option value="1902">1902</option>
+              <option value="1903">1903</option>
+              <option value="1904">1904</option>
+              <option value="1905">1905</option>
+              <option value="1906">1906</option>
+              <option value="1907">1907</option>
+              <option value="1908">1908</option>
+              <option value="1909">1909</option>
+              <option value="1910">1910</option>
+              <option value="1911">1911</option>
+              <option value="1912">1912</option>
+              <option value="1913">1913</option>
+              <option value="1914">1914</option>
+              <option value="1915">1915</option>
+              <option value="1916">1916</option>
+              <option value="1917">1917</option>
+              <option value="1918">1918</option>
+              <option value="1919">1919</option>
+              <option value="1920">1920</option>
+              <option value="1921">1921</option>
+              <option value="1922">1922</option>
+              <option value="1923">1923</option>
+              <option value="1924">1924</option>
+              <option value="1925">1925</option>
+              <option value="1926">1926</option>
+              <option value="1927">1927</option>
+              <option value="1928">1928</option>
+              <option value="1929">1929</option>
+              <option value="1930">1920</option>
+              <option value="1931">1931</option>
+              <option value="1932">1932</option>
+              <option value="1933">1933</option>
+              <option value="1934">1934</option>
+              <option value="1935">1935</option>
+              <option value="1936">1936</option>
+              <option value="1937">1937</option>
+              <option value="1938">1938</option>
+              <option value="1939">1939</option>
+              <option value="1940">1940</option>
+              <option value="1941">1941</option>
+              <option value="1942">1942</option>
+              <option value="1943">1943</option>
+              <option value="1944">1944</option>
+              <option value="1945">1945</option>
+              <option value="1946">1946</option>
+              <option value="1947">1947</option>
+              <option value="1948">1948</option>
+              <option value="1949">1949</option>
+              <option value="1950">1950</option>
+              <option value="1951">1951</option>
+              <option value="1952">1952</option>
+              <option value="1953">1953</option>
+              <option value="1954">1954</option>
+              <option value="1955">1955</option>
+              <option value="1956">1956</option>
+              <option value="1957">1957</option>
+              <option value="1958">1958</option>
+              <option value="1959">1959</option>
+              <option value="1960">1960</option>
+              <option value="1961">1961</option>
+              <option value="1962">1962</option>
+              <option value="1963">1963</option>
+              <option value="1964">1964</option>
+              <option value="1965">1965</option>
+              <option value="1966">1966</option>
+              <option value="1967">1967</option>
+              <option value="1968">1968</option>
+              <option value="1969">1969</option>
+              <option value="1970">1970</option>
+              <option value="1971">1971</option>
+              <option value="1972">1972</option>
+              <option value="1973">1973</option>
+              <option value="1974">1974</option>
+              <option value="1975">1975</option>
+              <option value="1976">1976</option>
+              <option value="1977">1977</option>
+              <option value="1978">1978</option>
+              <option value="1979">1979</option>
+              <option selected="selected" value="1980">1980</option>
+              <option value="1981">1981</option>
+              <option value="1982">1982</option>
+              <option value="1983">1983</option>
+              <option value="1984">1984</option>
+              <option value="1985">1985</option>
+              <option value="1986">1986</option>
+              <option value="1987">1987</option>
+              <option value="1988">1988</option>
+              <option value="1989">1989</option>
+              <option value="1990">1990</option>
+              <option value="1991">1991</option>
+              <option value="1992">1992</option>
+              <option value="1993">1993</option>
+              <option value="1994">1994</option>
+              <option value="1995">1995</option>
+              <option value="1996">1996</option>
+              <option value="1997">1997</option>
+              <option value="1998">1998</option>
+              <option value="1999">1999</option>
+              <option value="2000">2000</option>
+              <option value="2001">2001</option>
+              <option value="2002">2002</option>
+              <option value="2003">2003</option>
+              <option value="2004">2004</option>
+              <option value="2005">2005</option>
+              <option value="2006">2006</option>
+              <option value="2007">2007</option>
+              <option value="2008">2008</option>
+              <option value="2009">2009</option>
+              <option value="2010">2010</option>
+              <option value="2011">2011</option>
+              <option value="2012">2012</option>
+              <option value="2013">2013</option>
+              <option value="2014">2014</option>
+              <option value="2015">2015</option>
+          </select>
+        </div><br><br><br><br>
+    <button class="button_dob" id="button_15"  style="display: inline-block;" 
+            						onclick="main_quiz('90');ga('send','pageview','/find-your-scent/stepdob');"> NEXT </button><br><br>
+     
+    <a class="button_dob_skip" style="display: inline-block;"onclick="main_quiz('90');ga('send','pageview','/find-your-scent/dob-skipped');">SKIP THIS QUESTION </a>
+<!--     <a class="button--go-back" onclick="main_quiz('2007');" ><img src="https://cdn.shopify.com/s/files/1/1979/4109/files/back.png?494" /><span>Back</span></a> -->
+<!--     <a class="button--start-over" href="/pages/find-your-scent" ><span>Start Over</span><img src="https://cdn.shopify.com/s/files/1/1979/4109/files/start_over_9f856c30-f5e4-42a6-b7d0-08dceb8e242d.png?490" /></a> -->
+      </div>
+
+</div>
+  <a class="button--go-back" onclick="main_quiz('2007');" ><img src="https://cdn.shopify.com/s/files/1/1979/4109/files/back.png?494" /><span>Back</span></a>
+    <a class="button--start-over" href="/pages/find-your-scent" ><span>Start Over</span><img src="https://cdn.shopify.com/s/files/1/1979/4109/files/start_over_9f856c30-f5e4-42a6-b7d0-08dceb8e242d.png?490" /></a>
+      
+</div>
+
+<div id="sec_email" hidden="hidden" style="position: relative;">
+<div id="outer_dob" class="outer_email"  style="">
+  <div class="date">
+    <p style=""><strong>Your personalized scents are on the next page!<br>Enter your email so we can send your results too.</strong></p>
+    <div id="content-mail" class="content-first">
+      <span>Email</span>
+      <div class="popup-content">
+          	<input id="mail_id_field" placeholder="YOUR EMAIL" type="text" required/>   <br><br>
+        
+
+          <input id="button_15" type="Button" value="&nbsp;GET RESULTS&nbsp;" style="" onclick="main_quiz('80');ga('send','pageview','/find-your-scent/email-entry');"/>
+           </div>
+        
+    </div>   
+      </div>
+  		<a class="button--go-back" onclick="main_quiz('2008');" ><img src="https://cdn.shopify.com/s/files/1/1979/4109/files/back.png?494" /><span>Back</span></a>
+  		<a class="button--start-over" href="/pages/find-your-scent" ><span>Start Over</span><img src="https://cdn.shopify.com/s/files/1/1979/4109/files/start_over_9f856c30-f5e4-42a6-b7d0-08dceb8e242d.png?490" /></a>
+
+</div>
+</div>
+
+<!-- SECTION FINAL -->
+
+<div id="result_div" hidden="hidden">
+  <button id="cartOpenButton" class=" js-drawer-open-right margins" hidden="hidden"></button>
+	<div class="featured-collection-section " id="featured-collection" data-section-type="featured-collection" style="position: relative;">
+  		<div style="margin:auto; width:40%;">
+    		<a class="text-center"><img  src="{{ 'results_title.gif' | asset_url }}"/></a>
+  		</div> 
+  	<div class="grid--full featured-collection wrapper" >
+    
+
+		<div class="grid__item text-center small--one-whole medium--one-half large--one-third product-item-parent">
+
+          <!-- Image -->
+          <a id="hrf_prod_one" href="#" class="grid__image">
+
+
+            <div class="table">
+              <div class="cell">
+                <img id="img_prod_one" class="product-image" src="" alt="">
+              </div>
+            </div>
+          </a>
+
+          <!-- Title -->
+          <h1><a style="margin-bottom: -15px;letter-spacing: 2px;text-transform:uppercase;" id="title_prod_one">PINROSE</a></h1>
+
+            <!-- Price -->
+            <p  style="margin-top: -15px;" id="sub_prod_one" class="price">
+
+              <form action="https://www.sephora.com/product/" data-productid="" method="get" id="id_prod_one_form" class="product-form"> 
+                <input type="hidden" id="id_prod_one" data-productid="" name="id" value=" " />
+                <a href="" class="btn addtocart cartbutton" style="margin: 0 auto;" id="button_prod_one">
+                <strong>Add to Tote</strong>
+                </a>
+            </form>
+
+
+
+            </p> 
+		</div>
+    
+
+
+        <div class="grid__item text-center small--one-whole medium--one-half large--one-third product-item-parent">
+
+          <!-- Image -->
+          <a id="hrf_prod_two" href="#" class="grid__image">
+
+
+            <div class="table">
+              <div class="cell">
+                <img id="img_prod_two" class="product-image" src="" alt="">
+              </div>
+            </div>
+          </a>
+
+          <!-- Title -->
+          <h1><a style="margin-bottom: -15px;letter-spacing: 2px;text-transform:uppercase;" id="title_prod_two">PINROSE</a></h1>
+
+            <!-- Price -->
+            <p style="margin-top: -15px;" id="sub_prod_two" class="price">
+              <form action="" data-productid="" method="post" enctype="multipart/form-data" id="id_prod_two_form" class="product-form" > 
+                <input type="hidden" id="id_prod_two" data-productid="" name="id" value=" " />
+                <a href="" class="btn addtocart cartbutton" style="margin: 0 auto;" id="button_prod_two">
+                <strong>Add to Tote</strong>
+                </a>
+            </form>
+
+
+
+            </p> 
+        </div>
+    
+
+
+        <div class="grid__item text-center small--one-whole medium--one-half large--one-third product-item-parent">
+
+          <!-- Image -->
+          <a id="hrf_prod_three" href="#" class="grid__image">
+
+
+            <div class="table">
+              <div class="cell">
+                <img id="img_prod_three" class="product-image" src="" alt="">
+              </div>
+            </div>
+          </a>
+
+          <!-- Title -->
+          <h1><a style="margin-bottom: -15px;letter-spacing: 2px;text-transform:uppercase;" id="title_prod_three">pinrose</a></h1>
+
+            <!-- Price -->
+            <p style="margin-top: -15px;" id="sub_prod_three" class="price">
+              <form action="/cart/add" data-productid="" method="post" enctype="multipart/form-data" id="id_prod_three_form" class="product-form" > 
+                <input type="hidden" id="id_prod_three" data-productid="" name="id" value=" " />
+                <a href="" class="btn addtocart cartbutton" style="margin: 0 auto;" id="button_prod_three">
+                <strong>Add to Tote</strong>
+                </a>
+            </form>
+
+
+
+            </p> 
+        </div>  
+	</div>
+
+	<a class="button--learn-more" onclick="main_quiz('2000');" ><i>Learn about Synesthesia.</i></a>
+  	<a class="button--start-over" href="/pages/find-your-scent" ><span>Start Over</span><img src="https://cdn.shopify.com/s/files/1/1979/4109/files/start_over_9f856c30-f5e4-42a6-b7d0-08dceb8e242d.png?490" /></a>
+
+</div> 
+<div id ="q_foo" class="full-width" style="color:#fff;" hidden="hidden">
+  <a id="pprev-results" class="quiz_foo2"   onclick="main_quiz('2000')">LEARN MORE ABOUT SYNESTHESIA</a>
+ <!-- <a id="pcur-results" class="quiz_foo2" onclick="mail_popup()"><img style="width:200px;" src="{{ 'EmailResultsWhite.gif' | asset_url }}"/></a>
+  <div id="pcur-results2" class="quiz_foo2" style="display: none;"></div>-->
+  <a id="pid-results" class="quiz_foo2" onclick="main_quiz('1001')">START OVER ↻</a>
+</div>  
+<!--
+	<button id="btn_sys" type="button"  class="" onclick="main_quiz('2000')">Learn more about Synesthesia.</button>
+  	<button id="btn_sys0" type="button"  class="" onclick="main_quiz('2000')">Learn</button>
+  	<button id="btn_sys1"  type="button" class="" onclick="main_quiz('1001')">Restart ↻ </button>
+-->
+</div>
+<script>
+  var _learnq = _learnq || [];
+
+  _learnq.push(['track', 'Quiz Completed']);
+</script>
+<div id ="q_foo" class="full-width" style="color:#fff;" hidden="hidden">
+  <strong>
+  <a id="pprev" class="quiz_foo" onclick="main_quiz('1000')">⇦ GO BACK</a>
+  <div id="pcur" class="quiz_foo">1 / 7</div>
+  <a id="pid" class="quiz_foo" onclick="main_quiz('1001')">START OVER ↻</a>
+  </strong>    
+</div>
+
+<!-- SECTION Synesthesia -->
+
+<div id="sec_sys" hidden="hidden">
+  <div id="outer"  style="background-image: url(https://cdn.shopify.com/s/files/1/1979/4109/files/bg-synesthesia.jpg?626);">
+    	<div class="date" id="result_outer">
+    		<h2 style="font-family:Futurabook;">What is<br>Synesthesia?</h2>
+          	<p>Synesthesia is a brain condition that allows for the simultaneous or joint perception of any of your 5 senses.<br> For example, when certain people with synesthesia smell peony, they may see the color pink.<br> Or when others smell whiskey, they may hear a dissonant sound.</p>
+            <p>The Pinrose Founders use this science of the interconnection of your sensory preferences to help you<br> find your scent style. They have collected data on the interconnection of these sensory preferences in<br> over 100,000 people. Using this data, they have created an algorithm that predicts scent preference.<br> By looking at your color, shape, sound, and texture preferences, they are 3x as likely to help you find<br> what scents are best for you than by asking you what ingredients you like in a fragrance.</p>
+            <p>Yay for smell science and playing!</p>
+          <p><br></p>
+          <div class="div_footer" style="margin: 0; border-top: solid 1px #ee48aa;padding: 2.5em;background: none;">
+            <button  id="btn_result" onclick="backto_res()">BACK TO MY RESULTS</button>
+          </div>
+        </div>
+  </div>
+</div>
+
+<!-- MAIL RESULTS POPUP -->
+
+<!--<div id="popup-mail" style="background: #ffffff url('{{ 'InstrucBkgrd_1000x600.jpg' | asset_url }}') no-repeat center;">
+<div id="content-mail">
+<input id="mail_id_field" type="text"/>
+<input id="popupmail-send" type="Button" value="Send"    style="margin-left: -5px;"/><br>
+<input id="popupclose-mail" type="Button" value="Close"/>   
+</div>       
+</div>-->
+
+<div class="popup-first" id="popup-mail"  style="background: #ffffff url('{{ 'popup.gif' | asset_url }}') no-repeat center;">
+    <div class="popup-first-close" id="popupclose-mail"><img src="{{ 'close-popup.png' | asset_url }}" align=right></div>
+    <div id="content-mail" class="content-first">
+      <h3>Email me my results</h3>
+		<div class="popup-content">
+          	<input id="mail_id_field" type="text"/>
+          <input id="popupmail-send" type="Button" value="&nbsp;Send&nbsp;"style=""/>
+        </div>
+        
+    </div>
+</div>
+
+<!-- FIRST PAGE POPUP 
+
+<div id="popup-first" style="background: #ffffff url('{{ 'InstrucBkgrd_1000x600.jpg' | asset_url }}') no-repeat center;">
+<div id="popup-first-close"><img src="{{ 'close-popup.png' | asset_url }}" align=right></div>
+<div id="content-first">
+<div id="popup-content">We are going to show you 11 pairs of images, shapes and colors.
+<br>
+On each screen, select the one that you are instantly and instinctively drawn towards.
+</div>
+<input id="popupclose-first" type="Button" value="LETS GET STARTED"/>   
+</div>       
+</div>
+-->
+<script type="text/javascript">
+
+function mail_popup(){
+    
+  	$('#popup-mail').fadeIn("slow");
+  	$('#popupclose-mail').click(function(){
+        $('#popup-mail').fadeOut("slow");
+    });
+  	$('#popupmail-send').click(function(){
+        $('#popup-mail').fadeOut("slow");
+      var mail_id = $("#mail_id_field").val();
+      mail_results(mail_id);
+    });
+  }
+  
+function first_popup(){
+    
+  	$('#popup-first').fadeIn("slow");
+  	document.getElementById("start-button-quiz").disabled = true; 
+  	$('#popupclose-first').click(function(){
+        $('#popup-first').fadeOut("slow");
+        init_fun();
+    });
+  	$('#popup-first-close').click(function(){
+        $('#popup-first').fadeOut("slow");
+      	document.getElementById("start-button-quiz").disabled = false; 
+    });
+  	
+  }
+/*var counter = 1;
+function sniffing(){
+  	$('.blink_me').fadeOut(500).fadeIn(500, blink);
+      if (counter < 5){
+        counter++
+        window.setTimeout(sniffing, 600);
+    }}  */
+function init_fun(){
+  
+    document.getElementById('q_foo').style.display = 'block';
+    document.getElementById('sec_1').style.display = 'block';
+    document.getElementById('beg_div').style.display = 'none';
+  }  
+function backto_res(){
+  
+    document.getElementById('result_div').style.display = 'block';
+    document.getElementById('sec_sys').style.display = 'none';
+  } 
+  
+function main_quiz(but_id)
+  {
+    var button_id=but_id;
+    //alert(but_id);
+    
+    switch (parseInt(button_id)) {
+        
+    case 11://1
+        document.getElementById('quiz_sel_total1').value = "00011000121020";
+        document.getElementById('sec_1').style.display = 'none';
+    	document.getElementById('sec_2').style.display = 'block';
+        document.getElementById('sec_3').style.display = 'none';
+        document.getElementById('sec_4').style.display = 'none';
+        document.getElementById('sec_5').style.display = 'none';
+        document.getElementById('sec_6').style.display = 'none';
+        document.getElementById('sec_7').style.display = 'none';
+        document.getElementById('sec_dob').style.display = 'none';
+        document.getElementById('result_div').style.display = 'none';
+        document.getElementById('sec_sys').style.display = 'none';
+        document.getElementById("pprev").style.visibility = "visible";
+        document.getElementById("pcur").innerHTML="2 / 7";
+        document.getElementById('last_f').value = 1001;
+        break;
+        
+    case 12://2
+        document.getElementById('quiz_sel_total1').value = "11100112000101";
+        document.getElementById('sec_1').style.display = 'none';
+    	document.getElementById('sec_2').style.display = 'block';
+        document.getElementById('sec_3').style.display = 'none';
+        document.getElementById('sec_4').style.display = 'none';
+        document.getElementById('sec_5').style.display = 'none';
+        document.getElementById('sec_6').style.display = 'none';
+        document.getElementById('sec_7').style.display = 'none';
+        document.getElementById('sec_dob').style.display = 'none';
+        document.getElementById('result_div').style.display = 'none';
+        document.getElementById("pprev").style.visibility = "visible";
+        document.getElementById('sec_sys').style.display = 'none';
+        document.getElementById("pcur").innerHTML="2 / 7";
+        document.getElementById('last_f').value = 1001;
+        break;
+        
+    case 21://3
+        document.getElementById('quiz_sel_total2').value = "20000001122010";
+        document.getElementById('sec_1').style.display = 'none';
+    	document.getElementById('sec_2').style.display = 'none';
+        document.getElementById('sec_3').style.display = 'block';
+        document.getElementById('sec_4').style.display = 'none';
+        document.getElementById('sec_5').style.display = 'none';
+        document.getElementById('sec_6').style.display = 'none';
+        document.getElementById('sec_7').style.display = 'none';
+        document.getElementById('sec_dob').style.display = 'none';
+        document.getElementById('result_div').style.display = 'none';
+        document.getElementById('sec_sys').style.display = 'none';
+        document.getElementById("pcur").innerHTML="3 / 7";
+        document.getElementById('last_f').value = parseInt(button_id)-10;
+        break;
+        
+    case 22://4
+        document.getElementById('quiz_sel_total2').value = "02211110000101";
+        document.getElementById('sec_1').style.display = 'none';
+    	document.getElementById('sec_2').style.display = 'none';
+        document.getElementById('sec_3').style.display = 'block';
+        document.getElementById('sec_4').style.display = 'none';
+        document.getElementById('sec_5').style.display = 'none';
+        document.getElementById('sec_6').style.display = 'none';
+        document.getElementById('sec_7').style.display = 'none';
+        document.getElementById('sec_dob').style.display = 'none';
+        document.getElementById('sec_sys').style.display = 'none';
+        document.getElementById('result_div').style.display = 'none';
+        document.getElementById("pcur").innerHTML="3 / 7";
+        document.getElementById('last_f').value = parseInt(button_id)-10;
+        break;
+        
+    case 31://5
+        document.getElementById('quiz_sel_total3').value = "01100110100102";
+        document.getElementById('sec_1').style.display = 'none';
+    	document.getElementById('sec_2').style.display = 'none';
+        document.getElementById('sec_3').style.display = 'none';
+        document.getElementById('sec_4').style.display = 'block';
+        document.getElementById('sec_5').style.display = 'none';
+        document.getElementById('sec_6').style.display = 'none';
+        document.getElementById('sec_7').style.display = 'none';
+        document.getElementById('sec_sys').style.display = 'none';
+        document.getElementById('sec_dob').style.display = 'none';
+        document.getElementById('result_div').style.display = 'none';
+        document.getElementById("pcur").innerHTML="4 / 7";
+        document.getElementById('last_f').value = parseInt(button_id)-10;
+        break;
+        
+    case 32://6
+        document.getElementById('quiz_sel_total3').value = "10021001011020";
+        document.getElementById('sec_1').style.display = 'none';
+    	document.getElementById('sec_2').style.display = 'none';
+        document.getElementById('sec_3').style.display = 'none';
+        document.getElementById('sec_4').style.display = 'block';
+        document.getElementById('sec_5').style.display = 'none';
+        document.getElementById('sec_6').style.display = 'none';
+        document.getElementById('sec_7').style.display = 'none';
+        document.getElementById('sec_sys').style.display = 'none';
+        document.getElementById('sec_dob').style.display = 'none';
+        document.getElementById('result_div').style.display = 'none';
+        document.getElementById("pcur").innerHTML="4 / 7";
+        document.getElementById('last_f').value = parseInt(button_id)-10;
+        break;
+        
+    case 41://7
+        document.getElementById('quiz_sel_total4').value = "10001001111001";
+        document.getElementById('sec_1').style.display = 'none';
+    	document.getElementById('sec_2').style.display = 'none';
+        document.getElementById('sec_3').style.display = 'none';
+        document.getElementById('sec_4').style.display = 'none';
+        document.getElementById('sec_5').style.display = 'block';
+        document.getElementById('sec_6').style.display = 'none';
+        document.getElementById('sec_7').style.display = 'none';
+        document.getElementById('sec_dob').style.display = 'none';
+        document.getElementById('sec_sys').style.display = 'none';
+        document.getElementById('result_div').style.display = 'none';
+        document.getElementById("pcur").innerHTML="5 / 7";
+        document.getElementById('last_f').value = parseInt(button_id)-10;
+        break;
+    case 42://8
+        document.getElementById('quiz_sel_total4').value = "02010110000110";
+        document.getElementById('sec_1').style.display = 'none';
+    	document.getElementById('sec_2').style.display = 'none';
+        document.getElementById('sec_3').style.display = 'none';
+        document.getElementById('sec_4').style.display = 'none';
+        document.getElementById('sec_5').style.display = 'block';
+        document.getElementById('sec_6').style.display = 'none';
+        document.getElementById('sec_7').style.display = 'none';
+        document.getElementById('sec_dob').style.display = 'none';
+        document.getElementById('sec_sys').style.display = 'none';
+        document.getElementById('result_div').style.display = 'none';
+        document.getElementById("pcur").innerHTML="5 / 7";
+        document.getElementById('last_f').value = parseInt(button_id)-10;
+        break;
+        
+    case 51://9
+        document.getElementById('quiz_sel_total5').value = "00101200101002";
+        document.getElementById('sec_1').style.display = 'none';
+    	document.getElementById('sec_2').style.display = 'none';
+        document.getElementById('sec_3').style.display = 'none';
+        document.getElementById('sec_4').style.display = 'none';
+        document.getElementById('sec_5').style.display = 'none';
+        document.getElementById('sec_6').style.display = 'block';
+        document.getElementById('sec_7').style.display = 'none';
+        document.getElementById('sec_dob').style.display = 'none';
+        document.getElementById('result_div').style.display = 'none';
+        document.getElementById("pcur").innerHTML="6 / 7";
+        document.getElementById('last_f').value = parseInt(button_id)-10;
+        break;
+        
+    case 52://10
+        document.getElementById('quiz_sel_total5').value = "10010011020110";
+        document.getElementById('sec_1').style.display = 'none';
+    	document.getElementById('sec_2').style.display = 'none';
+        document.getElementById('sec_3').style.display = 'none';
+        document.getElementById('sec_4').style.display = 'none';
+        document.getElementById('sec_5').style.display = 'none';
+        document.getElementById('sec_6').style.display = 'block';
+        document.getElementById('sec_7').style.display = 'none';
+        document.getElementById('sec_dob').style.display = 'none';
+        document.getElementById('sec_sys').style.display = 'none';
+        document.getElementById('result_div').style.display = 'none';
+        document.getElementById("pcur").innerHTML="6 / 7";
+        document.getElementById('last_f').value = parseInt(button_id)-10;
+        break;
+            
+    case 61://11
+        document.getElementById('quiz_sel_total6').value = "01012100001010";
+        document.getElementById('sec_1').style.display = 'none';
+    	document.getElementById('sec_2').style.display = 'none';
+        document.getElementById('sec_3').style.display = 'none';
+        document.getElementById('sec_4').style.display = 'none';
+        document.getElementById('sec_5').style.display = 'none';
+        document.getElementById('sec_6').style.display = 'none';
+        document.getElementById('sec_7').style.display = 'block';
+        document.getElementById('sec_sys').style.display = 'none';
+        document.getElementById('sec_dob').style.display = 'none';
+        document.getElementById('result_div').style.display = 'none';
+        document.getElementById("pcur").innerHTML="7 / 7";
+        document.getElementById('last_f').value = parseInt(button_id)-10;
+        break;
+        
+    case 62://12
+        document.getElementById('quiz_sel_total6').value = "10100011200101";
+        document.getElementById('sec_1').style.display = 'none';
+    	document.getElementById('sec_2').style.display = 'none';
+        document.getElementById('sec_3').style.display = 'none';
+        document.getElementById('sec_4').style.display = 'none';
+        document.getElementById('sec_5').style.display = 'none';
+        document.getElementById('sec_6').style.display = 'none';
+        document.getElementById('sec_7').style.display = 'block';
+        document.getElementById('sec_dob').style.display = 'none';
+        document.getElementById('sec_sys').style.display = 'none';
+        document.getElementById('result_div').style.display = 'none';
+        document.getElementById("pcur").innerHTML="7 / 7";
+        document.getElementById('last_f').value = parseInt(button_id)-10;
+        break;
+        
+    case 71://13
+        document.getElementById('quiz_sel_total7').value = "11000011010100";
+        document.getElementById('sec_1').style.display = 'none';
+    	document.getElementById('sec_2').style.display = 'none';
+        document.getElementById('sec_3').style.display = 'none';
+        document.getElementById('sec_4').style.display = 'none';
+        document.getElementById('sec_5').style.display = 'none';
+        document.getElementById('sec_6').style.display = 'none';
+        document.getElementById('sec_7').style.display = 'none';
+        document.getElementById('sec_dob').style.display = 'block';
+        document.getElementById('sec_sys').style.display = 'none';
+        document.getElementById('q_foo').style.display = 'none';
+        document.getElementById('result_div').style.display = 'none';
+        document.getElementById('last_f').value = parseInt(button_id)-10;
+        break;
+        
+    case 72://14
+        document.getElementById('quiz_sel_total7').value = "00110100101001";
+        document.getElementById('sec_1').style.display = 'none';
+    	document.getElementById('sec_2').style.display = 'none';
+        document.getElementById('sec_3').style.display = 'none';
+        document.getElementById('sec_4').style.display = 'none';
+        document.getElementById('sec_5').style.display = 'none';
+        document.getElementById('sec_6').style.display = 'none';
+        document.getElementById('sec_7').style.display = 'none';
+        document.getElementById('sec_sys').style.display = 'none';
+        document.getElementById('sec_dob').style.display = 'block';
+        document.getElementById('q_foo').style.display = 'none';
+        document.getElementById('result_div').style.display = 'none';
+        document.getElementById('last_f').value = parseInt(button_id)-10;
+        break;
+        
+    case 80://dob
+        document.getElementById('sec_1').style.display = 'none';
+    	document.getElementById('sec_2').style.display = 'none';
+        document.getElementById('sec_3').style.display = 'none';
+        document.getElementById('sec_4').style.display = 'none';
+        document.getElementById('sec_5').style.display = 'none';
+        document.getElementById('sec_6').style.display = 'none';
+        document.getElementById('sec_7').style.display = 'none';
+        document.getElementById('sec_dob').style.display = 'none';
+        document.getElementById('sec_email').style.display = 'none';
+        document.getElementById('q_foo').style.display = 'none';
+        document.getElementById('result_div').style.display = 'none';
+        document.getElementById('sec_sys').style.display = 'none';
+        document.getElementById('res_loading').style.display = 'block';
+        var sel_date_full=document.getElementById("date-month").value;
+        date_value(sel_date_full);
+        calculate_results();
+        break;
+
+      case 90://email
+        document.getElementById('sec_1').style.display = 'none';
+    	document.getElementById('sec_2').style.display = 'none';
+        document.getElementById('sec_3').style.display = 'none';
+        document.getElementById('sec_4').style.display = 'none';
+        document.getElementById('sec_5').style.display = 'none';
+        document.getElementById('sec_6').style.display = 'none';
+        document.getElementById('sec_7').style.display = 'none';
+        document.getElementById('sec_dob').style.display = 'none';
+        document.getElementById('sec_email').style.display = 'block';
+        document.getElementById('q_foo').style.display = 'none';
+        document.getElementById('result_div').style.display = 'none';
+        document.getElementById('sec_sys').style.display = 'none';
+        document.getElementById('res_loading').style.display = 'none';
+        break;
+        
+    case 1000://Back Foo
+        var last_form = document.getElementById("last_f").value
+        main_quiz(last_form);
+        break;
+        
+    case 1001://Restart Foo
+        document.getElementById('sec_1').style.display = 'block';
+    	document.getElementById('sec_2').style.display = 'none';
+        document.getElementById('sec_3').style.display = 'none';
+        document.getElementById('sec_4').style.display = 'none';
+        document.getElementById('sec_5').style.display = 'none';
+        document.getElementById('sec_6').style.display = 'none';
+        document.getElementById('sec_7').style.display = 'none';
+        document.getElementById('sec_dob').style.display = 'none';
+        document.getElementById('result_div').style.display = 'none';
+        document.getElementById('sec_sys').style.display = 'none';
+        document.getElementById('res_loading').style.display = 'none';
+        document.getElementById('q_foo').style.display = 'block';
+        document.getElementById("pprev").style.visibility = "hidden";
+        document.getElementById("pcur").innerHTML="1 / 7";
+        document.getElementById('pcur-results').style.display = 'block';
+        document.getElementById('pcur-results2').style.display = 'none';
+        break;
+        
+     case 2000://sys
+        document.getElementById('quiz_sel_total7').value = "00110100101001";
+        document.getElementById('sec_1').style.display = 'none';
+    	document.getElementById('sec_2').style.display = 'none';
+        document.getElementById('sec_3').style.display = 'none';
+        document.getElementById('sec_4').style.display = 'none';
+        document.getElementById('sec_5').style.display = 'none';
+        document.getElementById('sec_6').style.display = 'none';
+        document.getElementById('sec_7').style.display = 'none';
+        document.getElementById('sec_sys').style.display = 'block';
+        document.getElementById('sec_dob').style.display = 'none';
+        document.getElementById('q_foo').style.display = 'none';
+        document.getElementById('result_div').style.display = 'none';
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+        break;
+        
+     case 2001://back to sec_1
+        document.getElementById('sec_1').style.display = 'block';
+    	document.getElementById('sec_2').style.display = 'none';
+        document.getElementById('sec_3').style.display = 'none';
+        document.getElementById('sec_4').style.display = 'none';
+        document.getElementById('sec_5').style.display = 'none';
+        document.getElementById('sec_6').style.display = 'none';
+        document.getElementById('sec_7').style.display = 'none';
+        document.getElementById('sec_sys').style.display = 'none';
+        document.getElementById('sec_dob').style.display = 'none';
+        document.getElementById('q_foo').style.display = 'none';
+        document.getElementById('result_div').style.display = 'none';
+//         document.body.scrollTop = document.documentElement.scrollTop = 0;
+        break;
+        
+     case 2002://back to sec_2
+        document.getElementById('sec_1').style.display = 'none';
+    	document.getElementById('sec_2').style.display = 'block';
+        document.getElementById('sec_3').style.display = 'none';
+        document.getElementById('sec_4').style.display = 'none';
+        document.getElementById('sec_5').style.display = 'none';
+        document.getElementById('sec_6').style.display = 'none';
+        document.getElementById('sec_7').style.display = 'none';
+        document.getElementById('sec_sys').style.display = 'none';
+        document.getElementById('sec_dob').style.display = 'none';
+        document.getElementById('q_foo').style.display = 'none';
+        document.getElementById('result_div').style.display = 'none';
+        break;
+        
+     case 2003://back to sec_3
+        document.getElementById('sec_1').style.display = 'none';
+    	document.getElementById('sec_2').style.display = 'none';
+        document.getElementById('sec_3').style.display = 'block';
+        document.getElementById('sec_4').style.display = 'none';
+        document.getElementById('sec_5').style.display = 'none';
+        document.getElementById('sec_6').style.display = 'none';
+        document.getElementById('sec_7').style.display = 'none';
+        document.getElementById('sec_sys').style.display = 'none';
+        document.getElementById('sec_dob').style.display = 'none';
+        document.getElementById('q_foo').style.display = 'none';
+        document.getElementById('result_div').style.display = 'none';
+        break;
+        
+     case 2004://back to sec_4
+        document.getElementById('sec_1').style.display = 'none';
+    	document.getElementById('sec_2').style.display = 'none';
+        document.getElementById('sec_3').style.display = 'none';
+        document.getElementById('sec_4').style.display = 'block';
+        document.getElementById('sec_5').style.display = 'none';
+        document.getElementById('sec_6').style.display = 'none';
+        document.getElementById('sec_7').style.display = 'none';
+        document.getElementById('sec_sys').style.display = 'none';
+        document.getElementById('sec_dob').style.display = 'none';
+        document.getElementById('q_foo').style.display = 'none';
+        document.getElementById('result_div').style.display = 'none';
+        break;
+        
+     case 2005://back to sec_5
+        document.getElementById('sec_1').style.display = 'none';
+    	document.getElementById('sec_2').style.display = 'none';
+        document.getElementById('sec_3').style.display = 'none';
+        document.getElementById('sec_4').style.display = 'none';
+        document.getElementById('sec_5').style.display = 'block';
+        document.getElementById('sec_6').style.display = 'none';
+        document.getElementById('sec_7').style.display = 'none';
+        document.getElementById('sec_sys').style.display = 'none';
+        document.getElementById('sec_dob').style.display = 'none';
+        document.getElementById('q_foo').style.display = 'none';
+        document.getElementById('result_div').style.display = 'none';
+        break;
+        
+     case 2006://back to sec_6
+        document.getElementById('sec_1').style.display = 'none';
+    	document.getElementById('sec_2').style.display = 'none';
+        document.getElementById('sec_3').style.display = 'none';
+        document.getElementById('sec_4').style.display = 'none';
+        document.getElementById('sec_5').style.display = 'none';
+        document.getElementById('sec_6').style.display = 'block';
+        document.getElementById('sec_7').style.display = 'none';
+        document.getElementById('sec_sys').style.display = 'none';
+        document.getElementById('sec_dob').style.display = 'none';
+        document.getElementById('q_foo').style.display = 'none';
+        document.getElementById('result_div').style.display = 'none';
+        break;
+        
+     case 2007://back to sec_7
+        document.getElementById('sec_1').style.display = 'none';
+    	document.getElementById('sec_2').style.display = 'none';
+        document.getElementById('sec_3').style.display = 'none';
+        document.getElementById('sec_4').style.display = 'none';
+        document.getElementById('sec_5').style.display = 'none';
+        document.getElementById('sec_6').style.display = 'none';
+        document.getElementById('sec_7').style.display = 'block';
+        document.getElementById('sec_sys').style.display = 'none';
+        document.getElementById('sec_dob').style.display = 'none';
+        document.getElementById('q_foo').style.display = 'none';
+        document.getElementById('result_div').style.display = 'none';
+        break;
+        
+     case 2008://back to sec_dob
+        document.getElementById('sec_1').style.display = 'none';
+    	document.getElementById('sec_2').style.display = 'none';
+        document.getElementById('sec_3').style.display = 'none';
+        document.getElementById('sec_4').style.display = 'none';
+        document.getElementById('sec_5').style.display = 'none';
+        document.getElementById('sec_6').style.display = 'none';
+        document.getElementById('sec_7').style.display = 'none';
+        document.getElementById('sec_sys').style.display = 'none';
+        document.getElementById('sec_email').style.display = 'none';
+        document.getElementById('sec_dob').style.display = 'block';
+        document.getElementById('q_foo').style.display = 'none';
+        document.getElementById('result_div').style.display = 'none';
+        break;
+        
+  }
+    
+ } 
+  function date_value(monthob)
+  {
+  switch (parseInt(monthob)) {
+        
+    case 1:
+      document.getElementById('quiz_sel_total8').value = "00000100001000";
+      break;
+    case 2:
+      document.getElementById('quiz_sel_total8').value = "00010000000000";
+      break;
+    case 3:
+      document.getElementById('quiz_sel_total8').value = "00000010000010";
+      break;
+    case 4:
+      document.getElementById('quiz_sel_total8').value = "00000001000000";
+      break;
+    case 5:
+      document.getElementById('quiz_sel_total8').value = "00001000000000";
+      break;
+    case 6:
+      document.getElementById('quiz_sel_total8').value = "01000000000000";
+      break;
+    case 7:
+      document.getElementById('quiz_sel_total8').value = "00000010000000";
+      break;
+    case 8:
+      document.getElementById('quiz_sel_total8').value = "00100000000100";
+      break;
+    case 9:
+      document.getElementById('quiz_sel_total8').value = "10000000000000";
+      break;
+    case 10:
+      document.getElementById('quiz_sel_total8').value = "00100000000000";
+      break;
+    case 11:
+      document.getElementById('quiz_sel_total8').value = "00000000100000";
+      break;
+    case 12:
+      document.getElementById('quiz_sel_total8').value = "00001000000100";
+      break;
+  	}  
+  }
+  
+  function calculate_results(){
+   
+    var res_p1 = document.getElementById("quiz_sel_total1").value;
+    var res_p2 = document.getElementById("quiz_sel_total2").value;
+    var res_p3 = document.getElementById("quiz_sel_total3").value;
+    var res_p4 = document.getElementById("quiz_sel_total4").value;
+    var res_p5 = document.getElementById("quiz_sel_total5").value;
+    var res_p6 = document.getElementById("quiz_sel_total6").value;
+    var res_p7 = document.getElementById("quiz_sel_total7").value;
+    var res_p8 = document.getElementById("quiz_sel_total8").value;
+   
+    var fin_values = [];
+    
+    for(var i=0;i<=13;i++)
+    	{
+          fin_values[i] = parseInt(res_p1.charAt(i))+parseInt(res_p2.charAt(i))+
+        					  parseInt(res_p3.charAt(i))+parseInt(res_p4.charAt(i))+
+        					  parseInt(res_p5.charAt(i))+parseInt(res_p6.charAt(i))+
+            				  parseInt(res_p7.charAt(i))+parseInt(res_p8.charAt(i));
+        }  
+
+    var outp = [];
+    for (var j = 0; j < fin_values.length; j++) {
+        outp.push(j);
+        if (outp.length > 3) {
+            outp.sort(function(a, b) { return fin_values[b] - fin_values[a]; });
+          outp.pop();
+        }
+    }
+  	get_products(outp);
+}
+
+//MAIL VARIABLES - UNIV
+var rs_p1_title = "";
+var rs_p1_url = "";
+var rs_p1_img = "";
+var rs_p1_price = "";  
+var rs_p2_title = "";
+var rs_p2_url = "";
+var rs_p2_img = "";
+var rs_p2_price = "";
+var rs_p3_title = "";
+var rs_p3_url = "";
+var rs_p3_img = "";
+var rs_p3_price = "";
+var product_one_desc   = "";
+var product_two_desc   = "";
+var product_three_desc = "";
+var base_url_mail = "https://pinrose.myshopify.com";
+  
+
+
+function get_products(sorted_array)
+  {
+    // "wild-child","pillowtalk-poet","secret-genius",
+    // "tambourine-dreamer","merry-maker","sun-saint","lil-dipper",
+    // "pinrose","gilded-fox","mystical-misfit"];
+   
+   var products = ["wild-child",
+                   "pillowtalk-poet",
+                   "secret-genius",
+                   "tambourine-dreamer",
+                   "merry-maker",
+                   "sun-saint",
+                   "lil-dipper",
+                   "pinrose",
+                   "gilded-fox",
+                   "mystical-misfit"];
+    
+   var desc = ["Gardenia • Jasmine • Plumeria",
+               "Powder • Ambergris • Musk",
+               "Vanilla • Caramel • Sandalwood",
+               "Ylang Ylang • Lily of  the Valley • White Musk",
+               "Nectarine • Rose • Plum",
+               "Sea Salt • Coconut Wood • Lime",
+               "Peony • Apple • Lavender",
+               "Rose • Clove • Leather",
+               "Cocoa • Buttered Rum • Vetiver",
+               "Italian Bergamot • Lime • Mandarin",
+               "Burning Oud Wood • Vanilla • Bourbon","Cardamom • Orange Blossom • Patchouli",
+               "Fig • Peony • Haitian Vetiver",
+               "Apricot • Vanilla • Cypress"];
+    
+    var product_one   = products[sorted_array[0]];
+    var product_two   = products[sorted_array[1]];
+    var product_three = products[sorted_array[2]];
+    
+    product_one_desc   = desc[sorted_array[0]];
+    product_two_desc   = desc[sorted_array[1]];
+    product_three_desc = desc[sorted_array[2]];
+    
+    
+    // Klaviyo data
+//     var _learnq = _learnq || [];
+    
+    _learnq.push(['identify', { 
+      'Product1': product_one,
+      'Product2': product_two,
+      'Product3': product_three
+    }]);
+    
+    console.log("product1: " + product_one);
+    console.log("product2: " + product_two);
+    console.log("product3: " + product_three);       
+ 	get_prod_data_one(product_one,product_two,product_three,product_one_desc,product_two_desc,product_three_desc);   
+    
+  }
+  
+function get_sephora_product_slug(pinrose_product_slug)
+  {
+    switch(pinrose_product_slug) {
+      case 'tambourine-dreamer':
+        return 'tambourine-dreamer-P407362';
+        break;
+      case 'wild-child':
+        return 'wild-child-P407366';
+        break;
+      case 'pillowtalk-poet':
+        return 'pillowtalk-poet-P407370';
+        break;
+      case 'secret-genius':
+        return 'secret-genius-P407369';
+        break;
+      case 'merry-maker':
+        return 'merry-maker-P407368';
+        break;
+      case 'sun-saint':
+        return 'sun-saint-P419110';
+        break;
+      case 'lil-dipper':
+        return 'lil-dipper-P419109';
+        break;
+      case 'pinrose':
+        return 'pinrose-P407361';
+        break;
+      case 'gilded-fox':
+        return 'gilded-fox-P407365';
+        break;
+      case 'mystical-misfit':
+        return 'mystical-misfit-P443525';
+        break;
+      default:
+        // code block
+    }
+  }
+  
+function get_prod_data_one(prod_one,prod_two,prod_three,product_one_desc,product_two_desc,product_three_desc)
+  {    
+     jQuery.getJSON('/products/'+prod_one+'.js',function(product) {
+       console.log(product);
+       rs_p1_available = product.available;
+       rs_p1_id = product.id;
+       rs_p1_variant_id = product.variants[0].id;
+       rs_p1_title = product.title;
+       rs_p1_url = product.url;
+       
+       
+//        console.log(product.url)
+              
+       product.url = 'http://www.sephora.com/product/' + get_sephora_product_slug(prod_one);
+       
+       
+       jQuery('#button_prod_one').attr('href',product.url);
+       
+//        console.log(product.url);
+       
+       
+       rs_p1_img = product.featured_image;
+       rs_p1_price = (product.price/100);
+       get_prod_data_two(prod_two,prod_three,product.id,product.url,product.title,product.featured_image,product_one_desc,product_two_desc,product_three_desc);
+	} );
+  }
+  
+function get_prod_data_two(prod_two,prod_three,prod_one_id,prod_one_url,prod_one_title,prod_one_img,product_one_desc,product_two_desc,product_three_desc)
+  {    
+     jQuery.getJSON('/products/'+prod_two+'.js',function(product) {
+       console.log(product);
+       rs_p2_available = product.available;
+       rs_p2_variant_id = product.variants[0].id;
+       rs_p2_title = product.title;
+       rs_p2_url = product.url;
+       
+       product.url = 'http://www.sephora.com/product/' + get_sephora_product_slug(prod_two); 
+       
+       jQuery('#button_prod_two').attr('href',product.url);
+       
+       rs_p2_img = product.featured_image;
+       rs_p2_price = (product.price/100);
+       get_prod_data_three(prod_three,prod_one_id, prod_one_url,prod_one_title,prod_one_img,product.url,product.title,product.featured_image,product_one_desc,product_two_desc,product_three_desc);
+	} );
+  }
+  
+function get_prod_data_three(prod_three,prod_one_id, prod_one_url,prod_one_title,prod_one_img,prod_two_url,prod_two_title,prod_two_img,product_one_desc,product_two_desc,product_three_desc)
+  {
+    jQuery.getJSON('/products/'+prod_three+'.js',function(product) {
+      console.log(product);
+      rs_p3_available = product.available;
+      	rs_p3_variant_id = product.variants[0].id;
+       rs_p3_title = product.title;
+       rs_p3_url = product.url;
+      
+       product.url = 'http://www.sephora.com/product/' + get_sephora_product_slug(prod_three);
+      
+       jQuery('#button_prod_three').attr('href',product.url);
+      
+       rs_p3_img = product.featured_image;
+       rs_p3_price = (product.price/100);
+       set_prod_data(prod_one_id,prod_one_url,prod_one_title,prod_one_img,prod_two_url,prod_two_title,prod_two_img,product.url,product.title,product.featured_image,product_one_desc,product_two_desc,product_three_desc)
+	} );
+  }
+  
+function set_prod_data(prod_one_id,one_url,one_title,one_img,two_url,two_title,two_img,three_url,three_title,three_img,product_one_desc,product_two_desc,product_three_desc)
+  {
+    //alert("SET FUN");
+    setTimeout(function () {
+       
+    	document.getElementById('result_div').style.display = 'block';
+    	document.getElementById('res_loading').style.display = 'none';
+    	document.getElementById("hrf_prod_one").href=one_url;
+      	document.getElementById("id_prod_one").setAttribute("data-productid", rs_p1_id);
+      	document.getElementById("id_prod_one").value=rs_p1_variant_id;
+    	document.getElementById("title_prod_one").innerHTML=one_title;
+    	document.getElementById("img_prod_one").src=one_img;
+    	document.getElementById("sub_prod_one").innerHTML=product_one_desc;
+      
+        if(rs_p1_available == false){
+          
+          var button_one = document.getElementById("button_prod_one");
+          
+          button_one.setAttribute("disabled", "disabled");
+          button_one.innerHTML="Unavailable";
+          button_one.style.opacity = ".5";
+
+        }
+    
+    	document.getElementById("hrf_prod_two").href=two_url;
+      	document.getElementById("id_prod_two").value=rs_p2_variant_id;
+    	document.getElementById("title_prod_two").innerHTML=two_title;
+    	document.getElementById("img_prod_two").src=two_img;
+    	document.getElementById("sub_prod_two").innerHTML=product_two_desc;
+      
+      	if(rs_p2_available == false){
+          
+          var button_two = document.getElementById("button_prod_two");
+          
+          button_two.setAttribute("disabled", "disabled");
+          button_two.innerHTML="Unavailable";
+          button_two.style.opacity = ".5";
+
+        }
+    
+    	document.getElementById("hrf_prod_three").href=three_url;
+      	document.getElementById("id_prod_three").value=rs_p3_variant_id;
+    	document.getElementById("title_prod_three").innerHTML=three_title;
+    	document.getElementById("img_prod_three").src=three_img;
+    	document.getElementById("sub_prod_three").innerHTML=product_three_desc;
+      
+      	if(rs_p3_available == false){
+          
+          var button_three = document.getElementById("button_prod_three");
+          
+          button_three.setAttribute("disabled", "disabled");
+          button_three.innerHTML="Unavailable";
+          button_three.style.opacity = ".5";
+
+        }
+     }, 2000);
+    
+  }
+    
+function mail_results(mail_to){   
+
+//MAIL VARIABLES
+
+var product_one_desc_arr = product_one_desc.split('•');
+var product_two_desc_arr = product_two_desc.split('•');
+var product_three_desc_arr = product_three_desc.split('•');
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(this.responseText);
+      
+      document.getElementById('pcur-results').style.display = 'none';
+      document.getElementById('pcur-results2').style.display = 'block';
+      document.getElementById("pcur-results2").innerHTML="Quiz result mailed to "+mail_to;
+    }
+  };
+  xhttp.open("POST", "https://api.iterable.com/api/email/target?apiKey=6e809ac1e33044698905108d2260a28e", true);
+  xhttp.send('{"campaignId": 12797,"recipientEmail": "'+mail_to+'",'+
+ '"dataFields": {'+
+  '"isNextdoor": false,'+
+  '"isBombshell": true,'+
+  '"variants": ['+
+    '{'+
+      '"name": "'+rs_p1_title+'",'+
+      '"url": "'+base_url_mail+rs_p1_url+'",'+
+      '"image_urls": ['+
+      '"https:'+rs_p1_img+'"'+
+      '],'+
+     '"price": "$'+rs_p1_price+'",'+
+      '"ingredients": ['+
+        '"'+product_one_desc_arr[0].trim()+'",'+
+        '"'+product_one_desc_arr[1].trim()+'",'+
+        '"'+product_one_desc_arr[2].trim()+'"'+
+      ']'+
+    '},'+
+    '{'+
+      '"name": "'+rs_p2_title+'",'+
+      '"url": "'+base_url_mail+rs_p2_url+'",'+
+      '"image_urls": ['+
+        '"http:'+rs_p2_img+'"'+
+      '],'+
+      '"price": "$'+rs_p2_price+'",'+
+      '"ingredients": ['+
+        '"'+product_two_desc_arr[0].trim()+'",'+
+        '"'+product_two_desc_arr[1].trim()+'",'+
+        '"'+product_two_desc_arr[2].trim()+'"'+
+      ']'+
+    '},'+
+    '{'+
+      '"name": "'+rs_p3_title+'",'+
+      '"url": "'+base_url_mail+rs_p3_url+'",'+
+      '"image_urls": ['+
+        '"http:'+rs_p3_img+'"'+
+      '],'+
+      '"price": "$'+rs_p3_price+'",'+
+      '"ingredients": ['+
+        '"'+product_three_desc_arr[0].trim()+'",'+
+        '"'+product_three_desc_arr[1].trim()+'",'+
+        '"'+product_three_desc_arr[2].trim()+'"'+
+      ']'+
+    '}'+
+  ']'+
+'}'+
+'}');
+
+}
+  
+</script>
+
+<!-- IMPORTANT - 8 PAGES -->
+<input id="quiz_sel_total1" hidden="hidden"/> 
+<input id="quiz_sel_total2" hidden="hidden"/> 
+<input id="quiz_sel_total3" hidden="hidden"/> 
+<input id="quiz_sel_total4" hidden="hidden"/> 
+<input id="quiz_sel_total5" hidden="hidden"/> 
+<input id="quiz_sel_total6" hidden="hidden"/> 
+<input id="quiz_sel_total7" hidden="hidden"/> 
+<input id="quiz_sel_total8" hidden="hidden"/> 
+
+<input id="last_f" hidden="hidden"/> 
+
+
+{% include 'ajaxify-cart' %}
+
+<script>
+  var _learnq = _learnq || [];
+  var email = '';
+  var birthmonth = 'Jan';
+  
+  
+  $('#mail_id_field').change(function (e) {
+    email = $(this).val();
+    console.log('Email: ' + email);
+    // Do some light validation. Klaviyo will do more validation when the data is received.
+    if (email && /@/.test(email)) {
+      _learnq.push(['identify', { 
+        '$email': email       
+      }]);
+    }
+  }); 
+  
+  $('#date-month').change(function (e) {
+    birthmonth = $(this).find('option:selected').text();
+    console.log('Birth Month: ' + birthmonth);
+    _learnq.push(['identify', { 
+      'BirthMonth': birthmonth
+    }]);
+  });
+  
+  function track_step(step_number, step_name){
+    console.log(step_number + ': ' + step_name);
+
+    var step = "Step " + step_number;
+
+    // Klaviyo data
+//     var _learnq = _learnq || [];
+
+
+    _learnq.push(['identify', { 
+      [step]: step_name
+     }]);
+  } 
+  
+</script>
+</body>
+</html>
